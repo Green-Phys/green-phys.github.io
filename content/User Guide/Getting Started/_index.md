@@ -64,7 +64,7 @@ to reproduce results from [Phys. Rev. B 106, 235104].
 
 After that we will run `GW` approximation
 ```
-<install dir>/bin/mbpt.exe --scf_type=GW --BETA 100 --grid_file ir/1e4.h5 --itermax 10 --results_file Si.h5
+<install dir>/bin/mbpt.exe --scf_type=GW --BETA 100 --grid_file <install dir>/share/ir/1e4.h5 --itermax 10 --results_file Si.h5
 ```
 Here we run `GW` approximation at inverse temperature $ \beta=100 $, we  use `IR` nonuniform grid for $ \Lambda = 10^4 $ and run for 10 iterations
 and store results into `Si.h5` file.

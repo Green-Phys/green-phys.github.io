@@ -10,7 +10,8 @@ BiVO3 is an interesting realistic system that we studied before:
 
 <https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744>
 
-It shows interesting convergence pattern and can serve as a good example on how to converge iterations. 
+It shows an interesting convergence pattern and can serve as a good example on how to converge iterations. 
+Thanks to Yanbing for sharing geometries and basis sets!
 
 ### Integral preparation
 
@@ -59,7 +60,7 @@ V TZVP-MOLOPT-SR-GTH TZVP-MOLOPT-SR-GTH-q13
       0.162491615040 -0.242351537800  1.102830348700 -0.257388983000  1.054102919900  0.152954188700
 #
 ```
-The saved files above contain  basis sets in CP2K format, while our generating script understands basis sets in NWChem format. One can either hack the python script using PySCF machinery to feed the CP2K format or convert them in a cleaner way using MolSSI tools as described here:
+The saved files above contain  basis sets in the CP2K format, while our generating script understands basis sets in the NWChem format. One can either hack the python script using the PySCF machinery to feed the CP2K format or convert them in a cleaner way using the MolSSI tools as described here:
 
 <https://molssi-bse.github.io/basis_set_exchange/conversion.html>
 
@@ -71,7 +72,7 @@ In our case, the user can execute the following commands performing conversion:
 ```
 These commands will create `Bi_basis_nwchem`, `V_basis_nwchem`, and `O_basis_nwchem` file with the basis sets in NWChem format.
 
-Then we will need crystal cell geometry `a.dat` and atom positions `atoms.dat`:
+Then we will need the crystal cell geometry `a.dat` and the atom positions `atoms.dat`:
 
 `a.dat`:
 ```
@@ -104,3 +105,5 @@ python3 <source root>/green-mbpt/python/init_data_df.py          \
 ```
 
 Here we generate even-tempered auxiliary basis sets, which are usually very good but large. In order to reduce the number of auxiliary basis functions, this example uses `--beta 3.0`. In this pedagogical example, PySCF HF iterations converge quickly, which is sometimes not the case in practice. 
+
+### GW iterations

@@ -95,10 +95,10 @@ The following instructions will download and build the Many-Body Perturbation th
 
 ### Download and Build: National HPC Resources
 The code has been successfully built and tested on National HPC resources. Instructions for the compilation on these machines are provided below:
-  - [NSF (ACCESS) Machines](/user-guide/installation/nsf/)
+  - NSF (ACCESS) Machines
     - [SDSC Expanse](/user-guide/installation/nsf/expanse/)
-  - [DOE Machines](/user-guide/installation/doe/)
-    - NERSC Perlmutter
+  - DOE Machines
+    - [NERSC Perlmutter](/user-guide/installation/doe/perlmutter)
   If you would like to have the code tested on additional machines please let us know by filing an [issue](https://github.com/Green-Phys/green-mbpt/issues).
 
 ### Installation issues

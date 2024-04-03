@@ -96,9 +96,11 @@ O     1.963500000000E+00  1.963500000000E+00  3.9270000
 
 Then the actual PySCF script can be executed:
 ```
-export OMP_NUM_THREADS=64
-
-python3 /home/pokhilko/dev/green/green-mbpt/python/init_data_df.py --a a.dat --atom atoms.dat --nk 2 --basis 'Bi' 'Bi_basis_nwchem' 'V' 'V_basis_nwchem' 'O' 'O_basis_nwchem' --pseudo gth-pade  --beta 3.0  --df_int 1
+export OMP_NUM_THREADS=64 # OpenMP multithreading
+python3 <source root>/green-mbpt/python/init_data_df.py          \
+   --a a.dat --atom atoms.dat --nk 2                             \
+   --basis 'Bi' 'Bi_basis_nwchem' 'V' 'V_basis_nwchem'           \
+   'O' 'O_basis_nwchem' --pseudo gth-pade  --beta 3.0  --df_int 1
 ```
 
 Here we generate even-tempered auxiliary basis sets, which are usually very good but large. In order to reduce the number of auxiliary basis functions, this example uses `--beta 3.0`. In this pedagogical example, PySCF HF iterations converge quickly, which is sometimes not the case in practice. 

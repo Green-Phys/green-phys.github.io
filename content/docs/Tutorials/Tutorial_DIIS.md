@@ -5,14 +5,14 @@ math: true
 weight: 41
 ---
 
-### BiVO3 example
+## BiVO3 example
 BiVO3 is an interesting realistic system that we studied before:
 
 <https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744>
 
 It shows interesting convergence pattern and can serve as a good example on how to converge iterations. 
 
-## Integral preparation
+### Integral preparation
 
 As usual, we need to generate integrals first. However, there are only very few basis sets available for Bi. For solids we commonly use basis sets from `molopt` family with `gth` pseudopotentials. MolSSI's Basis Set Exchange library, however, lack some of these basis sets. We can, for example, download the missing basis sets from CP2K:
 

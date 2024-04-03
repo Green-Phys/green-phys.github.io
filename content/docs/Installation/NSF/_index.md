@@ -11,9 +11,4 @@ weight: 1
     subtitle=""
     link="expanse"
   >}}
-  {{< hextra/feature-card
-    title="TACC Stampede2"
-    subtitle=""
-    link="stampede2"
-  >}}
 {{< /hextra/feature-grid >}}

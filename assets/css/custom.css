@@ -124,3 +124,13 @@
 }
 
 .align-middle{vertical-align:middle!important}
+
+.focus\:ring-primary-100:focus {
+  //--tw-ring-opacity: 90;
+  //--tw-ring-color: rgb(255 1 1 / var(--tw-text-opacity));
+}
+
+:is(html[class~="dark"] .dark\:focus\:ring-primary-100:focus) {
+  //--tw-ring-opacity: 90;
+  //--tw-ring-color: rgb(255 1 1 / var(--tw-text-opacity));
+}

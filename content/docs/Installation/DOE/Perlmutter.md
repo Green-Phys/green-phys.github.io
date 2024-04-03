@@ -5,12 +5,26 @@ weight: 2
 ---
 
 
-
 ### Weak-coupling Many-Body Perturbation theory solver
 
 {{% steps %}}
 
-### Load the following modules
+### Setup Build Environment
+
+Code has been tested for the following NERSC programming environemnts:
+
+   - `PrgEnv-gnu/8.5.0`
+   - `PrgEnv-intel/8.5.0`
+   - `PrgEnv-aocc/8.5.0`
+   - `PrgEnv-cray/8.5.0`
+
+Load environment by calling
+
+```Shell
+module load PrgEnv-gnu/8.5.0
+```
+
+Load third-party libraries
 
 ```Shell
 module load cray-hdf5 eigen cmake
@@ -19,31 +33,29 @@ module load cray-hdf5 eigen cmake
 ### Download and build Many-Body Perturbation theory solver
 
 
-
-
 {{% tabs items="CPU, GPU" %}}
 
 {{% tab %}}
   ```Bash Session
-  $ git clone https://github.com/Green-Phys/green-mbpt
-  $ mkdir build
-  $ cd build
-  $ cmake -DCMAKE_BUILD_TYPE=Release ../green-mbpt
-  $ make -j 4 && make test
+  git clone https://github.com/Green-Phys/green-mbpt
+  mkdir build
+  cd build
+  cmake -DCMAKE_BUILD_TYPE=Release ../green-mbpt
+  make -j 4 && make test
   ```
 
 {{% /tab %}}
 {{% tab %}}
   ```Bash Session
-  $ git clone https://github.com/Green-Phys/green-mbpt
-  $ mkdir build
-  $ cd build
-  $ cmake ../green-mbpt -DCMAKE_BUILD_TYPE=Release -DCUSTOM_KERNEL=GPU_KERNEL \
+  git clone https://github.com/Green-Phys/green-mbpt
+  mkdir build
+  cd build
+  cmake ../green-mbpt -DCMAKE_BUILD_TYPE=Release -DCUSTOM_KERNEL=GPU_KERNEL \
            -DGREEN_KERNEL_URL="https://github.com/Green-Phys/green-gpu" \
            -DGREEN_CUSTOM_KERNEL_LIB="GREEN::GPU" \
            -DGREEN_CUSTOM_KERNEL_ENUM=GPU \
            -DGREEN_CUSTOM_KERNEL_HEADER=\<green/gpu/gpu_factory.h\>
-  $ make -j 4 && ctest -j 1
+  make -j 4 && ctest -j 1
   ```
 
 {{% /tab %}}

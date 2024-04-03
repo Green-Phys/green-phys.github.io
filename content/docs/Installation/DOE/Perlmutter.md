@@ -11,14 +11,14 @@ weight: 2
 
 ### Setup Build Environment
 
-Code has been tested for the following NERSC programming environemnts:
+Code has been tested for the following NERSC programming environments:
 
    - `PrgEnv-gnu/8.5.0`
    - `PrgEnv-intel/8.5.0`
    - `PrgEnv-aocc/8.5.0`
    - `PrgEnv-cray/8.5.0`
 
-Load environment by calling
+Load an environment by calling
 
 ```Shell
 module load PrgEnv-gnu/8.5.0
@@ -30,7 +30,7 @@ Load third-party libraries
 module load cray-hdf5 eigen cmake
 ```
 
-### Download and build Many-Body Perturbation theory solver
+### Download and build the Many-Body Perturbation theory solver
 
 
 {{% tabs items="CPU, GPU" %}}

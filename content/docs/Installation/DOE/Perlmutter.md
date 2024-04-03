@@ -5,7 +5,7 @@ weight: 2
 ---
 
 
-### Weak-coupling Many-Body Perturbation theory solver
+## Weak-coupling Many-Body Perturbation theory solver
 
 {{% steps %}}
 

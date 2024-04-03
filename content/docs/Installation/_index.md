@@ -17,7 +17,7 @@ icon: cog
   >}}
   {{< hextra/feature-card
     title="Installation on NSF machines"
-    subtitle="Installation instruction for SDSC Expanse and TACC Stampede2"
+    subtitle="Installation instruction for SDSC Expanse"
     link="nsf"
   >}}
   {{< hextra/feature-card

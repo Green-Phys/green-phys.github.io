@@ -69,13 +69,10 @@ srun -n 64 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
 ```
 Here `--diis_start` defines at which iteration DIIS will start, `--diis_size` defines the maximum size of the DIIS subspace, `--versbose` determines how verbose the output will be (large values are useful for troubleshooting), `--mixed_type` determines which mixing will be used (`DIIS` for difference residuals and `CDIIS` for commutator residuals), `--damping` is used only for the few first iterations building the DIIS subspace.
 
-<!-- ![Performance of different convergence algorithms for Si](Si_DIIS.pdf) -->
+CDIIS often converges faster than DIIS with the difference residuals and damping. However, if very tight convergence criteria are used, CDIIS commutators may become sensitive to numerical noise (see our [original paper](https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744), and switching to damping is recommended.
 
-<img
-  src="Si_DIIS.pdf"
-  alt="Performance of different convergence algorithms for Si"
-/>
-
+This is a comparison of different algorithms (Sigma damping, DIIS, CDIIS) with the same settings as above:
+![Performance of different convergence algorithms for Si](/tutorials/Si_DIIS.pdf)
 
 
 ## Advanced example: BiVO3

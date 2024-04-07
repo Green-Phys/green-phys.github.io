@@ -1,5 +1,5 @@
 ---
-title: Tutorial: 
+title: Tutorial 
 permalink: /Tutorial_DIIS/
 math: true
 weight: 41

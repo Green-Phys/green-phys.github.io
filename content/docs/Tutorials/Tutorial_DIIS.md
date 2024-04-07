@@ -5,7 +5,73 @@ math: true
 weight: 41
 ---
 
-## BiVO3 example
+## Simple example: Si
+Si a a very convenient pedagogical system suitable as a simple example on how to run DIIS. As usual, we start from the integral preparation.
+
+### Integral preparation
+The files below set up the cell vectors and the coordinates, respectively:
+`a.dat`:
+```
+0.0,  2.7155, 2.7155
+2.7155, 0.0,  2.7155
+2.7155, 2.7155, 0.0
+```
+`atoms.dat`:
+```
+Si 0.0  0.0  0.0
+Si 1.35775 1.35775 1.35775
+```
+
+Then the actual PySCF script preparing integrals can be executed:
+```
+export OMP_NUM_THREADS=64 # OpenMP multithreading
+python3 <source root>/green-mbpt/python/init_data_df.py          \
+   --a a.dat --atom atoms.dat --nk 2 --pseudo gth-pbe            \
+   --basis gth-dzvp-molopt-sr --auxbasis def2-svp-ri --df_int 1 --spin 0
+```
+The command above prepares integrals for `Si` using `2x2x2` Monkhorst--Pack k-point grid. Although this grid is very small, for our pedagogical purposes it is fine. The selected auxiliary basis set works reasonably well for light elements as `Si` for periodic solid calculations.
+
+### DIIS execution
+An example of the slurm script is below
+```
+#!/bin/bash
+
+#SBATCH -N 1
+#SBATCH -C gpu
+#SBATCH -q debug
+#SBATCH -J Ce_3
+#SBATCH -t 00:30:00
+#SBATCH --hint=nomultithread
+#SBATCH --gpus-per-node=1
+
+#OpenMP settings:
+export OMP_NUM_THREADS=1
+export HDF5_USE_FILE_LOCKING=FALSE
+export HDF5_DISABLE_VERSION_CHECK=1
+
+export GREEN_INSTALL=<path-to-installed-green-mbpt>
+export GREEN_GRID=$GREEN_INSTALL/share/ir
+export INTS=<path-to-generated-integrals>
+
+date
+
+srun -n 64 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
+  --grid_file $GREEN_GRID/1e5.h5 --itermax 100 --results_file Si.h5 \
+  --input_file $INTS/input.h5 \
+  --jobs SC   \
+  --diis_start  2 \
+  --diis_size  7 \
+  --verbose 4 \
+  --mixing_type CDIIS --damping 0.3  \
+  --dfintegral_hf_file="$INTS/df_hf_int"  \
+  --dfintegral_file="$INTS/df_int" \
+  --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true >& Si_NEW.txt
+```
+Here `--diis_start` defines at which iteration DIIS will start, `--diis_size` defines the maximum size of the DIIS subspace, `--versbose` determines how verbose the output will be (large values are useful for troubleshooting), `--mixed_type` determines which mixing will be used (`DIIS` for difference residuals and `CDIIS` for commutator residuals), `--damping` is used only for the few first iterations building the DIIS subspace.
+
+![Performance of different convergence algorithms for Si](Si_DIIS.pdf)
+
+## Advanced example: BiVO3
 BiVO3 is an interesting realistic system that we studied before:
 
 <https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744>

@@ -69,7 +69,8 @@ srun -n 64 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
 ```
 Here `--diis_start` defines at which iteration DIIS will start, `--diis_size` defines the maximum size of the DIIS subspace, `--versbose` determines how verbose the output will be (large values are useful for troubleshooting), `--mixed_type` determines which mixing will be used (`DIIS` for difference residuals and `CDIIS` for commutator residuals), `--damping` is used only for the few first iterations building the DIIS subspace.
 
-![Performance of different convergence algorithms for Si](Si_DIIS.pdf)
+<!-- ![Performance of different convergence algorithms for Si](Si_DIIS.pdf) -->
+![](Si_DIIS.pdf)
 
 ## Advanced example: BiVO3
 BiVO3 is an interesting realistic system that we studied before:

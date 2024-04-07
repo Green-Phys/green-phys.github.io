@@ -75,7 +75,7 @@ This is a comparison of different algorithms (Sigma damping, DIIS, CDIIS) with t
 ![Performance of different convergence algorithms for Si](/tutorials/Si_DIIS.pdf)
 
 
-## Advanced example: BiVO3
+## Advanced example: BiVO3 (NOT YET COMPLITED)
 BiVO3 is an interesting realistic system that we studied before:
 
 <https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744>

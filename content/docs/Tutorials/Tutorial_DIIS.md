@@ -74,7 +74,7 @@ CDIIS often converges faster than DIIS with the difference residuals and damping
 This is a comparison of different algorithms (Sigma damping, DIIS, CDIIS) with the same settings as above:
 ![Performance of different convergence algorithms for Si](/tutorials/Si_DIIS.pdf)
 
-
+<!--
 ## Advanced example: BiVO3 (NOT YET COMPLITED)
 BiVO3 is an interesting realistic system that we studied before:
 
@@ -177,3 +177,4 @@ python3 <source root>/green-mbpt/python/init_data_df.py          \
 Here we generate even-tempered auxiliary basis sets, which are usually very good but large. In order to reduce the number of auxiliary basis functions, this example uses `--beta 3.0`. In this pedagogical example, PySCF HF iterations converge quickly, which is sometimes not the case in practice. 
 
 ### GW iterations
+-->

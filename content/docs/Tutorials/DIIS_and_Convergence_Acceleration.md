@@ -13,6 +13,8 @@ $$G^{-1} = G^{-1}_0 - \Sigma[G],$$
 
 where the $G$ is the full Green's function, $G_0$ is the Green's function of independent electrons, $\Sigma[G]$ is the self-energy functional depending only on the full Green's function and two-electron integrals. The self-energy has the static (Hartree--Fock) and the dynamical (frequency-dependent) parts. The specific functional dependences, such as GF2, GW, etc, are covered in the previous sections. In practice, in order to solve the Dyson equation self-consistently, one has to start from the initial guess (usually the Fock matrix from HF or DFT calculation), find the chemical potential $\mu$ and the Green's function, evaluate static and dynamical parts of self-energy, then again find the chemical potential and the Green's function, and iterate until the changes in the Green's function, self-energy, chemical potential, and total energy become smaller than the desired threshold. This direct procedure is a Green's function version of the Roothaan--Hartree--Fock procedure commonly known in standard quantum chemical textbooks. Just as the original Roothaan--Hartree--Fock algorithm, this direct procedure converges only for very simple cases. Very often such iterations diverge, and a number of algorithms has been developed to remedy this problem. 
 
+In the code, direct iterations are invoked with `--mixing_type NO_MIXING`.
+
 ## Simple damping
 
 The simplest algorithm is known as `damping`, or `simple mixing`. At a given iteration, it mixes the computed self-energy with the self-energy from the previous iteration with certain weights:
@@ -21,10 +23,12 @@ $$
 \Sigma_i = \alpha\Sigma[G_{i-1}] + (1-\alpha)\Sigma_{i-1},
 $$
 
-where $\Sigma_i$ is the mixed self-energy used to find the Green's function at the new iteration, $\Sigma[G_{i-1}]$ is the computed self-energy from the previously found Green's function, and $\Sigma_{i-1}$ is the damped self-energy from the previous iteration. The mixing parameter $\alpha$ is chosen by the user. Thus, the self-consistency cycle becomes:
+where $\Sigma_i$ is the mixed self-energy used to find the Green's function at the new iteration, $\Sigma[G_{i-1}]$ is the computed self-energy from the previously found Green's function, and $\Sigma_{i-1}$ is the damped self-energy from the previous iteration. Such a procedure in the code is invoked with `--mixing_type SIGMA_DAMPING`. The mixing parameter $\alpha$ is chosen by the user by specifying it in `--damping`. Thus, the self-consistency cycle becomes:
 initial guess &rarr; $\mu_1,G_1$ &rarr; $\Sigma[G_1]$ &rarr; mixed $\Sigma_1$ &rarr; $\mu_2,G_2$ &rarr; ...
 
 Smaller values of $\alpha$ stabilize iterations and lead to smaller changes between iterations. That's why this approach often converges when the direct iterations diverge. In our practice, it is often sufficient to choose $\alpha$ between `0.3..0.7`. However, it is still important to pay attention to how iterations are going and to intervene if necessary. Sometimes the behavior of iterations changes as they go, and an adjustment of $\alpha$ may be needed. Although simple damping stabilizes iterations, it is often too slow in practice because it may need over a hundred iterations to converge to the final solution. Moreover, sometimes for some systems the damping iterations stagnate and create and illusion of convergence.
+
+Similarly to damping of self-energies, Green's function can be damped instead. This behavior in the code is invoked with `--mixing_type G_DAMPING`. 
 
 ## DIIS
 
@@ -105,5 +109,7 @@ $$
 
 The commutator residual follows directly from the Dyson equation multiplied by $G$ from the left and from the right. It is a Green's function generalization of the Hartree--Fock commutator residual commonly used in practice due to their better performance than the difference residuals. Norms of both residuals go to zero once the self-consistent solution is found. In our practice, for simple systems both choices gives a comparable behaviour of iterations outperforming damping in most cases. The commutator residuals can perform better in difficult cases because they estimate error using both Green's function and self-energy on equal footing.
 
-Our implementation in practice uses damping for the first few iterations, builds an extrapolation subspace, and continues with DIIS. Once the user-specified maximum number of subspace vectors is found, the oldest vector is removed from the subspace.
+The difference residuals are invoked with `--mixing_type DIIS`; the commutator residuals are invoked with `--mixing_type CDIIS`. 
+
+Our implementation in practice uses damping for the first few iterations, builds an extrapolation subspace, and continues with DIIS starting at `--diis_start ` iteration. Once the user-specified maximum number of subspace vectors specified by `--diis_size` is found, the oldest vector is removed from the subspace.
 This is justified because in well-conditioned problems the coefficients of the old vectors decay as iterations proceed and eventually become very small.

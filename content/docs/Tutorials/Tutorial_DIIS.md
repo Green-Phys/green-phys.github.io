@@ -1,5 +1,5 @@
 ---
-title: Tutorial 
+title: DIIS Tutorial 
 permalink: /Tutorial_DIIS/
 math: true
 weight: 41
@@ -71,10 +71,10 @@ srun -n 64 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
 ```
 Here `--diis_start` defines at which iteration DIIS will start, `--diis_size` defines the maximum size of the DIIS subspace, `--versbose` determines how verbose the output will be (large values are useful for troubleshooting), `--mixed_type` determines which mixing will be used (`DIIS` for difference residuals and `CDIIS` for commutator residuals), `--damping` is used only for the few first iterations building the DIIS subspace.
 
-CDIIS often converges faster than DIIS with the difference residuals and damping. However, if very tight convergence criteria are used, CDIIS commutators may become sensitive to numerical noise (see our [original paper](https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744), and switching to damping is recommended.
+CDIIS often converges faster than DIIS with the difference residuals and damping. However, if very tight convergence criteria are used, CDIIS commutators may become sensitive to numerical noise (see our [original paper](https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744)), and switching to damping is recommended.
 
 This is a comparison of different algorithms (Sigma damping, DIIS, CDIIS) with the same settings as above:
-![Performance of different convergence algorithms for Si](/tutorials/Si_DIIS.pdf)
+![Performance of different convergence algorithms for Si](/tutorials/Si_DIIS.png)
 
 ## Advanced example: BiVO3 
 BiVO3 is an interesting realistic system that we studied before as a test case of our algorithms:
@@ -211,7 +211,7 @@ srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
 
 In this example I compare damping iterations with DIIS and CDIIS. For a fare comparison, I used exactly the same settings for DIIS with the difference residuals and CDIIS as shown in the snippet above. Convergence by total energy is shown in this graph:
 
-![Performance of different convergence algorithms for BiVO3.](/tutorials/BiVO3_DIIS.pdf)
+![Performance of different convergence algorithms for BiVO3.](/tutorials/BiVO3_DIIS.png)
 
 The difference residuals quickly lead to diverging iterations. The damping iterations (with `--damping 0.3`) initially look converging, but after some point start gradually diverge. CDIIS is much more superior to damping and DIIS with the difference residuals. In the plot above, I mark the iterations that start CDIIS extrapolations with arrows. 
 

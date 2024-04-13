@@ -177,7 +177,7 @@ python3 <source root>/green-mbpt/python/init_data_df.py          \
 
 Here I generate even-tempered auxiliary basis sets, which are usually very good but large. In order to reduce the number of auxiliary basis functions, this example uses `--beta 3.0`. In this pedagogical example, PySCF HF iterations converge quickly, which is sometimes not the case in practice. 
 
-*Warning!* Unfortunately, the default range-separated integrals from PySCF often lead to problematic (or even incorrect) behavior of Green's function calculations, especially for heavy elements. Please make sure that all the integrals come from `pyscf.pbc.df.gdf_builder._CCGDFBuilder`. This patch explicitely disables flags from range-separation and gives the desired integrals (tested with PySCF `2.5.0`):
+**Warning!** Unfortunately, the default range-separated integrals from PySCF often lead to problematic (or even incorrect) behavior of Green's function calculations, especially for heavy elements. Please make sure that all the integrals come from `pyscf.pbc.df.gdf_builder._CCGDFBuilder`. This patch explicitely disables flags from range-separation and gives the desired integrals (tested with PySCF `2.5.0`):
 
 <https://github.com/Green-Phys/green-mbpt/pull/12>
 
@@ -185,7 +185,7 @@ The DFT calculation converges rather quickly. This is not the case for the GW ca
 
 ### GW iterations
 
-We executed the calculations as shown in this script:
+I executed the calculations as shown in this script:
 
 ```
 export OMP_NUM_THREADS=1
@@ -209,13 +209,13 @@ srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
   --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true
 ```
 
-In this example I compare damping iterations with DIIS and CDIIS. For a fare comparison, I used exactly the same settings for DIIS with the difference residuals and CDIIS as shown in the snippet above. Convergence by total energy is shown in this graph:
+In this example I compare damping iterations with DIIS and CDIIS. For a fare comparison, I used exactly the same settings for DIIS with the difference residuals and CDIIS as shown in the snippet above. Convergence by the total energy is shown in this graph:
 
 ![Performance of different convergence algorithms for BiVO3.](/tutorials/BiVO3_DIIS.pdf)
 
 The difference residuals quickly lead to diverging iterations. The damping iterations (with `--damping 0.3`) initially look converging, but after some point start gradually diverge. CDIIS is much more superior to damping and DIIS with the difference residuals. In the plot above, I mark the iterations that start CDIIS extrapolations with arrows. 
 
-The estimate whether the extrapolation subspace is good, I recommend to look at the printed extrapolation coefficients. They also can help to troubleshoot problematic cases. The first iteration with the CDIIS extrapolation has these extrapolation coefficients:
+To estimate whether the extrapolation subspace is good, I recommend to look at the printed extrapolation coefficients. They also can help to troubleshoot problematic cases. The first iteration with the CDIIS extrapolation has these extrapolation coefficients:
 
 ```
 DIIS: Extrapolation coefs:
@@ -296,12 +296,12 @@ DIIS: Extrapolation coefs:
 (1.64431099197216,0)   
 ```
 
-We can see in this example that
+We can see in these iterations that
 
 1. Coefficients of the newest vectors vary substantially.
 2. Coefficients of the oldest vectors are large. 
 
-Therefore, it is reasonable to restart CDIIS, rebuild the subspace (to kick out problematic vectors), and continue with a bigger extrapolation subspace to prevent removal of important vectors. We executed it as follows
+Therefore, it is reasonable to restart CDIIS, rebuild the subspace (to kick out problematic vectors), and continue with a bigger extrapolation subspace to prevent removal of important vectors. I executed it as follows
 
 ```
 srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \

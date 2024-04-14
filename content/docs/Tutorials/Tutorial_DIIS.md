@@ -131,7 +131,7 @@ V TZVP-MOLOPT-SR-GTH TZVP-MOLOPT-SR-GTH-q13
       0.162491615040 -0.242351537800  1.102830348700 -0.257388983000  1.054102919900  0.152954188700
 #
 ```
-The saved files above contain basis sets in the CP2K format, while our generating script understands basis sets written in NWChem format. One can either edit the python script using some of PySCF's libraries to feed the CP2K format, or convert them in a cleaner way using the MolSSI tools as described here:
+The saved files above contain basis sets in the CP2K format, while our generating script understands basis sets written in NWChem format. One can either edit the python script using some of PySCF's libraries to feed the CP2K format (beware of ![this bug](https://github.com/pyscf/pyscf/issues/2043)), or convert them in a cleaner way using the MolSSI tools as described here:
 
 <https://molssi-bse.github.io/basis_set_exchange/conversion.html>
 

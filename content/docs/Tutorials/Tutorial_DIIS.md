@@ -7,8 +7,8 @@ weight: 41
 
 DIIS tutorial from Pavel Pokhilko.
 
-## Simple example: Si
-Si a a very convenient pedagogical system suitable as a simple example on how to run DIIS. As usual, we start from the integral preparation.
+## Simple example: Silicon (Si)
+Silicon (Si) is suitable as a convenient pedagogical system for showing how to run DIIS. As per usual, we start from integral preparation with the PySCF library.
 
 ### Integral preparation
 The files below set up the cell vectors and the coordinates, respectively:
@@ -24,17 +24,17 @@ Si 0.0  0.0  0.0
 Si 1.35775 1.35775 1.35775
 ```
 
-Then the actual PySCF script preparing integrals can be executed:
+Then a PySCF script, which will prepare the integrals, can be executed:
 ```
 export OMP_NUM_THREADS=64 # OpenMP multithreading
 python3 <source root>/green-mbpt/python/init_data_df.py          \
    --a a.dat --atom atoms.dat --nk 2 --pseudo gth-pbe            \
    --basis gth-dzvp-molopt-sr --auxbasis def2-svp-ri --df_int 1 --spin 0
 ```
-The command above prepares integrals for `Si` using `2x2x2` Monkhorst--Pack k-point grid. Although this grid is very small, for our pedagogical purposes it is fine. The selected auxiliary basis set works reasonably well for light elements as `Si` for periodic solid calculations.
+The command above prepares integrals for `Si` using a `2x2x2` Monkhorst--Pack k-point grid. Although this grid is quite small, it is fine for our pedagogical purposes. The selected auxiliary basis set works reasonably well for periodic solid calculations containng light elements, such as `Si`.
 
 ### DIIS execution
-An example of the slurm script is below
+An example of a slurm script is below:
 ```
 #!/bin/bash
 
@@ -69,7 +69,7 @@ srun -n 64 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
   --dfintegral_file="$INTS/df_int" \
   --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true >& Si_NEW.txt
 ```
-Here `--diis_start` defines at which iteration DIIS will start, `--diis_size` defines the maximum size of the DIIS subspace, `--versbose` determines how verbose the output will be (large values are useful for troubleshooting), `--mixed_type` determines which mixing will be used (`DIIS` for difference residuals and `CDIIS` for commutator residuals), `--damping` is used only for the few first iterations building the DIIS subspace.
+Here, `--diis_start` defines the iteration at which DIIS will start, `--diis_size` defines the maximum size of the DIIS subspace, `--versbose` determines how verbose the output will be (large values are useful for troubleshooting), `--mixed_type` determines which mixing will be used (`DIIS` for difference residuals and `CDIIS` for commutator residuals), `--damping` is used only for the first few iterations before building the DIIS subspace.
 
 CDIIS often converges faster than DIIS with the difference residuals and damping. However, if very tight convergence criteria are used, CDIIS commutators may become sensitive to numerical noise (see our [original paper](https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744)), and switching to damping is recommended.
 
@@ -81,12 +81,12 @@ BiVO3 is an interesting realistic system that we studied before as a test case o
 
 <https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744>
 
-It shows an interesting convergence pattern and can serve as a good example on how to converge iterations. 
+It shows an interesting convergence pattern, and can serve as a good example on how to converge iterations. 
 Thanks to Yanbing for sharing geometries and basis sets!
 
 ### Integral preparation
 
-As usual, we need to generate integrals first. However, there are only very few basis sets available for Bi. For solids we commonly use basis sets from `molopt` family with `gth` pseudopotentials. MolSSI's Basis Set Exchange library, however, lack some of these basis sets. We can, for example, download the missing basis sets from CP2K:
+As per usual, we need to generate integrals first. However, there are only very few basis sets available for Bismuth (Bi). For solids, we commonly use basis sets from the `molopt` family with `gth` pseudopotentials. However, MolSSI's Basis Set Exchange library lack some of these basis sets. We can, for example, download the missing basis sets from CP2K:
 
 <https://pierre-24.github.io/cp2k-basis/developers/library_content>
 
@@ -131,7 +131,7 @@ V TZVP-MOLOPT-SR-GTH TZVP-MOLOPT-SR-GTH-q13
       0.162491615040 -0.242351537800  1.102830348700 -0.257388983000  1.054102919900  0.152954188700
 #
 ```
-The saved files above contain  basis sets in the CP2K format, while our generating script understands basis sets in the NWChem format. One can either hack the python script using the PySCF machinery to feed the CP2K format or convert them in a cleaner way using the MolSSI tools as described here:
+The saved files above contain basis sets in the CP2K format, while our generating script understands basis sets written in NWChem format. One can either edit the python script using some of PySCF's libraries to feed the CP2K format (beware of ![this bug](https://github.com/pyscf/pyscf/issues/2043)), or convert them in a cleaner way using the MolSSI tools as described here:
 
 <https://molssi-bse.github.io/basis_set_exchange/conversion.html>
 
@@ -166,7 +166,7 @@ O     1.963500000000E+00  1.963500000000E+00  0.0000000
 O     1.963500000000E+00  1.963500000000E+00  3.9270000
 ```
 
-Then the actual PySCF script can be executed:
+Then, the actual PySCF script can be executed:
 ```
 export OMP_NUM_THREADS=64 # OpenMP multithreading
 python3 <source root>/green-mbpt/python/init_data_df.py          \
@@ -175,7 +175,7 @@ python3 <source root>/green-mbpt/python/init_data_df.py          \
    'O' 'O_basis_nwchem' --pseudo gth-pade --xc pbe0  --beta 3.0  --df_int 1
 ```
 
-Here I generate even-tempered auxiliary basis sets, which are usually very good but large. In order to reduce the number of auxiliary basis functions, this example uses `--beta 3.0`. In this pedagogical example, PySCF HF iterations converge quickly, which is sometimes not the case in practice. 
+Here, I generate an even-tempered auxiliary basis sets, which is usually very good, but large. In order to reduce the number of auxiliary basis functions, this example uses `--beta 3.0`. In this pedagogical example, PySCF HF iterations converge quickly, which is sometimes not the case in practice. 
 
 **Warning!** Unfortunately, the default range-separated integrals from PySCF often lead to problematic (or even incorrect) behavior of Green's function calculations, especially for heavy elements. Please make sure that all the integrals come from `pyscf.pbc.df.gdf_builder._CCGDFBuilder`. This patch explicitely disables flags from range-separation and gives the desired integrals (tested with PySCF `2.5.0`):
 
@@ -185,7 +185,7 @@ The DFT calculation converges rather quickly. This is not the case for the GW ca
 
 ### GW iterations
 
-I executed the calculations as shown in this script:
+The calculaiton can be executed as shown in this script:
 
 ```
 export OMP_NUM_THREADS=1
@@ -209,13 +209,13 @@ srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
   --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true
 ```
 
-In this example I compare damping iterations with DIIS and CDIIS. For a fare comparison, I used exactly the same settings for DIIS with the difference residuals and CDIIS as shown in the snippet above. Convergence by the total energy is shown in this graph:
+In this example, I compare damping iterations with DIIS and CDIIS. For a fair comparison, I used exactly the same settings for DIIS with the difference residuals and CDIIS as shown in the snippet above. Convergence by total energy is shown in this graph:
 
 ![Performance of different convergence algorithms for BiVO3.](/tutorials/BiVO3_DIIS.png)
 
-The difference residuals quickly lead to diverging iterations. The damping iterations (with `--damping 0.3`) initially look converging, but after some point start gradually diverge. CDIIS is much more superior to damping and DIIS with the difference residuals. In the plot above, I mark the iterations that start CDIIS extrapolations with arrows. 
+The difference residuals quickly lead to diverging iterations. The damping iterations (with `--damping 0.3`) initially look to be on a convergence path, but after some point, the calculation will start to gradually diverge. CDIIS is much more superior to damping and DIIS with the difference residuals. In the plot above, I mark the iterations that start CDIIS extrapolations with arrows. 
 
-To estimate whether the extrapolation subspace is good, I recommend to look at the printed extrapolation coefficients. They also can help to troubleshoot problematic cases. The first iteration with the CDIIS extrapolation has these extrapolation coefficients:
+To estimate whether the extrapolation subspace is good, I recommend to look at the printed extrapolation coefficients. They can also help troubleshoot problematic cases. The first iteration with the CDIIS extrapolation has these extrapolation coefficients:
 
 ```
 DIIS: Extrapolation coefs:
@@ -225,7 +225,7 @@ DIIS: Extrapolation coefs:
 (0.172409360080503,0)         <--- the newest vector
 ```
 
-A stable iteration has small coefficients for all vectors. Also a stable iteration has decaying coefficients for old vectors, which makes it possible to kick out the oldest vectors from the subspace when the maximum subspace size is reached. The magnitude of the first coefficient tells how much it is damped by the CDIIS extrapolation. Often, the coefficients of the newest vectors for smooth stable iterations are about the same from iteration to iteration. However, here, in the next iteration, I see this picture:
+A stable iteration has small coefficients for all vectors. In addition, stable iterations have decaying coefficients for old vectors, makeing it possible to kick out the oldest vectors from the subspace when the maximum subspace size is reached. The magnitude of the first coefficient tells how much it is damped by the CDIIS extrapolation. Often, the coefficients of the newest vectors for smooth stable iterations are about the same from iteration to iteration. However, in the next iteration, I see this picture:
 
 ```
 DIIS: Extrapolation coefs:
@@ -236,20 +236,20 @@ DIIS: Extrapolation coefs:
 (-0.591848148811311,0)        <--- the newest vector
 ```
 
-The occurrence of the negative coefficient for the newest vector tells that the optimization problem has some curvature, which the quasi-Newton nature of CDIIS attempts to overcome. This curvature is the reason why the damping iterations turn and start divering at some point.
+The occurrence of the negative coefficient for the newest vector tells that the optimization problem has some curvature, which the quasi-Newton nature of CDIIS attempts to overcome. This curvature is the reason why the damping iterations will start divering at some point.
 
 ### Noise troubleshooting
 
 However, CDIIS can be quite noisy as the plot shows. This noise has several origins:
 
-1. Bad condition number of the overlap matrix preventing accurate solution of the linear system.
+1. Bad condition number of the overlap matrix, preventing an accurate solution of the linear system.
 2. Occurrence of bad vectors in the subspace that are not completely removed from extrapolation by approximate commutator measure of error.
 3. Important vectors are kicked out from the subspace as iterations go. 
 4. Limitation of the double precision arithmetic at the subtraction operation. 
 
-While the precise origin and troubleshooting is problem-dependent, I can provide a general recommendation. When such a noise occurs, I recommend to restart the calculation. One can switch to damping if damping is convergent. For CDIIS, I recommend to restart and rebuild the subspace. Such a restart will kick out the bad vectors and supply a much better approximation to a Hessian. 
+While the precise origin and troubleshooting is problem-dependent, I can provide a general recommendation. When such a noise occurs, I recommend to restart the calculation. One can switch to damping if damping is convergent. For CDIIS, I recommend to restart and rebuild the subspace. Such a restart will kick out the bad vectors, and supply a much better approximation to the Hessian. 
 
-Once again, extrapolation coefficients tell a story helping to troubleshoot calculations. At a few last iterations from the first CDIIS run, the coefficients are
+Once again, extrapolation coefficients tell a story helping to troubleshoot calculations. At the last few iterations from the first CDIIS run, the coefficients are:
 
 ```
 DIIS: Extrapolation coefs: 
@@ -296,12 +296,12 @@ DIIS: Extrapolation coefs:
 (1.64431099197216,0)   
 ```
 
-We can see in these iterations that
+We can see in these iterations, that:
 
 1. Coefficients of the newest vectors vary substantially.
 2. Coefficients of the oldest vectors are large. 
 
-Therefore, it is reasonable to restart CDIIS, rebuild the subspace (to kick out problematic vectors), and continue with a bigger extrapolation subspace to prevent removal of important vectors. I executed it as follows
+Therefore, it is reasonable to restart CDIIS, rebuild the subspace (to kick out problematic vectors), and continue with a bigger extrapolation subspace to prevent removal of important vectors. I executed it as follows:
 
 ```
 srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
@@ -318,7 +318,7 @@ srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
   --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true
 ```
 
-This restart is shown in the figure as "CDIIS rst1". The first few damping iterations start to diverge despite a substantial applied damping. When CDIIS starts, it corrects the gradually diverging subspace (and this is also why a bigger subspace is needed here). It substantially de-noises the iterations and leads to a faster convergence of the chemical potential. Unfortunately, the quick queue on the cluster killed my job, so I decided to restart again ("CDIIS rst2") with even bigger subspace
+This restart is shown in the figure as "CDIIS rst1". The first few damping iterations start to diverge despite a substantial applied damping. When CDIIS starts, it corrects the gradually diverging subspace (and this is also why a bigger subspace is needed here). It substantially de-noises the iterations and leads to a faster convergence of the chemical potential. Unfortunately, the quick queue on the cluster killed my job, so I decided to restart again ("CDIIS rst2") with even bigger subspace.
 
 ```
 srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \

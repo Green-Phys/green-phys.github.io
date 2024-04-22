@@ -15,7 +15,7 @@ regularly updated. The package was first released on Nov. 1st, 2023 and can now 
 <div class="mb-6">
 {{< cta-button text="Quick Start" link="docs/getting-started/examples/si/" icon="rocket_launch" prim="yes" >}}
 {{< cta-button text="Documentation" link="docs/" icon="book" >}}
-{{< cta-button text="Submit an issue" link="https://github.com/Green-Phys/green-mbpt/issues/new/choose" icon="error" err="yes" >}}
+{{< cta-button text="Submit an issue" link="https://green-phys.youtrack.cloud/newIssue?draftId=" icon="error" err="yes" >}}
 </div>
 
 

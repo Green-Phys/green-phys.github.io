@@ -1,6 +1,5 @@
 ---
-title: GW Background and Theory
-linkTitle: GW Background and Theory
-weight: 1
-icon: rocket-launch
+title: GF2 Background and Theory
+linkTitle: GF2 Background and Theory
+weight: 2
 ---

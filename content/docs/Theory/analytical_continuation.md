@@ -1,6 +1,6 @@
 ---
-title: Analytican Continuation
-linkTitle: Analytican Continuation
+title: Analytical Continuation
+linkTitle: Analytical Continuation
 weight: 7
 ---
 

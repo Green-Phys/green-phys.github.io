@@ -1,6 +1,6 @@
 ---
 title: Theory and Tutorials
-weight: 3
+weight: 4
 icon: academic-cap
 prev: "/docs"
 ---

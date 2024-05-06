@@ -19,4 +19,4 @@ All codes under Green framework will be released under MIT open-source license
 
 ## Acknowledgements
 
-This work is supported by the National Science Foundation under the award CSSI-2310582
+This work is supported by the National Science Foundation under the award NSF OAC 2310582

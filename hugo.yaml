@@ -1,6 +1,6 @@
 # Configuration
 baseURL: 'https://green-phys.org/'
-title: 'Green'
+title: 'Green Software Package'
 
 enableRobotsTXT: true
 enableGitInfo: true

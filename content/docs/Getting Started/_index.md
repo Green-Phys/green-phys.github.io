@@ -3,7 +3,7 @@ title: Getting Started
 linkTitle: Getting Started
 next: "/docs/Getting\ Started/weak"
 prev: "/docs"
-weight: 2
+weight: 3
 icon: rocket-launch
 ---
 

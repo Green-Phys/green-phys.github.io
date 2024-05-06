@@ -1,7 +1,7 @@
 ---
 title: 
 linkTitle: Main Developers
-weight: 5
+weight: 6
 icon: user-group
 ---
 

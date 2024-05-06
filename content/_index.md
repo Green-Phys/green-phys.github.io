@@ -19,5 +19,5 @@ Green is a software framework for the simulation of realistic materials with Gre
 
 <hr>
 
-### <p style="text-align: center;">Key project Components</p>
+### <p style="text-align: center;">Key project components</p>
 ![Alt Text](logo/rosetta.png)

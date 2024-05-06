@@ -13,10 +13,10 @@ toc: false
 
 # Welcome to the Green software package
 
-This project is currently under active development. Content of this web-site will be
-regularly updated. The package was first released on Nov. 1st, 2023 and can now be downloaded from our repositories.
+Green is a software framework for the simulation of realistic materials with Green's function methods. Green implements self-energy embedding, self-consistent GW, and second-order perturbation theory for solids and molecules.
 
 <hr>
+
 ### <p style="text-align: center;">Key project features</p>
 
 {{< hextra/feature-grid maxcolumns="2" >}}

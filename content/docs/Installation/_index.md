@@ -21,7 +21,7 @@ icon: cog
     link="nsf"
   >}}
   {{< hextra/feature-card
-    title="Intallation on DOE machines"
+    title="Installation on DOE machines"
     subtitle="Installation instruction for NERSC Perlmutter"
     link="doe"
   >}}

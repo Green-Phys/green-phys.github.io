@@ -1,6 +1,6 @@
 ---
 title: Contribution policy
-weight: 6
+weight: 7
 icon: thumb-up
 ---
 

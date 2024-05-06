@@ -19,29 +19,5 @@ Green is a software framework for the simulation of realistic materials with Gre
 
 <hr>
 
-### <p style="text-align: center;">Key project features</p>
-
+### <p style="text-align: center;">Key project Components</p>
 ![Alt Text](logo/rosetta.png)
-
-{{< hextra/feature-grid maxcolumns="2" >}}
-  {{< hextra/feature-card
-    title="Fully Self-Consistent"
-    subtitle="Conserving and thermodynamically consistent simulations"
-    icon="lightning-bolt"
-  >}}
-  {{< hextra/feature-card
-    title="Fast"
-    subtitle="Highly parallelized using modern MPI and GPU features"
-    icon="speed"
-  >}}
-  {{< hextra/feature-card
-    title="Minimal Dependencies"
-    subtitle="Minimal external dependencies simplify installation"
-    icon="emoji-happy"
-  >}}
-  {{< hextra/feature-card
-    title="Customizable"
-    subtitle="Allows simple customization and extension"
-    icon="cog"
-  >}}
-{{< /hextra/feature-grid >}}

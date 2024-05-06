@@ -1,6 +1,6 @@
 # Configuration
 baseURL: 'https://green-phys.org/'
-title: 'Green: Embedding Framework'
+title: 'Green'
 
 enableRobotsTXT: true
 enableGitInfo: true
@@ -51,16 +51,6 @@ params:
 
 menu:
   main:
-    - identifier: install
-      name: Installation
-      pageRef: /docs/installation
-      weight: 1
-      params:
-        type: button
-    - identifier: documentation
-      name: Documentation
-      pageRef: /docs
-      weight: 3
     - identifier: about
       name: About
       pageRef: /about

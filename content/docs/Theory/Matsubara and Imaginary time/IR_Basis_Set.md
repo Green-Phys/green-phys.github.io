@@ -1,7 +1,6 @@
 ---
 title: IR Basis Set
 permalink: /IR_Basis_Set/
-weight: 13
 ---
 
 The Intermediate Representation is a set of compact orthogonal functions

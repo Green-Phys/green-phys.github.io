@@ -1,7 +1,7 @@
 ---
 title: Minimal example for running Silicon
 linkTitle: Minimal example for running Silicon
-weight: 4
+weight: 6
 icon: silicon
 prev: "/docs/Getting\ Started/weak"
 next: "/docs/Getting\ Started/lattice"

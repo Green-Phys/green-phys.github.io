@@ -1,7 +1,6 @@
 ---
 title: Chebyshev Basis Set
 permalink: /Chebyshev_Basis_Set/
-weight: 12
 ---
 
 Until we make a presentation about this basis set you will have to read

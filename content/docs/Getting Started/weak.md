@@ -1,7 +1,7 @@
 ---
 title: Running weak-coupling simulations
 linkTitle: GF2/GW
-weight: 98
+weight: 5
 prev: "/docs/Getting\ Started/"
 next: "/docs/Getting\ Started/examples/Si"
 ---
@@ -10,7 +10,7 @@ next: "/docs/Getting\ Started/examples/Si"
 
 The first step of any simulations with `Green`/`WeakCoupling` is the preparation of the input data, which includes the calculation of the Coulomb and one-body integrals as well as a starting density matrix out of geometry, atom, k-point, and basis information.
 Currently  we use an interface with [PySCF](https://pyscf.org/) to prepare input data.
-To generate input data a user has to call the `python/init_data_df.py` script located in the source directory (for a simple example see [next page](/docs/getting-started/examples/si)).
+To generate input data a user has to call the `python/init_data_df.py` script located in the source directory (for a simple example see [next page](/docs/getting-started/si)).
 The following parameters are mandatory:
 
   - `--a`  path to a file containing crystal geometry in xyz format
@@ -42,7 +42,7 @@ Minimal parameters that are needed to run weak-coupling simulations are followin
     - build directory of weak-coupling code
 
 Currently, we provide IR (`ir` subdirectory) and Chebyshev grids (`cheb` subdirectory) for nonuniform imaginary time representation.
-For more details on nonuniform grids, please follow this [link](/docs/tutorials/matsubara-and-imaginary-time)
+For more details on nonuniform grids, please follow this [link](/docs/theory/matsubara-and-imaginary-time/)
 
 
 After succesful completetion results will be written to a file located at `--results_file` (by default set to `sim.h5`)

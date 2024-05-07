@@ -16,12 +16,12 @@ icon: rocket-launch
   {{< hextra/feature-card
     title="Examples"
     subtitle="Simple examples on running Green codes"
-    link="examples"
+    link="Si"
   >}}
   {{< hextra/feature-card
     title="Geometries"
     subtitle="Information on how to specify lattice geometries"
-    link="lattice"
+    link="/docs/tutorials/lattice/"
   >}}
   {{< hextra/feature-card
     title="Installation"

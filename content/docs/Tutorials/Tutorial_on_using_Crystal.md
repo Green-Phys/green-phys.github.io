@@ -1,7 +1,7 @@
 ---
 title: Tutorial on Using Crystal (Initialization)
 permalink: /Tutorial_on_Using_Crystal/
-weight: 7
+weight: 4
 ---
 
 The following is a group seminar talk given by Yanbing Zhou on using Crystal.

@@ -1,7 +1,7 @@
 ---
 title: Analytic Continuation – Prony method
 permalink: /Analytic_Continuation_–_Prony_method/
-weight: 40
+weight: 3
 ---
 
 The Prony Analytic Continuation method is described in detail in

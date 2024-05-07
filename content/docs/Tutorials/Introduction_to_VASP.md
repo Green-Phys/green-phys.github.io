@@ -1,7 +1,7 @@
 ---
-title: Introduction to VASP
-permalink: /Introduction_to_VASP/
-weight: 30
+title: Tutorial of Using VASP (Initialization)
+permalink: Tutorial of Using VASP
+weight: 6
 ---
 
 This is a rudimentary introduction to VASP given by Runxue Yu in our

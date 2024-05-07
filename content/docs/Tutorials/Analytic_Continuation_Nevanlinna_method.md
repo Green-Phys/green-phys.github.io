@@ -1,7 +1,7 @@
 ---
 title: Analytic Continuation – Nevanlinna method
 permalink: /Analytic_Continuation_–_Nevanlinna_method/
-weight: 40
+weight: 2
 ---
 
 The Nevanlinna Analytic Continuation method is described in detail in

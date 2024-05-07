@@ -1,7 +1,7 @@
 ---
 title: Running weak-coupling simulations
 linkTitle: GF2/GW
-weight: 2
+weight: 98
 prev: "/docs/Getting\ Started/"
 next: "/docs/Getting\ Started/examples/Si"
 ---

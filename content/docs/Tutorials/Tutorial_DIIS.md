@@ -2,7 +2,7 @@
 title: DIIS Tutorial 
 permalink: /Tutorial_DIIS/
 math: true
-weight: 41
+weight: 5
 ---
 
 DIIS tutorial from Pavel Pokhilko.

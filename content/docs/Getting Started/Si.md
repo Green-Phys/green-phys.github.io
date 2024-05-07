@@ -1,6 +1,6 @@
 ---
 title: Minimal example for running Silicon
-linkTitle: Minimal example for running Silicon
+linkTitle: Minimal example for Silicon
 weight: 6
 icon: silicon
 prev: "/docs/Getting\ Started/weak"

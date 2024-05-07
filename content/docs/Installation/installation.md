@@ -1,6 +1,6 @@
 ---
-title: General Install on HPCC Machines
-linkTitle: General Install on HPCC Machines
+title: General Installation on Linux machines
+linkTitle: General Installation
 weight: 1
 ---
 

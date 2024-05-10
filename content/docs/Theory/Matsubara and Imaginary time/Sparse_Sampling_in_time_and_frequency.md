@@ -1,7 +1,6 @@
 ---
 title: Sparse Sampling in time and frequency
 permalink: /Sparse_Sampling_in_time_and_frequency/
-weight: 14
 ---
 
 Sparse sampling is a technique to reduce the number of Matsubara

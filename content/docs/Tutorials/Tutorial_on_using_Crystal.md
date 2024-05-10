@@ -1,7 +1,7 @@
 ---
-title: Tutorial on using Crystal
-permalink: /Tutorial_on_using_Crystal/
-weight: 31
+title: Tutorial on Using Crystal (Initialization)
+permalink: /Tutorial_on_Using_Crystal/
+weight: 4
 ---
 
 The following is a group seminar talk given by Yanbing Zhou on using Crystal.

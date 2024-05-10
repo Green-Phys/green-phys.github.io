@@ -1,6 +1,6 @@
 ---
-title: Installation instructions
-linkTitle: From sources
+title: General Installation on Linux machines
+linkTitle: General Installation
 weight: 1
 ---
 

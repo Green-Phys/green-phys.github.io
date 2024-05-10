@@ -1,7 +1,7 @@
 ---
 title: Minimal example for running Silicon
-linkTitle: Silicon scGW band-structure
-weight: 1
+linkTitle: Minimal example for Silicon
+weight: 6
 icon: silicon
 prev: "/docs/Getting\ Started/weak"
 next: "/docs/Getting\ Started/lattice"

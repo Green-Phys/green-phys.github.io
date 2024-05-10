@@ -1,6 +1,6 @@
 ---
 title: Lattice Parameters and Geometries
-weight : 14
+weight : 1
 math: true
 prev: "/docs/Getting\ Started/examples/Si"
 next: "/docs/Installation"

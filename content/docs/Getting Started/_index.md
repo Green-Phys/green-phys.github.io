@@ -3,7 +3,7 @@ title: Getting Started
 linkTitle: Getting Started
 next: "/docs/Getting\ Started/weak"
 prev: "/docs"
-weight: 2
+weight: 3
 icon: rocket-launch
 ---
 
@@ -16,12 +16,12 @@ icon: rocket-launch
   {{< hextra/feature-card
     title="Examples"
     subtitle="Simple examples on running Green codes"
-    link="examples"
+    link="Si"
   >}}
   {{< hextra/feature-card
     title="Geometries"
     subtitle="Information on how to specify lattice geometries"
-    link="lattice"
+    link="/docs/tutorials/lattice/"
   >}}
   {{< hextra/feature-card
     title="Installation"

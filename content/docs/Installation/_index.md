@@ -8,12 +8,12 @@ icon: cog
 {{< hextra/feature-grid maxcolumns="2" >}}
   {{< hextra/feature-card
     title="Installation From Sources"
-    subtitle="Installation instruction to install Green codes on generic Linux/Mac machines."
+    subtitle="Installation instruction to install Green codes on generic Linux/Mac machines"
     link="installation"
   >}}
   {{< hextra/feature-card
-    title="Installation on Mac"
-    subtitle="Installation on Mac using package managers."
+    title="Install Packaged Versions"
+    subtitle="Installation using package managers"
   >}}
   {{< hextra/feature-card
     title="Installation on SDSC Expanse"

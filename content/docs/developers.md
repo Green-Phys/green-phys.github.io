@@ -16,11 +16,11 @@ icon: user-group
 
 {{< person name="Sergei Iskakov" contact="siskakov@umich.edu" head="/headshots/siskakov.jpg" />}}
 
-## Team
+## Team members
 
 {{<person name="Vibin Abraham" />}}
 
-{{<person name="Jacob Adamski" />}}
+{{<person name="Jacob Adamski" head="/headshots/adamskij.jpg" />}}
 
 {{< person name="Tianran Chen" head="/headshots/tchen.jpg" />}}
 
@@ -36,7 +36,7 @@ icon: user-group
 
 {{< person name="Lei Zhang" head="/headshots/lzphy.jpg" />}}
 
-## Former Team Members
+## Contributors
 
 {{< person name="Jia Li" head="/headshots/jli.jpg" />}}
 

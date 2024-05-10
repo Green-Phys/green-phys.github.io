@@ -1,6 +1,6 @@
 ---
-title: Theory and Capabilities
-linkTitle: Theory and Capabilities
+title: Theory
+linkTitle: Theory
+icon: auto-story
 weight: 1
-icon: academic-cap
 ---

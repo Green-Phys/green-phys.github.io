@@ -100,10 +100,10 @@ The code has been successfully built and tested on National HPC resources. Instr
   - [DOE Machines](/docs/installation/doe/)
     - [NERSC Perlmutter](/docs/installation/doe/perlmutter)
 
-If you would like to have the code tested on additional machines please let us know by filing an [issue](https://github.com/Green-Phys/green-mbpt/issues).
+If you would like to have the code tested on additional machines please let us know by filing an [issue](https://green-phys.youtrack.cloud/newIssue).
 
 ### Installation issues
-   If you encounter issues with compiling, installing, or testing the package please file an issue on our github issues page, [https://github.com/Green-Phys/green-mbpt/issues](https://github.com/Green-Phys/green-mbpt/issues), and we will do our best to help.
+   If you encounter issues with compiling, installing, or testing the package please file an issue on our github issues [page](https://green-phys.youtrack.cloud/newIssue), and we will do our best to help.
 
 
 {{< /tab >}}
@@ -147,7 +147,7 @@ If you have a non-standard installation location of the dependent packages insta
 
 
 ### Installation issues
-   If you encounter issues with compiling, installing, or testing the package please file an issue on our github issues page, [https://github.com/Green-Phys/green-ac/issues](https://github.com/Green-Phys/green-ac/issues), and we will do our best to help.
+   If you encounter issues with compiling, installing, or testing the package please file an issue on our github issues [page](https://green-phys.youtrack.cloud/newIssue), and we will do our best to help.
 
 
 

@@ -4,6 +4,7 @@
   --primary-saturation: 50%;
   --navbar-height: 4rem;
   --menu-height: 3.75rem;
+  --button-width: 210px;
 }
 
 .dark {
@@ -48,6 +49,7 @@
     --tw-text-opacity: 1;
     color: rgb(247 224 239 / var(--tw-text-opacity));
     font-weight: 600;
+    width: var(--button-width);
     &:hover,
     &:active,
     &.active,
@@ -81,7 +83,7 @@
     color: hsl(var(--primary-hue) var(--primary-saturation) 30% / var(--tw-bg-opacity)) !important;
     padding-top: 10px;
     padding-bottom: 10px;
-
+    width: var(--button-width);
     &:hover,
     &:active,
     &.active,
@@ -112,6 +114,7 @@
     color: var(--btn-primary-color) !important;
     padding-top: 10px;
     padding-bottom: 10px;
+    width: var(--button-width);
 
     &:hover,
     &:active,

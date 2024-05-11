@@ -5,7 +5,7 @@ layout: green-home
 toc: false
 ---
 
-# Welcome to the Green software package
+## Welcome to the Green software package
 
 Green is a software framework for the simulation of realistic materials with Green's function methods. Green implements many-body methods including self-energy embedding, self-consistent GW, and second-order perturbation theory for solids and molecules. Green also provides a suite of post-processing and analysis tools.
 

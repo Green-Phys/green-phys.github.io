@@ -31,6 +31,8 @@ markup:
     noClasses: false
 
 params:
+  description: "Many-body framework for real materials simulation"
+  headTitle: "Green - Green's Function Based Ab Initio Sumulation Package"
   theme:
     # light | dark | system
     default: system

@@ -80,7 +80,7 @@
     background-color: var(--btn-primary-bg) !important;
     border: 2px solid hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
     border-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity));
-    color: hsl(var(--primary-hue) var(--primary-saturation) 30% / var(--tw-bg-opacity)) !important;
+    color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
     padding-top: 10px;
     padding-bottom: 10px;
     width: var(--button-width);

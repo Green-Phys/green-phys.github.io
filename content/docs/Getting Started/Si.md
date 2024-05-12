@@ -1,6 +1,7 @@
 ---
 title: Minimal example for running Silicon
-linkTitle: Minimal example for Silicon
+description: Example to compute bandstructure of Silicon
+linkTitle: Example for Silicon
 weight: 6
 icon: silicon
 prev: "/docs/Getting\ Started/weak"

@@ -1,8 +1,8 @@
 ---
 title: Getting Started
 linkTitle: Getting Started
-next: "/docs/Getting\ Started/weak"
-prev: "/docs"
+next: "/docs/getting-started/weak"
+prev: "/docs/installation"
 weight: 3
 icon: rocket-launch
 ---

@@ -1,4 +1,4 @@
 ---
 title: Solvers
-weight: 10
+weight: 5
 ---

@@ -1,4 +1,4 @@
 ---
 title: Many-Body Framework
-weight: 3
+weight: 2
 ---

@@ -1,6 +1,7 @@
 ---
 title: Tutorials
-weight: 4
+weight: 5
 icon: academic-cap
-prev: "/docs"
+prev: "/docs/components"
+next: "/docs/developers"
 ---

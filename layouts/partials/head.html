@@ -30,6 +30,8 @@
 
   {{ partialCached "head-css.html" . }}
 
+  <!-- yandex -->
+  <meta name="yandex-verification" content="7020fef5fe1861c0" />
 
   <!-- Google Analytics -->
   {{- if and (eq hugo.Environment "production") (or .Site.GoogleAnalytics .Site.Config.Services.GoogleAnalytics.ID) }}

@@ -11,7 +11,7 @@ next: "/docs/installation/from_sources"
   {{< hextra/feature-card
     title="Installation From Sources"
     subtitle="Installation instruction to install Green codes on generic Linux/Mac machines"
-    link="installation"
+    link="from_sources"
   >}}
   {{< hextra/feature-card
     title="Install Packaged Versions"

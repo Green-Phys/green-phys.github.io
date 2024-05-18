@@ -18,7 +18,7 @@ icon: user-group
 
 ## Team members
 
-{{<person name="Vibin Abraham" />}}
+{{<person name="Vibin Abraham" head="/headshots/avibin.jpg" />}}
 
 {{<person name="Jacob Adamski" head="/headshots/adamskij.jpg" />}}
 

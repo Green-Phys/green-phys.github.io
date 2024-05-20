@@ -1,5 +1,6 @@
 ---
 title: Embedding Theory
 linkTitle: Embedding Theory
-weight: 3
+weight: 4
+hidden: true
 ---

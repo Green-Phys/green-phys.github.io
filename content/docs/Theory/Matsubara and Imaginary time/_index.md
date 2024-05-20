@@ -1,6 +1,7 @@
 ---
 title: Matsubara and Imaginary time
 weight: 11
+hidden: true
 ---
 
 -   The [Chebyshev Basis Set](/docs/theory/matsubara-and-imaginary-time/chebyshev_basis_set "wikilink")

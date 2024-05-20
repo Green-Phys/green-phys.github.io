@@ -2,6 +2,7 @@
 title: Legacy Documentation
 weight: 10
 icon: folder-remove
+hidden: true
 ---
 
 ## Introductory Guidelines

@@ -1,7 +1,7 @@
 ---
 title: Theory
 linkTitle: Theory
-icon: auto-story
+icon: auto_stories
 weight: 1
 next: "/docs/installation"
 ---

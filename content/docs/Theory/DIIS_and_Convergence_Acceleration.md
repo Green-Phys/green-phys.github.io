@@ -3,7 +3,7 @@ title: DIIS and Convergence Acceleration
 linkTitle: Convergence Acceleration
 permalink: /DIIS_and_Convergence_Acceleration/
 math: true
-weight: 5
+weight: 6
 ---
 
 ## Iterative procedure

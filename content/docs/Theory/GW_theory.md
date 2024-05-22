@@ -1,5 +1,5 @@
 ---
 title: GW Background and Theory
 linkTitle: GW approximation
-weight: 1
+weight: 3
 ---

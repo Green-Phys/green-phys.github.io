@@ -1,0 +1,13 @@
+{{/* Render raw svg icon from .Site.Data */}}
+{{- $icon := index site.Data.icons .name -}}
+
+{{- if not $icon -}}
+  {{- $icon = (printf "<span class='material-icons'>%s</span>" .name) -}}
+{{- else -}}
+  {{- $icon = $icon | safeHTML -}}
+{{- end -}}
+
+{{- if .attributes -}}
+  {{- $icon = replaceRE "<svg" (printf "<svg %s" .attributes) $icon -}}
+{{- end -}}
+{{- return ($icon | safeHTML) -}}

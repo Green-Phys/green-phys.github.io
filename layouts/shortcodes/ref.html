@@ -1,0 +1,5 @@
+{{- if .Get "label" -}}
+  {{- $label := (.Get "label") -}}
+  {{- $num := (.Page.Scratch.Get $label) -}}
+{{ $num }}
+{{- end -}}

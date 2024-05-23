@@ -39,11 +39,11 @@ If the correlated self-energy is neglected, the solution will correspond to Hart
 Different approximations to the correlated self-energy can then be applied to get the desired level of approximation that will be discussed in next sections.
 
 [^SzaboOstlund]: Attila Szabo and Neil S. Ostlund, [Modern Quantum Chemistry: Introduction to Advanced Electronic Structure Theory](https://store.doverpublications.com/products/9780486691862).
-[^Mahan]: Gerald D. Mahan, [Many-Particle Physics]().
-[^Coleman]: Piers Coleman, [Introduction to Many-Body Physics]().
-[^NegeleOrland]: John Negele and Henri Orland, [Quantum Many-Particle Systems]().
-[^KadanoffBaym]: Leo P. Kadanoff and Gordon Baym, [Quantum Statistical Mechanics]().
-[^AbrikosovGorkovDzyaloshinski]: A.A. Abrikosov, L.P. Gorkov, I.E. Dzyaloshinski, [Methods of Quantum Field Theory in Statistical Physics]().
+[^Mahan]: Gerald D. Mahan, [Many-Particle Physics](https://link.springer.com/book/10.1007/978-1-4757-5714-9).
+[^Coleman]: Piers Coleman, [Introduction to Many-Body Physics](https://www.cambridge.org/core/books/introduction-to-manybody-physics/B7598FC1FCEE0285F5EC767E835854C8).
+[^NegeleOrland]: John Negele and Henri Orland, [Quantum Many-Particle Systems](https://www.amazon.com/Quantum-Many-particle-Systems-Frontiers-Physics/dp/0738200522).
+[^KadanoffBaym]: Leo P. Kadanoff and Gordon Baym, [Quantum Statistical Mechanics](https://www.taylorfrancis.com/books/mono/10.1201/9780429493218/quantum-statistical-mechanics-leo-kadanoff).
+[^AbrikosovGorkovDzyaloshinski]: A.A. Abrikosov, L.P. Gorkov, I.E. Dzyaloshinski, [Methods of Quantum Field Theory in Statistical Physics](https://books.google.com/books/about/Methods_of_Quantum_Field_Theory_in_Stati.html).
 [^madelung]: Otfried Madelung, [Introduction to Solid-State Theory](https://doi.org/10.1007/978-3-642-61885-7)
 [^luttinger]: J. M. Luttinger and J. C. Ward,  [Ground-State Energy of a Many-Fermion System. II](https://doi.org/10.1103/PhysRev.118.1417)
 [^hartreefock]: G. D. Mahan, [Many-Particle Physics](https://doi.org/10.1007/978-1-4757-5714-9)

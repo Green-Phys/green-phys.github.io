@@ -35,6 +35,6 @@ $$
 Green also provides an implementation of the GW approximation with exact two-component formalism with one-electron approximation (X2C-1e) for solving relativistic problems, such as those with spin-orbit coupling.[^rel]
 
 [^Hedin]: L. Hedin, [Phys. Rev. 139, A796 (1965)](https://doi.org/10.1103/PhysRev.139.A796)
-[^BaymKadanoff]: [Phys. Rev. 124, 287 (1961)](https://journals.aps.org/pr/abstract/10.1103/PhysRev.124.287)
+[^BaymKadanoff]: Gordon Baym and Leo P. Kadanoff, [Phys. Rev. 124, 287 (1961)](https://journals.aps.org/pr/abstract/10.1103/PhysRev.124.287)
 [^Bloch]: C. Yeh, S. Iskakov, D. Zgid, and E. Gull [Phys. Rev. B 106, 235104](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.235104)
 [^rel]: C. Yeh, A. Shee, Q. Sun, E. Gull, and D. Zgid [Phys. Rev. B 106, 085121](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.085121)

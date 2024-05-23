@@ -3,7 +3,6 @@ title: GW Background and Theory
 linkTitle: GW approximation
 weight: 3
 math: true
-katex: true
 ---
 
 In $GW$ approximation, the correlated self-energy is approximated as the sum of an infinite series of RPA-like `bubble' diagrams [^hedin]. 

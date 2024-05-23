@@ -6,7 +6,10 @@ weight: 1
 ---
 
 
-The main objective for Green Software Package is provide an accurate numerical simulation of realistic quantum systems of interacting electrons beyond density functional theory.
+The Green Software Package aims to provide tools for the accurate numerical simulation of realistic quantum systems of interacting electrons with Green's function techniques.
+
+An introduction to the theory of Green's functions and the numerical implementation of Green's function methods is available in textbooks and review articles. The following is a small overview of textbooks that we found useful. An elementary introduction to electronic structure techniques is given by [^SzaboOstlund]. For a first view of diagrammatic Green's function methods the book by [^Mattuck] gives a good first exposition. More extensive derivation can be found in the condensed matter field theory textbooks of [^Mahan], [^Coleman], and [^NegeleOrland], and [^KadanoffBaym] as well as [^AbrikosovGorkovDzyaloshinski] give expert information.
+
 The interactive quantum electron system can usually be described by a Hamiltonian 
 
 $$
@@ -35,7 +38,12 @@ where $\Sigma^\infty_{ij}$ corresponds to a static part of the self-energy, and 
 If the correlated self-energy is neglected, the solution will correspond to Hartree-Fock approximation [^hartreefock].
 Different approximations to the correlated self-energy can then be applied to get the desired level of approximation that will be discussed in next sections.
 
-
+[^SzaboOstlund]: Attila Szabo and Neil S. Ostlund, [Modern Quantum Chemistry: Introduction to Advanced Electronic Structure Theory](https://store.doverpublications.com/products/9780486691862).
+[^Mahan]: Gerald D. Mahan, [Many-Particle Physics]().
+[^Coleman]: Piers Coleman, [Introduction to Many-Body Physics]().
+[^NegeleOrland]: John Negele and Henri Orland, [Quantum Many-Particle Systems]().
+[^KadanoffBaym]: Leo P. Kadanoff and Gordon Baym, [Quantum Statistical Mechanics]().
+[^AbrikosovGorkovDzyaloshinski]: A.A. Abrikosov, L.P. Gorkov, I.E. Dzyaloshinski, [Methods of Quantum Field Theory in Statistical Physics]().
 [^madelung]: Otfried Madelung, [Introduction to Solid-State Theory](https://doi.org/10.1007/978-3-642-61885-7)
 [^luttinger]: J. M. Luttinger and J. C. Ward,  [Ground-State Energy of a Many-Fermion System. II](https://doi.org/10.1103/PhysRev.118.1417)
 [^hartreefock]: G. D. Mahan, [Many-Particle Physics](https://doi.org/10.1007/978-1-4757-5714-9)

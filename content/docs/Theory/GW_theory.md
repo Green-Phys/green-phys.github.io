@@ -27,5 +27,5 @@ $$
 \mathit{\Pi^{\bf{k}_{1}\bf{k}_{2}\bf{k}_{3}\bf{k}_{4}}_{\ a\ b \ c\  \ d}(\tau)} = \sum_{\sigma}G^{\bf{k}_{1}}_{d\sigma,a\sigma}(\tau)G^{\bf{k}_{2}}_{b\sigma ,c\sigma}(-\tau)\delta_{\bf{k}_{1}\bf{k}_{4}}\delta_{\bf{k}_{2}\bf{k}_{3}}. 
 \end{aligned}
 $$
-
+[gw](/theory/bubble.png)
 [^hedin]: L. Hedin, [Phys. Rev. 139, A796 (1965)](https://doi.org/10.1103/PhysRev.139.A796)

@@ -5,8 +5,8 @@ weight: 2
 math: true
 katex: true
 ---
-Self-consistent second order perturbation theory is a
-conserving diagrammatic approximation with nonzero contribution to the correlated self-energy. It is also known as Second Order Born. The method has been introduced to molecules in modern times by Holleboom and Snijders [^holleboom]. Generally it is considered accurate whenever gaps are large and interactions are weak but is known to fail for metals. Unlike GW, it contains a second-order exchagne term but does not include higher order screening contributions.
+Self-consistent second-order perturbation theory is a
+conserving diagrammatic approximation with nonzero contribution to the correlated self-energy. It is also known as Second Order Born. The method has been introduced to molecules in modern times by Holleboom and Snijders [^holleboom]. Generally, it is considered accurate whenever gaps are large and interactions are weak but is known to fail for metals. Unlike GW, it contains a second-order exchange term but does not include higher-order screening contributions.
 
 The second-order contribution to the self-energy in imaginary time and momentum space is[^rusakov]
 {{< raw >}}

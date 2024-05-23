@@ -15,14 +15,13 @@ $$
 where $\tilde{W}$ is the effective screened interaction tensor, defined as the difference between the full dynamically screened interaction $W$ and the bare interaction $\boldsymbol{U}$, i.e. $\tilde{W} = W - U$. 
 Here and following, the indices $\set{i,j, k, l, a, b}$ are orbital indices, $\set{k,q}$ are crystal momentum, and $N_{k}$ is the number of momentum considered for a finite cluster.
 In the $GW$ approximation, the screened interaction $W$ is expressed in the frequency space as [^hedin]
-{{< raw >}}
 $$
 \begin{aligned}
 &W^{\mathbf{k}_{1}\mathbf{k}_{2}\mathbf{k}_{3}\mathbf{k}_{4}}_{\ i\ \ j \ k\  \ l}(i\Omega_{n}) = U^{\mathbf{k}_{1}\mathbf{k}_{2}\mathbf{k}_{3}\mathbf{k}_{4}}_{\ i\ \ j \ k\  \ l}\nonumber\\
 &+\frac{1}{N_{k}}\sum_{\mathbf{k}_{5}\mathbf{k}_{6}\mathbf{k}_{7}\mathbf{k}_{8}}\sum_{abcd}U^{\mathbf{k}_{1}\mathbf{k}_{2}\mathbf{k}_{5}\mathbf{k}_{6}}_{\ i\ \ j \ a\  \ b} \mathit{\Pi}^{\mathbf{k}_{5}\mathbf{k}_{6}\mathbf{k}_{7}\mathbf{k}_{8}}_{\ a\ b \ c\  \ d}(i\Omega_{n})W^{\mathbf{k}_{7}\mathbf{k}_{8}\mathbf{k}_{3}\mathbf{k}_{4}}_{\ c\ d \ \ k\  \ l}(i\Omega_{n})
 \end{aligned}
 $$
-{{< raw >}}
+
 where $\boldsymbol{\mathit{\Pi}}$ is the non-interacting polarization function 
 
 $$

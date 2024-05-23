@@ -8,7 +8,10 @@ weight: 1
 
 The Green Software Package aims to provide tools for the accurate numerical simulation of realistic quantum systems of interacting electrons with Green's function techniques.
 
-An introduction to the theory of Green's functions and the numerical implementation of Green's function methods is available in textbooks and review articles. The following is a small overview of textbooks that we found useful. An elementary introduction to electronic structure techniques is given by [^SzaboOstlund]. A good first view of diagrammatic Green's function methods is presented in [^Mattuck]. More extensive derivation can be found in the condensed matter field theory textbooks of [^Mahan], [^Coleman], and [^NegeleOrland], and [^KadanoffBaym] as well as [^AbrikosovGorkovDzyaloshinski] give expert information. For mathematical and non-equilibrium aspects, [^Stefanucci] is useful.
+An introduction to the theory of Green's functions and the numerical implementation of Green's function methods is available in textbooks and review articles. The following
+is a small overview of textbooks that we found useful. An elementary introduction to electronic structure techniques is given by [^SzaboOstlund]. A good first view of diagrammatic
+Green's function methods is presented in [^Mattuck]. More extensive derivation can be found in the condensed matter field theory textbooks of [^Mahan], [^Coleman], and [^NegeleOrland],
+and [^KadanoffBaym] as well as [^AbrikosovGorkovDzyaloshinski] give expert information. For mathematical and non-equilibrium aspects, [^Stefanucci] is useful.
 
 Most of Green considers a variant of the following problem: Find the properties of an interacting quantum system described by a Hamiltonian  of the form
 $$
@@ -37,7 +40,8 @@ Here $\Sigma^\infty_{ij}$ corresponds to a static, i.e. time- or frequency-indep
 
 The solution of Hartree-Fock equations leads only to a static self-energy and can be understood asd the lowest-order approximation of diagrammatic perturbation theory. Higher order approximations yield dynamical self-energies in addition. Both GW and GF2 are such higher order approximations.
 
-[^SzaboOstlund]: Attila Szabo and Neil S. Ostlund, [Modern Quantum Chemistry: Introduction to Advanced Electronic Structure Theory](https://store.doverpublications.com/products/9780486691862).
+[^SzaboOstlund]: Attila Szabo and Neil S. Ostlund, [Modern Quantum Chemistry: Introduction to Advanced Electronic Structure Theory](https://store.doverpublications.com/products/9780486691862)
+[^Mattuck]: Richard D. Mattuck, [A Guide to Feynman Diagrams in the Many-Body Problem](https://store.doverpublications.com/products/9780486670478)
 [^Mahan]: Gerald D. Mahan, [Many-Particle Physics](https://link.springer.com/book/10.1007/978-1-4757-5714-9).
 [^Coleman]: Piers Coleman, [Introduction to Many-Body Physics](https://www.cambridge.org/core/books/introduction-to-manybody-physics/B7598FC1FCEE0285F5EC767E835854C8).
 [^NegeleOrland]: John Negele and Henri Orland, [Quantum Many-Particle Systems](https://www.amazon.com/Quantum-Many-particle-Systems-Frontiers-Physics/dp/0738200522).

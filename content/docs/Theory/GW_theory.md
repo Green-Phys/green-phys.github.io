@@ -1,12 +1,14 @@
 ---
-title: GW Background and Theory
+title: The GW Approximation
 linkTitle: GW approximation
 math: true
 weight: 3
 ---
 
+In Green, the $GW$ approximation implemented is the fully self-consistent $GW$ approximation that implements Hedin's [^Hedin] GW approximation with its full frequency dependence and self-consistency on the imaginary axis, making the solution thermodynamically consistent and conserving.[^BaymKadanoff] Note that there are several variants of the $GW$ approximation that correspond to different equations and additional approximations, including non-selfconsistent, partially self-consistent, quasiparticle approximated and quasiparticle self-consistent variants.
 
-In $GW$ approximation [^bloch], the correlated self-energy is approximated as the sum of an infinite series of RPA-like `bubble' diagrams [^hedin]. 
+In the $GW$ approximation [^Hedin], the correlated self-energy is approximated as the sum of an infinite series of RPA-like `bubble' diagrams. Implementation details of the code in Green are provided in our implementation paper.[^Bloch]
+
 On the imaginary-time axis, ${(\Sigma^{GW})}^{\bf{k}}(\tau)$ reads 
 {{< raw >}}
 $$
@@ -15,7 +17,7 @@ $$
 {{< /raw >}}
 where $\tilde{W}$ is the effective screened interaction tensor, defined as the difference between the full dynamically screened interaction $W$ and the bare interaction $\boldsymbol{U}$, i.e. $\tilde{W} = W - U$. 
 Here and following, the indices $\set{i,j, k, l, a, b}$ are orbital indices, $\set{k,q}$ are crystal momentum, and $N_{k}$ is the number of momentum considered for a finite cluster.
-In the $GW$ approximation, the screened interaction $W$ is expressed in the frequency space as [^hedin]
+In the $GW$ approximation, the screened interaction $W$ is expressed in the frequency space as [^Hedin]
 {{< raw >}}
 $$
 \begin{aligned}
@@ -30,8 +32,9 @@ $$
 \mathit{\Pi^{\mathbf{k}_{1}\mathbf{k}_{2}\mathbf{k}_{3}\mathbf{k}_{4}}_{\ a\ b \ c\  \ d}(\tau)} = \sum_{\sigma}G^{\mathbf{k}_{1}}_{d\sigma,a\sigma}(\tau)G^{\mathbf{k}_{2}}_{b\sigma ,c\sigma}(-\tau)\delta_{\mathbf{k}_{1}\mathbf{k}_{4}}\delta_{\mathbf{k}_{2}\mathbf{k}_{3}}. 
 $$
 {{< /raw >}}
-There is also an impllimentation of the GW approximation with exact two-component formalism with one-electron approximation (X2C-1e) for solving a relativistic case [^rel]
+Green also provides an implementation of the GW approximation with exact two-component formalism with one-electron approximation (X2C-1e) for solving relativistic problems, such as those with spin-orbit coupling.[^rel]
 
-[^hedin]: L. Hedin, [Phys. Rev. 139, A796 (1965)](https://doi.org/10.1103/PhysRev.139.A796)
-[^bloch]: C. Yeh, S. Iskakov, D. Zgid, and E. Gull [Phys. Rev. B 106, 235104](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.235104)
+[^Hedin]: L. Hedin, [Phys. Rev. 139, A796 (1965)](https://doi.org/10.1103/PhysRev.139.A796)
+[^BaymKadanoff]: [Phys. Rev. 124, 287 (1961)](https://journals.aps.org/pr/abstract/10.1103/PhysRev.124.287)
+[^Bloch]: C. Yeh, S. Iskakov, D. Zgid, and E. Gull [Phys. Rev. B 106, 235104](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.235104)
 [^rel]: C. Yeh, A. Shee, Q. Sun, E. Gull, and D. Zgid [Phys. Rev. B 106, 085121](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.085121)

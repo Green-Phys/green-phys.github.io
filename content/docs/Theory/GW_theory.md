@@ -32,7 +32,6 @@ $$
 {{< /raw >}}
 There is also an impllimentation of the GW approximation with exact two-component formalism with one-electron approximation (X2C-1e) for solving a relativistic case [^rel]
 
-![gw](/theory/bubbles.png)
 [^hedin]: L. Hedin, [Phys. Rev. 139, A796 (1965)](https://doi.org/10.1103/PhysRev.139.A796)
 [^bloch]: C. Yeh, S. Iskakov, D. Zgid, and E. Gull [Phys. Rev. B 106, 235104](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.235104)
 [^rel]: C. Yeh, A. Shee, Q. Sun, E. Gull, and D. Zgid [Phys. Rev. B 106, 085121](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.085121)

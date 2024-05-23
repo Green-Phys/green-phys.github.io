@@ -93,4 +93,4 @@ $$
 [^Dahlen06]: Nils Erik Dahlen et al., [Variational energy functionals of the Green function and of the density tested on molecules](https://doi.org/10.1103/PhysRevA.73.012511)
 [^galitskii]: B. Holm and F. Aryasetiawan, [Total energy from the Galitskii-Migdal formula using realistic spectral functions](https://doi.org/10.1103/PhysRevB.62.4858)
 [^iskakov]: S. Iskakov, A. A. Rusakov, D. Zgid, and E. Gull, [Effect of propagator renormalization on the band gap of insulating solids](https://doi.org/10.1103/PhysRevB.100.085112)
-[^yeh]: C.-N. Yeh, S. Iskakov, D. Zgid, and E. Gull [Fully self-consistent finite-temperature ðºâð‘Š in Gaussian Bloch orbitals for solids](https://doi.org/10.1103/PhysRevB.106.235104)
+[^yeh]: C.-N. Yeh, S. Iskakov, D. Zgid, and E. Gull [Fully self-consistent finite-temperature GW in Gaussian Bloch orbitals for solids](https://doi.org/10.1103/PhysRevB.106.235104)

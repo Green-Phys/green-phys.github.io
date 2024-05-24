@@ -28,7 +28,7 @@ $U^{\mathbf{k}\mathbf{k_1}\mathbf{k_2}\mathbf{k_3}}_{ijkl}$
 is the Coloumb interaction
 tensor, and $\delta_{\mathbf{k}+\mathbf{k_3},\mathbf{k_1}+\mathbf{k_2} }$ guarantees the momentum conservation.
 
-Implementation details for Green's software are given in this [^rusakov] paper.
+Implementation details for Green's software are given in this [^BandGapPaper] paper.
 
 
 

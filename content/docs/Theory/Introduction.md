@@ -19,7 +19,7 @@ $$
 H &= \sum_{ij,\sigma} H^0_{ij} c^\dagger_{i\sigma}c_{j\sigma} + \frac{1}{2} \sum_{ijkl,\sigma\sigma'} U_{ijkl} c^\dagger_{i\sigma} c^\dagger_{k\sigma'} c_{l\sigma'}c_{j\sigma}.
 \end{aligned}
 $$
-Here, the indices $i,j,k,l$ may correspond indices of atomic orbitals or to a combination of lattice site indices and atomic orbitals.[^SzaboOstlund] The one-body
+Here, the indices $i,j,k,l$ may correspond to indices of atomic orbitals or to a combination of lattice site indices and atomic orbitals.[^SzaboOstlund] The one-body
 Hamiltonian $H^0_{ij}$, in the simplest case, is defined as
 $$
 H^0_{ij} = \int d\mathbf{x} \psi^\dagger_i(\mathbf{x})  \left(-\frac{\hbar^2}{2m} \nabla^2_x  - V_{ext} (\mathbf{x})\right)  \psi_j(\mathbf{x}),

@@ -19,13 +19,13 @@ $$
 H &= \sum_{ij,\sigma} H^0_{ij} c^\dagger_{i\sigma}c_{j\sigma} + \frac{1}{2} \sum_{ijkl,\sigma\sigma'} U_{ijkl} c^\dagger_{i\sigma} c^\dagger_{k\sigma'} c_{l\sigma'}c_{j\sigma}.
 \end{aligned}
 $$
-Here, the indices $i,j,k,l$ may correspond to indices of atomic orbials or to a combination of lattice site indices and atomic orbitals.[^SzaboOstlund] The one-body
+Here, the indices $i,j,k,l$ may correspond to indices of atomic orbitals or to a combination of lattice site indices and atomic orbitals.[^SzaboOstlund] The one-body
 Hamiltonian $H^0_{ij}$, in the simplest case, is defined as
 $$
 H^0_{ij} = \int d\mathbf{x} \psi^\dagger_i(\mathbf{x})  \left(-\frac{\hbar^2}{2m} \nabla^2_x  - V_{ext} (\mathbf{x})\right)  \psi_j(\mathbf{x}),
 $$
 and describes the motion of electrons in the field of an external potential $V_{ext}(\mathbf{x})$.
-The electron-electron Coloumb repulsion is 
+The electron-electron Coulomb repulsion is 
 $$
 U_{ijkl} = \int d\mathbf{x_1}d\mathbf{x_2} \psi^\dagger_i(\mathbf{x_1}) \psi_j(\mathbf{x_1}) \frac{1}{|\mathbf{x_1} - \mathbf{x_2} |} \psi^\dagger_k(\mathbf{x_2}) \psi_l(\mathbf{x_2}).
 $$
@@ -38,7 +38,7 @@ $$
 $$
 Here $\Sigma^\infty_{ij}$ corresponds to a static, i.e. time- or frequency-independent component of the self-energy, and the dynamical part $\Sigma^c_{ij}(\tau)$ encapsulates the time dependence (the notation $\Sigma^\infty_{ij}$ refers to the infinite frequency limit of the self-energy).
 
-The solution of Hartree-Fock equations leads only to a static self-energy and can be understood asd the lowest-order approximation of diagrammatic perturbation theory. Higher order approximations yield dynamical self-energies in addition. Both GW and GF2 are such higher order approximations.
+The solution of Hartree-Fock equations leads only to a static self-energy and can be understood as the lowest-order approximation of diagrammatic perturbation theory. Higher order approximations yield dynamical self-energies in addition. Both GW and GF2 are such higher order approximations.
 
 [^SzaboOstlund]: Attila Szabo and Neil S. Ostlund, [Modern Quantum Chemistry: Introduction to Advanced Electronic Structure Theory](https://store.doverpublications.com/products/9780486691862)
 [^Mattuck]: Richard D. Mattuck, [A Guide to Feynman Diagrams in the Many-Body Problem](https://store.doverpublications.com/products/9780486670478)

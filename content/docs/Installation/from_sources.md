@@ -63,7 +63,7 @@ If you have a non-standard installation location of the dependent packages insta
 After successfully building the code, you will need to install it. The install location is either specified with -DCMAKE_INSTALL_PREFIX=/path/to/install/directory as a cmake command during configuration or can be edited in CMakeCache.txt after compilation (see [cmake manual](https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html)).
 
   ```ShellSession
-  $ cmake install
+  $ make install
   ```
 Your install directory will be created; if everything was successful you can find the executable mbpt.exe under the bin directory of your installation path.
 

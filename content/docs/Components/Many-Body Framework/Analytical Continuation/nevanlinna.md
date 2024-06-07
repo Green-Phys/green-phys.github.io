@@ -1,5 +1,6 @@
 ---
 title: Analytic Continuation – Nevanlinna method
+linkTitle: Nevanlinna method
 permalink: /Analytic_Continuation_–_Nevanlinna_method/
 weight: 7
 ---

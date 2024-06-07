@@ -1,6 +1,6 @@
 ---
-title: Postprocessing
-linkTitle: Postprocessing
+title: Post-processing
+linkTitle: Post-processing
 weight : 3
 ---
 

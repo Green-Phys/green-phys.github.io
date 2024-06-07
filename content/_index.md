@@ -37,7 +37,7 @@ Green is a software framework for the simulation of realistic materials with Gre
   >}}
   {{< hextra/feature-card
     title="Grids"
-    subtitle="Compact Chebyshev/IR representaion for imaginary time formalism."
+    subtitle="Compact Chebyshev/IR representaion for imaginary time formalism"
   >}}
   {{< hextra/feature-card
     title="Integrals"

@@ -1,8 +1,9 @@
 ---
 title: Lattice Parameters and Geometries
+linkTitle: Lattice Parameters
 weight : 1
 math: true
-next: "/docs/Tutorials/Tutorial_DIIS"
+next: "/docs/Tutorials/DIIS"
 ---
 
 ## Getting the lattice parameters

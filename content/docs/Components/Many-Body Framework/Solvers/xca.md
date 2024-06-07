@@ -1,5 +1,6 @@
 ---
 title: The Non-Crossing and One-Crossing solvers
+linkTitle: x-CA
 permalink: /The_Non-Crossing_and_One-Crossing_solvers/
 ---
 

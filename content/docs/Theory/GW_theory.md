@@ -3,6 +3,7 @@ title: The GW Approximation
 linkTitle: GW approximation
 math: true
 weight: 3
+next: "/docs/theory/postprocessing"
 ---
 
 In Green, the $GW$ approximation implemented is the fully self-consistent $GW$ approximation that implements Hedin's [^Hedin] GW approximation with its full frequency dependence and self-consistency on the imaginary axis, making the solution thermodynamically consistent and conserving.[^BaymKadanoff] Note that there are several variants of the $GW$ approximation that correspond to different equations and additional approximations, including non-selfconsistent, partially self-consistent, quasiparticle approximated and quasiparticle self-consistent variants.

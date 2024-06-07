@@ -1,5 +1,6 @@
 ---
 title: Analytic Continuation – Prony method
+linkTitle: Prony method
 permalink: /Analytic_Continuation_–_Prony_method/
 weight: 8
 ---

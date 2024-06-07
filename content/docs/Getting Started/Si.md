@@ -4,8 +4,8 @@ description: Example to compute bandstructure of Silicon
 linkTitle: Example for Silicon
 weight: 6
 icon: silicon
-prev: "/docs/Getting\ Started/weak"
-next: "/docs/Getting\ Started/lattice"
+prev: "/docs/getting-started/postprocessing"
+next: "/docs/components"
 ---
 
 
@@ -41,9 +41,9 @@ After that we will run the `GW` approximation
 {{< tab >}}
 
 ```
-<install dir>/bin/mbpt.exe --scf_type=GW --BETA 100       \
-  --grid_file ir/1e4.h5 --itermax 20 --results_file Si.h5 \
-  --mixing_type CDIIS --diis_start 2 --diis_size 5        \
+<install dir>/bin/mbpt.exe --scf_type=GW --BETA 100              \
+  --grid_file ir/1e4.h5 --itermax 20 --results_file Si.h5        \
+  --mixing_type CDIIS --diis_start 2 --diis_size 5 --damping 0.3 \
   --high_symmetry_output_file Si_hs.h5 --jobs SC,WINTER
 ```
 
@@ -54,10 +54,10 @@ Here we run the self-consistent `GW` approximation at inverse temperature $ \bet
 {{< tab >}}
 
 ```
-<install dir>/bin/mbpt.exe --scf_type=GW --BETA 100       \
-  --grid_file ir/1e4.h5 --itermax 20 --results_file Si.h5 \
-  --mixing_type CDIIS --diis_start 2 --diis_size 5        \
-  --high_symmetry_output_file Si_hs.h5 --jobs SC,WINTER   \
+<install dir>/bin/mbpt.exe --scf_type=GW --BETA 100                  \
+  --grid_file ir/1e4.h5 --itermax 20 --results_file Si.h5            \
+  --mixing_type CDIIS --diis_start 2 --diis_size 5 --damping 0.3     \
+  --high_symmetry_output_file Si_hs.h5 --jobs SC,WINTER              \
   --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true \
   --Sigma_sp=true --P_sp=true
 ```

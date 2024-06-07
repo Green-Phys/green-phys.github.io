@@ -4,7 +4,7 @@ linkTitle: Installation
 weight: 2
 icon: cog
 prev: "/docs/theory"
-next: "/docs/installation/from_sources"
+next: "/docs/getting-started"
 ---
 
 {{< hextra/feature-grid maxcolumns="2" >}}

@@ -3,6 +3,7 @@ title:
 linkTitle: Main Developers
 weight: 6
 icon: user-group
+prev: "/docs/tutorials"
 ---
 
 

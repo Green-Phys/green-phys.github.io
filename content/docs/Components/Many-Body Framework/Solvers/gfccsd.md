@@ -1,5 +1,6 @@
 ---
 title: Coupled Clusters Solvers
+linkTitle: GFCCSD
 permalink: /Coupled_Clusters_Solvers/
 ---
 

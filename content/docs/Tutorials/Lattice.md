@@ -104,15 +104,17 @@ collection of useful tools for doing solid state simulations. You can
 obtain the information used above directly from the ASE crystal
 environment, using a modification of the following script. Replace the
 unit cell parameters and atom positions with the information you find in
-the materialsproject or karlsruhe databases.
+the materialsproject or karlsruhe databases. Make sure you enter the parameters for the conventional unit cell;
+the script will then generate the parameters for the primitive or conventional cell.
+Here is an example for LiH (materials project compound mp-23703)
 
 ```python
 import numpy as np
 from ase.spacegroup import crystal
 from ase.spacegroup import Spacegroup
 
-# Unit cell parameters
-a, b, c = 4.0834, 4.0834, 4.0834
+# Unit cell parameters of conventional cell
+a, b, c = 4.02,4.02,4.02
 alpha, beta, gamma = 90, 90, 90
 group = 225
 
@@ -123,7 +125,7 @@ b) bases should be given in units of a, b, c
 '''
 
 cc = crystal(symbols=['Li','H'],
-             basis=[(0.0, 0.0, 0.0),(0.5, 0.5, 0.5)],
+             basis=[(0.0, 0.0, 0.0),(0, 0, 0.5)],
              spacegroup=group,
              cellpar=[a, b, c, alpha, beta, gamma], primitive_cell=True)
 

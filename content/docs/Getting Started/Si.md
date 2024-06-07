@@ -42,11 +42,12 @@ After that we will run the `GW` approximation
 
 ```
 <install dir>/bin/mbpt.exe --scf_type=GW --BETA 100       \
-  --grid_file ir/1e4.h5 --itermax 10 --results_file Si.h5 \
+  --grid_file ir/1e4.h5 --itermax 20 --results_file Si.h5 \
+  --mixing_type CDIIS --diis_start 2 --diis_size 5        \
   --high_symmetry_output_file Si_hs.h5 --jobs SC,WINTER
 ```
 
-Here we run the self-consistent `GW` approximation at inverse temperature $ \beta=100 $, we use an `IR` nonuniform grid for $ \Lambda = 10^4 $ and run for 10 iterations.
+Here we run the self-consistent `GW` approximation at inverse temperature $ \beta=100 $, we use an `IR` nonuniform grid for $ \Lambda = 10^4 $ and run for no more than 20 iterations.
 
 {{< /tab >}}
 
@@ -54,13 +55,14 @@ Here we run the self-consistent `GW` approximation at inverse temperature $ \bet
 
 ```
 <install dir>/bin/mbpt.exe --scf_type=GW --BETA 100       \
-  --grid_file ir/1e4.h5 --itermax 10 --results_file Si.h5 \
+  --grid_file ir/1e4.h5 --itermax 20 --results_file Si.h5 \
+  --mixing_type CDIIS --diis_start 2 --diis_size 5        \
   --high_symmetry_output_file Si_hs.h5 --jobs SC,WINTER   \
   --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true \
-  --Sigma_sp true --P_sp true
+  --Sigma_sp=true --P_sp=true
 ```
 
-Here we run the self-consistent `GW` approximation at inverse temperature $ \beta=100 $, we use an `IR` nonuniform grid for $ \Lambda = 10^4 $ and run for 10 iterations.
+Here we run the self-consistent `GW` approximation at inverse temperature $ \beta=100 $, we use an `IR` nonuniform grid for $ \Lambda = 10^4 $ and run for more than 20 iterations.
 
 We set value for `--kernel` to `GPU` to run `CUDA` implementation. We set both CPU (`--cuda_low_cpu_memory true`) and GPU (`--cuda_low_gpu_memory true`) memory to low to avoid excessive memory allocation.
 
@@ -89,7 +91,7 @@ To obtain the spectral function for silicon run
    --e_min -5.0 --e_max 5.0 --n_omega 4000 --eta 0.01 \
    --kind Nevanlinna
 ```
-This will run Nevanlinna analytical continuation for the data obtained at the `10`-th iteration for all `k`-points. The output will be stored in the group
+This will run Nevanlinna analytical continuation for the data obtained at the last iteration for all `k`-points. The output will be stored in the group
 `G_tau_hs` of the output `HDF5` file `ac.h5`.
 
 A plot for the band structure can then be obtained with the `plot_bands.py` script:

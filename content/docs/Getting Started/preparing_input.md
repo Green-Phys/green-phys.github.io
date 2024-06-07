@@ -5,13 +5,13 @@ weight : 1
 ---
 
 The first step of any simulations with `Green` is the preparation of the input data, which includes the calculation of the Coulomb and one-body integrals as well as a starting density matrix out of geometry, atom, k-point, and basis information.
-Currently  we use an interface with [PySCF](https://pyscf.org/) to prepare input data.
-If your python installation does not have pyscf available (type `python` and, in the python prompt, `import pyscf`), you will need to follow the instructions at [PySCF](https://pyscf.org/) or execute `pip install pyscf`. Similarly, since `init_data_df.py` 
-depends on the [numba](https://numba.pydata.org/) module, you may need to install it as `pip install numba`.
+`Green` provides a convenient `python` package `green-mbtools` Currently we use an interface with [PySCF](https://pyscf.org/) to prepare input data.
+If your python installation does not have `green-mbtools` available (type `python` and, in the python prompt, `import green_mbtools`), you will need to follow the instructions at [PyPI](https://pypi.org/project/green-mbtools) 
+or execute `pip install green-mbtools`.
 
 ## Initial Mean Field solution
 
-To generate input data a user has to call the `python/init_data_df.py` script located in the source directory (for a simple example see [next page](/docs/getting-started/si)).
+To generate input data a user has to call the `python/init_data_df.py` script located either in the source directory or in the installation directory (for a simple example see [next page](/docs/getting-started/si)).
 The following parameters are mandatory:
 
   - `--a`  path to a file containing crystal geometry in xyz format

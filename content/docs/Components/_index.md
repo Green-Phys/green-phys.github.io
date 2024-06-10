@@ -2,7 +2,7 @@
 title: Components
 weight: 4
 icon: components
-prev: "/docs/getting-started"
+prev: "/docs/getting-started/"
 next: "/docs/tutorials"
 ---
 

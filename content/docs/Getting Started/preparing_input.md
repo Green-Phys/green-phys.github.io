@@ -31,7 +31,7 @@ which contain the Coloumb and one-body integrals of the system.
 
 After the simulation is performed, results (such as band structures) could be displayed along a high-symmetry path. To obtain a specific high-symmetry path,
 specify the high-symmetry points on the path and the total number of points along the path by providing the two parameters `--high_symmetry_path` and `--high_symmetry_path_points`.
-To see all available high-symmetry points for a chosen system, use theoption `--print_high_symmetry_points`.
+To see all available high-symmetry points for a chosen system, use the option `--print_high_symmetry_points`.
 The interplation along high-symmetry paths will perform a basic Wannier interpolation.
 
 ## Coulomb integrals generation

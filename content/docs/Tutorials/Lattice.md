@@ -78,10 +78,10 @@ ordering, we need to repeat the Mn atom along the diagonal, such that a
 second Mn atom sits at $\begin{pmatrix}a &a&a\end{pmatrix}$, and a
 second oxygen one at $\begin{pmatrix}3a/2&3a/2&3a/2\end{pmatrix}$. The
 code will then require the following input: a file a.dat that describes
-the unit cell vectors, and a file atoms.dat that has the location of the
+the unit cell vectors, and a file atom.dat that has the location of the
 atoms.
 
-`atoms.dat:`
+`atom.dat:`
 
 ```
 Mn 0.0 0.0 0.0
@@ -93,9 +93,9 @@ O 6.66750, 6.66750, 6.66750
 `a.dat:`
 
 ```
-4.44500 2.22250 2.22250
-2.22250 4.44500 2.22250
-2.22250 2.22250 4.44500
+4.44500, 2.22250, 2.22250
+2.22250, 4.44500, 2.22250
+2.22250, 2.22250, 4.44500
 ```
 
 ## Using ASE scripts to determine lattice geometry and atom positions

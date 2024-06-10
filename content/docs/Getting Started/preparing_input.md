@@ -29,10 +29,11 @@ which contain the Coloumb and one-body integrals of the system.
 
 ### High-symmetry path
 
-After the simulation is performed, results (such as band structures) could be displayed along a high-symmetry path. To obtain a specific high-symmetry path,
-specify the high-symmetry points on the path and the total number of points along the path by providing the two parameters `--high_symmetry_path` and `--high_symmetry_path_points`.
+After the simulation is performed, results (such as band structures) could be displayed along a high-symmetry path.
+Before performing Green's function calculations, it helps to prepare the overlap matrix and one-electron integrals along this path in the Brillouin zone.
+To obtain these quantities, we use `init_data_df.py` once again, but with the flag `--job sym_path`.
+In addition to this option, one needs to specify the high-symmetry points on the path and the total number of points along the path by providing the two parameters `--high_symmetry_path` and `--high_symmetry_path_points`.
 To see all available high-symmetry points for a chosen system, use theoption `--print_high_symmetry_points`.
-The interplation along high-symmetry paths will perform a basic Wannier interpolation.
 
 ## Coulomb integrals generation
 

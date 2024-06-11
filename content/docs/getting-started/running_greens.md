@@ -24,6 +24,6 @@ To get information about other parameters and their default values call `mbpt.ex
 ### Band-path interpolation
 
 If input data contains information about high-symmetry path,
-diagonal part of the Green's function can be evaluated on provided high-symmetry path, and results will be stored in the `G_tau_hs` group in `--high_symmetry_output_file`.
-(by default set to `output_hs.h5`).
-For that the option `--jobs WINTER`
+diagonal part of the Green's function can be evaluated on provided high-symmetry path using $\mathbf{k}$-space interpolation, and results will be stored 
+in the `G_tau_hs` group in `--high_symmetry_output_file` (by default set to `output_hs.h5`).
+To run band-path interpolation option `--jobs` has to be set to `WINTER`.

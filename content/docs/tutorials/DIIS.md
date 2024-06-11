@@ -64,16 +64,16 @@ srun -n 64 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
   --diis_start  2 \
   --diis_size  7 \
   --verbose 4 \
-  --mixing_type CDIIS --damping 0.3  \
+  --mixing_type CDIIS --mixing_weight 0.3  \
   --dfintegral_hf_file="$INTS/df_hf_int"  \
   --dfintegral_file="$INTS/df_int" \
   --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true >& Si_NEW.txt
 ```
-Here, `--diis_start` defines the iteration at which DIIS will start, `--diis_size` defines the maximum size of the DIIS subspace, `--versbose` determines how verbose the output will be (large values are useful for troubleshooting), `--mixed_type` determines which mixing will be used (`DIIS` for difference residuals and `CDIIS` for commutator residuals), `--damping` is used only for the first few iterations before building the DIIS subspace.
+Here, `--diis_start` defines the iteration at which DIIS will start, `--diis_size` defines the maximum size of the DIIS subspace, `--versbose` determines how verbose the output will be (large values are useful for troubleshooting), `--mixed_type` determines which mixing will be used (`DIIS` for difference residuals and `CDIIS` for commutator residuals), `--mixing_weight` is used only for the first few iterations before building the DIIS subspace.
 
-CDIIS often converges faster than DIIS with the difference residuals and damping. However, if very tight convergence criteria are used, CDIIS commutators may become sensitive to numerical noise (see our [original paper](https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744)), and switching to damping is recommended.
+CDIIS often converges faster than DIIS with the difference residuals and simple mixing. However, if very tight convergence criteria are used, CDIIS commutators may become sensitive to numerical noise (see our [original paper](https://pubs.aip.org/aip/jcp/article/156/9/094101/2840744)), and switching to a simple mixing is recommended.
 
-This is a comparison of different algorithms (Sigma damping, DIIS, CDIIS) with the same settings as above:
+This is a comparison of different algorithms (Sigma mixing, DIIS, CDIIS) with the same settings as above:
 ![Performance of different convergence algorithms for Si](/tutorials/Si_DIIS.png)
 
 ## Advanced example: BiVO3 
@@ -203,17 +203,17 @@ srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
   --diis_start  3 \
   --verbose 4 \
   --diis_size  5 \
-  --mixing_type CDIIS --damping 0.5  \
+  --mixing_type CDIIS --mixing_weight 0.5  \
   --dfintegral_hf_file="$INTS/df_hf_int"  \
   --dfintegral_file="$INTS/df_int" \
   --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true
 ```
 
-In this example, I compare damping iterations with DIIS and CDIIS. For a fair comparison, I used exactly the same settings for DIIS with the difference residuals and CDIIS as shown in the snippet above. Convergence by total energy is shown in this graph:
+In this example, I compare mixing iterations with DIIS and CDIIS. For a fair comparison, I used exactly the same settings for DIIS with the difference residuals and CDIIS as shown in the snippet above. Convergence by total energy is shown in this graph:
 
 ![Performance of different convergence algorithms for BiVO3.](/tutorials/BiVO3_DIIS.png)
 
-The difference residuals quickly lead to diverging iterations. The damping iterations (with `--damping 0.3`) initially look to be on a convergence path, but after some point, the calculation will start to gradually diverge. CDIIS is much more superior to damping and DIIS with the difference residuals. In the plot above, I mark the iterations that start CDIIS extrapolations with arrows. 
+The difference residuals quickly lead to diverging iterations. The mixing iterations (with `--mixing_weight 0.3`) initially look to be on a convergence path, but after some point, the calculation will start to gradually diverge. CDIIS is much more superior to mixing and DIIS with the difference residuals. In the plot above, I mark the iterations that start CDIIS extrapolations with arrows. 
 
 To estimate whether the extrapolation subspace is good, I recommend to look at the printed extrapolation coefficients. They can also help troubleshoot problematic cases. The first iteration with the CDIIS extrapolation has these extrapolation coefficients:
 
@@ -236,7 +236,7 @@ DIIS: Extrapolation coefs:
 (-0.591848148811311,0)        <--- the newest vector
 ```
 
-The occurrence of the negative coefficient for the newest vector tells that the optimization problem has some curvature, which the quasi-Newton nature of CDIIS attempts to overcome. This curvature is the reason why the damping iterations will start divering at some point.
+The occurrence of the negative coefficient for the newest vector tells that the optimization problem has some curvature, which the quasi-Newton nature of CDIIS attempts to overcome. This curvature is the reason why the mixing iterations will start divering at some point.
 
 ### Noise troubleshooting
 
@@ -247,7 +247,7 @@ However, CDIIS can be quite noisy as the plot shows. This noise has several orig
 3. Important vectors are kicked out from the subspace as iterations go. 
 4. Limitation of the double precision arithmetic at the subtraction operation. 
 
-While the precise origin and troubleshooting is problem-dependent, I can provide a general recommendation. When such a noise occurs, I recommend to restart the calculation. One can switch to damping if damping is convergent. For CDIIS, I recommend to restart and rebuild the subspace. Such a restart will kick out the bad vectors, and supply a much better approximation to the Hessian. 
+While the precise origin and troubleshooting is problem-dependent, I can provide a general recommendation. When such a noise occurs, I recommend to restart the calculation. One can switch to mixing if it is convergent. For CDIIS, I recommend to restart and rebuild the subspace. Such a restart will kick out the bad vectors, and supply a much better approximation to the Hessian. 
 
 Once again, extrapolation coefficients tell a story helping to troubleshoot calculations. At the last few iterations from the first CDIIS run, the coefficients are:
 
@@ -312,13 +312,13 @@ srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
   --restart true \
   --verbose 4 \
   --diis_size  10 \
-  --mixing_type CDIIS --damping 0.1  \
+  --mixing_type CDIIS --mixing_weight 0.1  \
   --dfintegral_hf_file="$INTS/df_hf_int"  \
   --dfintegral_file="$INTS/df_int" \
   --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true
 ```
 
-This restart is shown in the figure as "CDIIS rst1". The first few damping iterations start to diverge despite a substantial applied damping. When CDIIS starts, it corrects the gradually diverging subspace (and this is also why a bigger subspace is needed here). It substantially de-noises the iterations and leads to a faster convergence of the chemical potential. Unfortunately, the quick queue on the cluster killed my job, so I decided to restart again ("CDIIS rst2") with even bigger subspace.
+This restart is shown in the figure as "CDIIS rst1". The first few iterations start to diverge despite a substantial applied iteration mixing. When CDIIS starts, it corrects the gradually diverging subspace (and this is also why a bigger subspace is needed here). It substantially de-noises the iterations and leads to a faster convergence of the chemical potential. Unfortunately, the quick queue on the cluster killed my job, so I decided to restart again ("CDIIS rst2") with even bigger subspace.
 
 ```
 srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
@@ -329,10 +329,10 @@ srun -n 128 $GREEN_INSTALL/bin/mbpt.exe --scf_type=GW --BETA 300       \
   --restart true \
   --verbose 4 \
   --diis_size  20 \
-  --mixing_type CDIIS --damping 0.1  \
+  --mixing_type CDIIS --mixing_weight 0.1  \
   --dfintegral_hf_file="$INTS/df_hf_int"  \
   --dfintegral_file="$INTS/df_int" \
   --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true
 ```
 
-Once again, slow divergence of damping is stopped by CDIIS. This subspace has led to very quick convergent iterations without noise.
+Once again, slow divergence of mixing is stopped by CDIIS. This subspace has led to very quick convergent iterations without noise.

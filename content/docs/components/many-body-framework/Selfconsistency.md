@@ -34,7 +34,7 @@ The following parameters have to be specified:
 
 - `itermax` - maximum number of iterations to run
 - `mixing_type` - type of mixing between iterations
-- `damping` - how mach of a previous iteration to be mixed with the current iteration results
+- `mixing_weight` - how mach of a previous iteration to be mixed with the current iteration results
 - `results_file` - file to store results at each iteration
 - `restart` - checkpointing
 - `threshold` - convergence threshold, iterations will be stopped if convergence creteria is smaller than `threshold`.

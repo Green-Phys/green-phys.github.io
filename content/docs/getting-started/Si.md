@@ -51,7 +51,7 @@ After that we will run the `GW` approximation
 ```
 <install dir>/bin/mbpt.exe --scf_type=GW --BETA 100              \
   --grid_file ir/1e4.h5 --itermax 20 --results_file Si.h5        \
-  --mixing_type CDIIS --diis_start 2 --diis_size 5 --damping 0.3 \
+  --mixing_type CDIIS --diis_start 2 --diis_size 5 --mixing_weight 0.3 \
   --high_symmetry_output_file Si_hs.h5 --jobs SC,WINTER
 ```
 
@@ -62,11 +62,11 @@ Here we run the self-consistent `GW` approximation at inverse temperature $ \bet
 {{< tab >}}
 
 ```
-<install dir>/bin/mbpt.exe --scf_type=GW --BETA 100                  \
-  --grid_file ir/1e4.h5 --itermax 20 --results_file Si.h5            \
-  --mixing_type CDIIS --diis_start 2 --diis_size 5 --damping 0.3     \
-  --high_symmetry_output_file Si_hs.h5 --jobs SC,WINTER              \
-  --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true \
+<install dir>/bin/mbpt.exe --scf_type=GW --BETA 100                    \
+  --grid_file ir/1e4.h5 --itermax 20 --results_file Si.h5              \
+  --mixing_type CDIIS --diis_start 2 --diis_size 5 --mixing_weight 0.3 \
+  --high_symmetry_output_file Si_hs.h5 --jobs SC,WINTER                \
+  --kernel GPU --cuda_low_gpu_memory true --cuda_low_cpu_memory true   \
   --Sigma_sp=true --P_sp=true
 ```
 

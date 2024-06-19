@@ -26,20 +26,20 @@ Please make sure to have the following third-party software installed and availa
     [Cmake](https://cmake.org/) is a build system that will find the locations of the above packages and generate compilation instructions in Makefiles. [CUDA](https://developer.nvidia.com/cuda-toolkit) is an Nvidia GPU development environment.
 
 ### Prerequisites: Python Libraries
-Please make sure to have python and the following python packages available:
+Please make sure to have python and the `green-mbtools` python package available. `green-mbtools` python package has the following dependencies:
 
    * Third-Party Dependencies
      - pySCF
      - numba
      - spglib
      - ase
-   
+
   These are third-party packages that you can install using your favorite python package manager, such as pip:
   ```ShellSession
-  $ pip install pyscf numba spglib ase
+  $ pip install green-mbtools pyscf numba spglib ase
   ```
 
-   The preferred python version is 3 (any minor version should work). Note that some installations use pip3 instead of pip, for help on python package installation see https://pypi.org/project/pip/ .
+   The minimal supported python version is 3.8 (any minor version up to 3.12.x should work). Note that some installations use pip3 instead of pip, for help on python package installation see https://pypi.org/project/pip/ .
 
 ### Download and Build: CPU version
 The following instructions will download and build the CPU-only version of the Many-Body Perturbation theory solver (replace /path/to/install/directory with the directory where you'd like to install the code):

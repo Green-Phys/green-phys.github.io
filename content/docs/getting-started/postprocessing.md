@@ -2,6 +2,7 @@
 title: Post-processing
 linkTitle: Post-processing
 weight : 3
+next: "/docs/getting-started/examples/si"
 ---
 
 The `Green` provides several post-processing procedures such as analytical continuation packages to obtain spectral representations and

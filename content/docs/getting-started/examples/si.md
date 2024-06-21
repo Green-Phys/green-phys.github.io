@@ -1,16 +1,14 @@
 ---
-title: Minimal example for running Silicon
-description: Example to compute bandstructure of Silicon
-linkTitle: Example for Silicon
-weight: 6
+title: Example to compute GW band structure
+linkTitle: GW band structure (Si)
+weight: 1
 icon: silicon
 prev: "/docs/getting-started/postprocessing"
-next: "/docs/components"
 ---
 
 
 Here we provide a simple example on how to run `Green`/`Weakcoupling` on the example of a periodic silicon on `6x6x6` lattice. Prerequisites: you must have both the mbpt and the ac executables compiled, 
-and the ![green-mbtools](https://pypi.org/project/green-mbtools) python package installed.
+and the [green-mbtools](https://pypi.org/project/green-mbtools) python package installed.
 Change to a new directory where you will keep your simulations, create a directory for the Si simulation, and create the file `a.dat` containing the following unit cell information:
 ```
 0.0,  2.7155, 2.7155
@@ -29,12 +27,13 @@ We then obtain input parameters and the initial mean-field solution by running p
 ```
 python <source root>/green-mbpt/python/init_data_df.py        \
   --a a.dat --atom atom.dat --nk 6                            \
-  --basis gth-dzvp-molopt-sr --pseudo gth-pbe --xc PBE        \
-  --high_symmetry_path WGXWLG  --high_symmetry_path_points 100
+  --basis gth-dzvp-molopt-sr --pseudo gth-pbe --xc PBE
 ```
 Here we use the `gth-dzvp-molopt-sr` basis with the `gth-pbe` psudopotential and run `DFT` mean-field approximation  with a `PBE` exchange correlation potential.
 
-The primary goal of this example is to generate the band structure of Silicon. For that, we also require the overlap matrix and one-electron Hamiltonian along the high-symmetry path. To reproduce the results from [Phys. Rev. B 106, 235104], we set high-symmetry path to `WGXWLG` to reproduce results from [Phys. Rev. B 106, 235104]. This is also obtained via the `init_data_df.py` script, but with an additional `--job sym_path` flag:
+The primary goal of this example is to generate the band structure of Silicon. For that, we also require the overlap matrix and one-electron Hamiltonian along the high-symmetry path.
+To reproduce the results from [Phys. Rev. B 106, 235104], we set high-symmetry path to `WGXWLG` to reproduce results from [Phys. Rev. B 106, 235104].
+This is also obtained via the `init_data_df.py` script, but with an additional `--job sym_path` flag:
 ```
 python <source root>/green-mbpt/python/init_data_df.py        \
   --a a.dat --atom atom.dat --nk 6                            \

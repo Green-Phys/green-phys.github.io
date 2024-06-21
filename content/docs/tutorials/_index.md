@@ -3,7 +3,7 @@ title: Tutorials
 weight: 5
 icon: academic-cap
 prev: "/docs/components"
-next: "/docs/developers"
+next: "/docs/troubleshoot"
 ---
 
 {{< hextra/feature-grid maxcolumns="2" >}}

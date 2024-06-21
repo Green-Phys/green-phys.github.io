@@ -66,8 +66,13 @@ menu:
       url: "https://github.com/Green-Phys"
       params:
         icon: github
-    - name: Toggle
+    - name: Discord
       weight: 7
+      url: "https://discord.gg/ty9FE6u3mg"
+      params:
+        icon: discord
+    - name: Toggle
+      weight: 8
       params:
         type: toggle
         icon: sun

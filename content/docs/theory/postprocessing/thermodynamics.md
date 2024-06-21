@@ -63,7 +63,7 @@ result [^yeh] [^iskakov]
 ### Grand potential in the second order approximation
 
 Within the [second-order perturbation theory (GF2)](/docs/theory/gf2_theory), the self-energy is approximated as  $\Sigma \approx \Sigma^{[2]} = \Sigma^{\infty} + \Sigma^{(2)}$,
-and using Eq. 1:
+and using Eq. 5:
 
 {{< raw >}}$$\Phi \approx \Phi^{[2]} = \Phi^{(1)} + \Phi^{(2)} = \frac{1}{2} Tr\{\Sigma^{\infty}\gamma\} + \frac{1}{4} Tr\{\Sigma^{(2)} G\},$${{< /raw >}}
 
@@ -87,7 +87,42 @@ $$
 
 ### Grand potential in the GW approximation
 
+Similarly to the [second-order perturbation theory (GF2)](/docs/theory/gf2_theory), the GW self-energy is approximated as  $\Sigma \approx \Sigma^{[GW]} = \Sigma^{\infty} + \Sigma^{(GW)}$,
+and the GW approximation to the $\Phi$-functional is:
 
+{{< raw >}}
+$$
+\begin{align}
+\Phi \approx \Phi^{[GW]} &= -\frac{1}{2}\mathrm{Tr} \{\Sigma^{\infty}\gamma\} - \frac{1}{4}\mathrm{Tr}\{(\boldsymbol{{U\Pi}})^{2}\} + ... \\
+&= \Phi^{\infty} + \tilde{\Phi}^{(GW)}
+\end{align}
+$$
+{{< /raw >}}
+
+
+where $\boldsymbol{U}$ are the bare Coulomb integrals $\boldsymbol{\Pi}$ is the non-interacting polarization function (see [scGW](/docs/theory/gw_theory) for more details).
+We define the first term in Eq. 7 as the contribution of the static self-energy $\Phi^{\infty}$. We attribute the rest coming from the dynamical $GW$ self-energy diagrams as $\tilde{\Phi}^{(GW)}$ as
+
+{{< raw >}}
+$$
+\begin{align}
+\tilde{\Phi}^{(GW)}& = -\frac{1}{2}\sum_{m=2}^{\infty}\left[ \frac{1}{n} \mathrm{Tr}\{(\boldsymbol{{U\Pi}})^{n}\} \right] = \frac{1}{2}\left(\mathrm{Tr}\{(\boldsymbol{{U\Pi}})\}  - \sum_{m=1}^{\infty}\left[ \frac{1}{m} \mathrm{Tr}\{(\boldsymbol{{U\Pi}})^{m}\} \right] \right) =  \nonumber \\
+   &\frac{1}{2}\left(\mathrm{Tr}\{(\boldsymbol{{U\Pi}})\} + \ln\left[\mathbf{1} - \mathrm{Tr}\{(\boldsymbol{{U\Pi}})\}\right] \right)
+
+\end{align}
+$$
+{{< /raw >}}
+
+Combining Eq.1-Eq.5 and Eq.7 we obtain the GW approximation of the grand potential as
+
+{{< raw >}}
+$$
+\begin{align*}
+&\Omega^{[GW]} = \frac{1}{\beta} \left\{ \Phi^{[GW]}[G] - Tr\{\ln\left[-G^{-1}\right]\} - Tr\{\Sigma^{[GW]} G\}  \right\} =\nonumber\\
+      \frac{1}{\beta} &\left\{ -\frac{1}{2}Tr\{\Sigma_{\infty}\gamma\} - Tr\{\Sigma^{(GW)} G\} + \tilde{\Phi}^{(GW)} - Tr\{\ln\left[-G_{HF}^{-1}\right]\} - Tr\{\ln\left[1 - G_{HF} \Sigma^{(2)}\right]\} \right\}
+\end{align*}
+$$
+{{< /raw >}}
 
 [^Luttinger60]: J. M. Luttinger and J. C. Ward,  [Ground-State Energy of a Many-Fermion System. II](https://doi.org/10.1103/PhysRev.118.1417)
 [^Dahlen06]: Nils Erik Dahlen et al., [Variational energy functionals of the Green function and of the density tested on molecules](https://doi.org/10.1103/PhysRevA.73.012511)

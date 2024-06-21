@@ -1,9 +1,9 @@
 ---
 title: 
 linkTitle: Main Developers
-weight: 6
+weight: 7
 icon: user-group
-prev: "/docs/tutorials"
+prev: "/docs/troubleshoot"
 ---
 
 

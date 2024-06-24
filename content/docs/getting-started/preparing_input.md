@@ -11,13 +11,13 @@ or execute `pip install green-mbtools`.
 
 ## Initial Mean Field solution
 
-To generate input data a user has to call the `python/init_data_df.py` script located either in the source directory or in the installation directory (for a simple example see [next page](/docs/getting-started/si)).
+To generate input data a user has to call the `python/init_data_df.py` script located either in the source directory or in the installation directory (for a simple example see the [Si example](./examples/si)).
 The following parameters are mandatory:
 
-  - `--a`  path to a file containing crystal geometry in xyz format
-  - `--atom`  path to a file containing unit cell description
-  - `--nk`  number of reciprocal space points in each direction
-  - `--basis`  Gaussian basis set, it can be specified as a single basis for every atom in the unit cell or for each atom individually
+  - `--a`  path to a file containing the crystal geometry in the xyz format.
+  - `--atom`  path to a file containing the unit cell description.
+  - `--nk`  number of the reciprocal space points in each direction.
+  - `--basis`  Gaussian basis set. The basis set can be specified either as a single basis for every atom in the unit cell or for each atom individually.
 
 ### Pseudopotentials
 

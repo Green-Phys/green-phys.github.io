@@ -32,7 +32,7 @@ markup:
 
 params:
   description: "Many-body framework for real materials simulation"
-  headTitle: "Green - Green's Function Based Ab Initio Sumulation Package"
+  headTitle: "Green - Green's Function Based Ab Initio Simulation Package"
   theme:
     # light | dark | system
     default: system

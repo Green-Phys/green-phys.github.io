@@ -31,15 +31,16 @@ python <source root>/green-mbpt/python/init_data_df.py        \
 ```
 Here we use the `gth-dzvp-molopt-sr` basis with the `gth-pbe` psudopotential and run `DFT` mean-field approximation  with a `PBE` exchange correlation potential.
 
-The primary goal of this example is to generate the band structure of Silicon. For that, we also require the overlap matrix and one-electron Hamiltonian along the high-symmetry path.
-To reproduce the results from [Phys. Rev. B 106, 235104], we set high-symmetry path to `WGXWLG` to reproduce results from [Phys. Rev. B 106, 235104].
-This is also obtained via the `init_data_df.py` script, but with an additional `--job sym_path` flag:
+The primary goal of this example is to generate the band structure of Silicon. For that, we require the overlap matrix and one-electron Hamiltonian along the high-symmetry path in addition to the density functional solution.
+We set the high-symmetry path to `WGXWLG` to reproduce the results from [Phys. Rev. B 106, 235104].
+To calculate these quantities, we run the script `init_data_df.py` again, but this time with an additional `--job sym_path` flag:
 ```
 python <source root>/green-mbpt/python/init_data_df.py        \
   --a a.dat --atom atom.dat --nk 6                            \
   --basis gth-dzvp-molopt-sr --pseudo gth-pbe --xc PBE        \
   --job sym_path --high_symmetry_path WGXWLG  --high_symmetry_path_points 100
 ```
+Note that it is possible to run both jobs at once using the flag `--job init sym_path`.
 
 After that we will run the `GW` approximation
 

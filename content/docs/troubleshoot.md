@@ -29,6 +29,7 @@ All dynamical quantites in `Green` use non-uniform compact representation in ima
 The choice of non-uniform grid has to address two main aspects: 
   - being compact to reduce computational complexity;
   - being large enough to properly capture short time/large frequency asymptotic behavior.
+
 If the grid is too small large spectral leakage can occure during the Foruier transfrom in time/frequency domain,
 that may result in large calculation errors and potentially break down of self-consistent iterations.
 During the calculations, `Green` computes the spectral leakage every time the Fourier transfrom in time/frequency domain

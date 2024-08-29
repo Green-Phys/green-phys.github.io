@@ -46,10 +46,11 @@ The following instructions will download and build the CPU-only version of the M
 
   ```ShellSession
   $ git clone https://github.com/Green-Phys/green-mbpt
-  $ mkdir green-mbpt-build
-  $ cd green-mbpt-build
-  $ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/path/to/install/directory ../green-mbpt
-  $ make -j 4 && make test
+  $ cmake -S green-mbpt -B green-mbpt-build               \
+       -DCMAKE_INSTALL_PREFIX=/path/to/install/directory  \
+       -DCMAKE_BUILD_TYPE=Release
+  $ cmake --build green-mbpt-build -j 4
+  $ cmake --build green-mbpt-build -t test
   ```
 
 If you have a non-standard installation location of the dependent packages installed in step 1, cmake will fail to find the package. Green uses the standard cmake mechanism (FindXXX.cmake) to find packages. The following pointers may help:
@@ -60,10 +61,12 @@ If you have a non-standard installation location of the dependent packages insta
 
 ***
 
-After successfully building the code, you will need to install it. The install location is either specified with -DCMAKE_INSTALL_PREFIX=/path/to/install/directory as a cmake command during configuration or can be edited in CMakeCache.txt after compilation (see [cmake manual](https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html)).
+After successfully building the code, you will need to install it. The install location is specified with `-DCMAKE_INSTALL_PREFIX=/path/to/install/directory` as a cmake command during configuration or can be 
+changed by explicitly providing a new installation path to the `--prefix` parameter during installation phase (see [cmake manual](https://cmake.org/cmake/help/latest/manual/cmake.1.html#cmdoption-cmake--install-0)).
+To install the code simply run:
 
   ```ShellSession
-  $ make install
+  $ cmake --install green-mbpt-build
   ```
 Your install directory will be created; if everything was successful you can find the executable mbpt.exe under the bin directory of your installation path.
 
@@ -79,16 +82,17 @@ The following instructions will download and build the Many-Body Perturbation th
 
   ```ShellSession
   $ git clone https://github.com/Green-Phys/green-mbpt
-  $ mkdir green-mbpt-build
-  $ cd green-mbpt-build
-  $ cmake -DCMAKE_BUILD_TYPE=Release                                \
+  $ cmake -S green-mbpt -B green-mbpt-build                         \
+     -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
+     -DCMAKE_BUILD_TYPE=Release                                     \
      -DCUSTOM_KERNEL=GPU_KERNEL                                     \
      -DGREEN_KERNEL_URL="https://github.com/Green-Phys/green-gpu"   \
      -DGREEN_CUSTOM_KERNEL_LIB="GREEN::GPU"                         \
      -DGREEN_CUSTOM_KERNEL_ENUM=GPU                                 \
      -DGREEN_CUSTOM_KERNEL_HEADER="<green/gpu/gpu_factory.h>"       \
      -DCMAKE_INSTALL_PREFIX=/path/to/install/directory ../green-mbpt
-  $ make -j 4 && make test
+  $ cmake --build green-mbpt-build -j 4
+  $ cmake --build green-mbpt-build -t test install
   ```
 
 {{% /steps %}}
@@ -131,10 +135,11 @@ The following instructions will download and build the Analytical Continuation p
 
 ```ShellSession
   $ git clone https://github.com/Green-Phys/green-ac.git
-  $ mkdir build
-  $ cd build
-  $ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/path/to/install/directory ../green-ac
-  $ make -j 4 && make test && make install
+  $ cmake -S green-ac -B green-ac-build                     \
+          -DCMAKE_INSTALL_PREFIX=/path/to/install/directory \
+          -DCMAKE_BUILD_TYPE=Release
+  $ cmake --build green-ac-build -j 4 
+  $ cmake --build green-ac-build -t test install
 ```
 
 If you have a non-standard installation location of the dependent packages installed in step 1, cmake will fail to find the package. Green uses the standard cmake mechanism (FindXXX.cmake) to find packages. The following pointers may help:
@@ -147,7 +152,8 @@ If you have a non-standard installation location of the dependent packages insta
 
 
 ### Installation issues
-   If you encounter issues with compiling, installing, or testing the package please file an issue on our github issues [page](https://green-phys.youtrack.cloud/newIssue), and we will do our best to help.
+   If you encounter issues with compiling, installing, or testing the package please file an issue on our issues server [page](https://green-phys.youtrack.cloud/newIssue), and we will do our best to help.
+   For more help feel free to join our [discord server](https://discord.gg/ty9FE6u3mg).
 
 
 

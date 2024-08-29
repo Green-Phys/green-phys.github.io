@@ -62,8 +62,8 @@ If you have a non-standard installation location of the dependent packages insta
 ***
 
 After successfully building the code, you will need to install it. The install location is specified with `-DCMAKE_INSTALL_PREFIX=/path/to/install/directory` as a cmake command during configuration or can be 
-changed by explicitly providing a new installation path to the `--prefix` parameter during installation phase (see [cmake manual](https://cmake.org/cmake/help/latest/manual/cmake.1.html#cmdoption-cmake--install-0)).
-To install the code simply run:
+changed by explicitly providing a new installation path to the `--prefix` parameter during the installation phase (see [cmake manual](https://cmake.org/cmake/help/latest/manual/cmake.1.html#cmdoption-cmake--install-0)).
+To install the code run:
 
   ```ShellSession
   $ cmake --install green-mbpt-build
@@ -152,7 +152,7 @@ If you have a non-standard installation location of the dependent packages insta
 
 ### Installation issues
    If you encounter issues with compiling, installing, or testing the package please file an issue on our issues server [page](https://green-phys.youtrack.cloud/newIssue), and we will do our best to help.
-   For more help feel free to join our [discord server](https://discord.gg/ty9FE6u3mg).
+   Help is also available on our [discord server](https://discord.gg/ty9FE6u3mg).
 
 
 

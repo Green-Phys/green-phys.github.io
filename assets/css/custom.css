@@ -44,8 +44,8 @@
 }
 
 .btn-primary {
-    background-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
-    border: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity))px solid !important;
+    background-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
+    border: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity))px solid !important;
     --tw-text-opacity: 1;
     color: rgb(247 224 239 / var(--tw-text-opacity));
     font-weight: 600;
@@ -56,6 +56,7 @@
     &.focus {
         background: var(--btn-primary-bg);
         border-color: var(--btn-primary-border) !important;
+        background-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
         --tw-text-opacity: 1;
         color: rgb(17 24 39 / var(--tw-text-opacity));
     }
@@ -74,13 +75,23 @@
 
 :is(html[class~="dark"]) .btn-primary {
     color: rgb(37 42 47 / var(--tw-text-opacity));
+    background-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
+    border: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity))px solid !important;
+    --tw-text-opacity: 1;
+    &:hover,
+    &:active,
+    &.active,
+    &.focus {
+        color: rgb(17 24 39 / var(--tw-text-opacity)) !important;
+        background-color: hsl(var(--primary-hue) var(--primary-saturation) 55% / var(--tw-bg-opacity)) !important;
+    }
 }
 
 .btn-outlined-primary {
     background-color: var(--btn-primary-bg) !important;
-    border: 2px solid hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
-    border-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity));
-    color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
+    border: 2px solid hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
+    border-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity));
+    color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
     padding-top: 10px;
     padding-bottom: 10px;
     width: var(--button-width);
@@ -88,8 +99,8 @@
     &:active,
     &.active,
     &.focus {
-        background-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
-        border-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity));
+        background-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
+        border-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity));
         --tw-text-opacity: 1;
         color: rgb(247 224 239 / var(--tw-text-opacity)) !important;
     }
@@ -97,6 +108,7 @@
 
 :is(html[class~="dark"]) .btn-outlined-primary {
     color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
+    border-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
     &:hover,
     &:active,
     &.active,

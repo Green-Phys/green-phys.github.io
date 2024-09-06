@@ -14,7 +14,16 @@
   {{- end }}
 {{- end }}
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"-->
+
+<!-- Icons -->
+{{- $icons := resources.Get "css/icons.css" }}
+{{- if hugo.IsProduction -}}
+  {{- $icons = $icons | minify | fingerprint }}
+  <link href="{{ $icons.RelPermalink }}" rel="stylesheet" integrity="{{ $icons.Data.Integrity }}" />
+{{- else }}
+  <link href="{{ $icons.RelPermalink }}" rel="stylesheet" />
+{{- end }}
 
 <!-- Custom CSS -->
 {{- $custom := resources.Get "css/custom.css" }}

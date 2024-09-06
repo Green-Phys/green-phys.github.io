@@ -45,8 +45,8 @@ params:
   navbar:
     displayLogo: true
     logo:
-      path: logo/rosetta.png
-      dark: logo/rosetta.png
+      path: logo/rosetta.webp
+      dark: logo/rosetta.webp
       width: 36px
   footer:
     displayCopyright: true

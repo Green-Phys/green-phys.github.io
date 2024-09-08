@@ -72,11 +72,8 @@ Your install directory will be created; if everything was successful you can fin
 
 ### Download and Build: Nvidia GPU kernels
 
-GPU kernels for the many-body perturbation framework use extensions from a custom repository. You enable the GPU kernels by setting following CMake parameters:
-   - `GREEN_KERNEL_URL="https://github.com/Green-Phys/green-gpu"`
-   - `GREEN_CUSTOM_KERNEL_LIB="GREEN::GPU"`
-   - `GREEN_CUSTOM_KERNEL_ENUM=GPU `
-   - `GREEN_CUSTOM_KERNEL_HEADER="<green/gpu/gpu_factory.h>"`
+GPU kernels for the many-body perturbation framework use extensions from a custom repository. You enable the GPU kernels by setting the following CMake parameter:
+   - `CUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu"`
 
 The following instructions will download and build the Many-Body Perturbation theory solver with additional GPU kernels (replace /path/to/install/directory with the directory where you'd like to install the code):
 
@@ -85,11 +82,7 @@ The following instructions will download and build the Many-Body Perturbation th
   $ cmake -S green-mbpt -B green-mbpt-build                         \
      -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
      -DCMAKE_BUILD_TYPE=Release                                     \
-     -DCUSTOM_KERNEL=GPU_KERNEL                                     \
-     -DGREEN_KERNEL_URL="https://github.com/Green-Phys/green-gpu"   \
-     -DGREEN_CUSTOM_KERNEL_LIB="GREEN::GPU"                         \
-     -DGREEN_CUSTOM_KERNEL_ENUM=GPU                                 \
-     -DGREEN_CUSTOM_KERNEL_HEADER="<green/gpu/gpu_factory.h>"
+     -DCUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu"
   $ cmake --build green-mbpt-build -j 4
   $ cmake --build green-mbpt-build -t test install
   ```

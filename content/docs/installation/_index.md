@@ -18,8 +18,8 @@ next: "/docs/getting-started"
     subtitle="Installation using package managers"
   >}}
   {{< hextra/feature-card
-    title="Installation on SDSC Expanse"
-    subtitle="Installation instruction for SDSC Expanse"
+    title="Installation on NSF managed machines"
+    subtitle="Installation instructions for NSF machines"
     link="nsf"
   >}}
   {{< hextra/feature-card

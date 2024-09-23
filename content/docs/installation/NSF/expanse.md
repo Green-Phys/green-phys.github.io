@@ -1,6 +1,6 @@
 ---
 title: SDSC Expanse
-weight: 1
+weight: 2
 ---
 
 ## Installation on SDSC Expanse

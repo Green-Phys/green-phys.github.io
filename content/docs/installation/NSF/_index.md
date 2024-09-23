@@ -11,4 +11,9 @@ weight: 1
     subtitle=""
     link="expanse"
   >}}
+  {{< hextra/feature-card
+    title="NCSA Delta"
+    subtitle=""
+    link="delta"
+  >}}
 {{< /hextra/feature-grid >}}

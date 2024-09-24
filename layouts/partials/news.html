@@ -1,0 +1,20 @@
+<br><br>
+<div class="news">
+<h1><a href="/news">News</a></h1>
+{{ range first 3 (where .Site.RegularPages "File.Dir" "news/").ByWeight.Reverse }}
+  <!--<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2> -->
+  <article>
+      <!-- this <div> includes the title summary -->
+      <div>
+  <h2>{{ .Params.date }}</h2>
+  <h3>{{- .Title -}}</h3>
+  {{- if .Truncated -}}
+    <a href="{{- .RelPermalink -}}">Read more</a>
+  {{- end -}}
+      </div>
+  </article>
+{{- end -}}
+{{- if gt (len (where .Site.RegularPages "File.Dir" "news/")) 3  -}}
+<a href="/news">More >>></a>
+{{- end -}}
+</div>

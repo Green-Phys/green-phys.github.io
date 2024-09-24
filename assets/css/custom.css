@@ -37,106 +37,106 @@
 }
 
 .btn {
-    margin-left: 3px;
-    margin-right: 3px;
-    padding-left: 30px;
-    padding-right: 30px;
+  margin-left: 3px;
+  margin-right: 3px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .btn-primary {
-    background-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
-    border: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity))px solid !important;
+  background-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
+  border: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity))px solid !important;
+  --tw-text-opacity: 1;
+  color: rgb(247 224 239 / var(--tw-text-opacity));
+  font-weight: 600;
+  width: var(--button-width);
+  &:hover,
+  &:active,
+  &.active,
+  &.focus {
+    background: var(--btn-primary-bg);
+    border-color: var(--btn-primary-border) !important;
+    background-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
     --tw-text-opacity: 1;
-    color: rgb(247 224 239 / var(--tw-text-opacity));
-    font-weight: 600;
-    width: var(--button-width);
-    &:hover,
-    &:active,
-    &.active,
-    &.focus {
-        background: var(--btn-primary-bg);
-        border-color: var(--btn-primary-border) !important;
-        background-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
-        --tw-text-opacity: 1;
-        color: rgb(17 24 39 / var(--tw-text-opacity));
-    }
-    :is(html[class~="dark"])
-    &:hover,
-    &:active,
-    &.active,
-    &.focus {
-        background: var(--btn-primary-bg);
-        border-color: var(--btn-primary-border) !important;
-        background-color: hsl(var(--primary-hue) var(--primary-saturation) 55% / var(--tw-bg-opacity)) !important;
-        --tw-text-opacity: 1;
-        color: rgb(17 24 39 / var(--tw-text-opacity));
-    }
+    color: rgb(17 24 39 / var(--tw-text-opacity));
+  }
+  :is(html[class~="dark"])
+  &:hover,
+  &:active,
+  &.active,
+  &.focus {
+    background: var(--btn-primary-bg);
+    border-color: var(--btn-primary-border) !important;
+    background-color: hsl(var(--primary-hue) var(--primary-saturation) 55% / var(--tw-bg-opacity)) !important;
+    --tw-text-opacity: 1;
+    color: rgb(17 24 39 / var(--tw-text-opacity));
+  }
 }
 
 :is(html[class~="dark"]) .btn-primary {
-    color: rgb(37 42 47 / var(--tw-text-opacity));
-    background-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
-    border: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity))px solid !important;
-    --tw-text-opacity: 1;
-    &:hover,
-    &:active,
-    &.active,
-    &.focus {
-        color: rgb(17 24 39 / var(--tw-text-opacity)) !important;
-        background-color: hsl(var(--primary-hue) var(--primary-saturation) 55% / var(--tw-bg-opacity)) !important;
-    }
+  color: rgb(37 42 47 / var(--tw-text-opacity));
+  background-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
+  border: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity))px solid !important;
+  --tw-text-opacity: 1;
+  &:hover,
+  &:active,
+  &.active,
+  &.focus {
+    color: rgb(17 24 39 / var(--tw-text-opacity)) !important;
+    background-color: hsl(var(--primary-hue) var(--primary-saturation) 55% / var(--tw-bg-opacity)) !important;
+  }
 }
 
 .btn-outlined-primary {
-    background-color: var(--btn-primary-bg) !important;
-    border: 2px solid hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
+  background-color: var(--btn-primary-bg) !important;
+  border: 2px solid hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
+  border-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity));
+  color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: var(--button-width);
+  &:hover,
+  &:active,
+  &.active,
+  &.focus {
+    background-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
     border-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity));
-    color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: var(--button-width);
-    &:hover,
-    &:active,
-    &.active,
-    &.focus {
-        background-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity)) !important;
-        border-color: hsl(var(--primary-hue) var(--primary-saturation) 35% / var(--tw-bg-opacity));
-        --tw-text-opacity: 1;
-        color: rgb(247 224 239 / var(--tw-text-opacity)) !important;
-    }
+    --tw-text-opacity: 1;
+    color: rgb(247 224 239 / var(--tw-text-opacity)) !important;
+  }
 }
 
 :is(html[class~="dark"]) .btn-outlined-primary {
-    color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
-    border-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
-    &:hover,
-    &:active,
-    &.active,
-    &.focus {
-        color: rgb(17 24 39 / var(--tw-text-opacity)) !important;
-        background-color: hsl(var(--primary-hue) var(--primary-saturation) 55% / var(--tw-bg-opacity)) !important;
-    }
+  color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
+  border-color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity)) !important;
+  &:hover,
+  &:active,
+  &.active,
+  &.focus {
+    color: rgb(17 24 39 / var(--tw-text-opacity)) !important;
+    background-color: hsl(var(--primary-hue) var(--primary-saturation) 55% / var(--tw-bg-opacity)) !important;
+  }
 }
 
 
 .btn-outlined-error {
-    background-color: var(--btn-primary-bg) !important;
-    border: 2px solid rgb(255 1 1 / var(--tw-text-opacity)) !important;
-    border-color:  rgb(255 1 1 / var(--tw-text-opacity));
-    color: var(--btn-primary-color) !important;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: var(--button-width);
+  background-color: var(--btn-primary-bg) !important;
+  border: 2px solid rgb(255 1 1 / var(--tw-text-opacity)) !important;
+  border-color:  rgb(255 1 1 / var(--tw-text-opacity));
+  color: var(--btn-primary-color) !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: var(--button-width);
 
-    &:hover,
-    &:active,
-    &.active,
-    &.focus {
-        background-color: rgb(255 2 3 / var(--tw-text-opacity))  !important;
-        border-color: rgb(255 2 3 / var(--tw-text-opacity)) ; //hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity));
-        --tw-text-opacity: 1;
-        color: rgb(255 2 3 / var(--tw-text-opacity));
-    }
+  &:hover,
+  &:active,
+  &.active,
+  &.focus {
+    background-color: rgb(255 2 3 / var(--tw-text-opacity))  !important;
+    border-color: rgb(255 2 3 / var(--tw-text-opacity)) ; //hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgb(255 2 3 / var(--tw-text-opacity));
+  }
 }
 
 .align-middle{vertical-align:middle!important}
@@ -152,39 +152,43 @@
 }
 
 .news {
-  padding-top: 10px;
+  font-family: ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-feature-settings "rlig", "calt", "ss01"
+  font-size: 30px;
+  font-variation-settings: normal;
+  font-weight: 600;
+  padding-top: 2px;
   padding-bottom: 10pt; !important;
   font-size: 14pt;
 }
 
 .news h1, h2, h3 {
-    padding-top: 1px;
-    padding-bottom: 10px;
-    font-weight: bolder;
+  padding-top: 1px;
+  padding-bottom: 10px;
 }
 .news h1 {
-    font-size: 20pt;
-    border-bottom-width: 1px;
-    a {
-      font-size: 20pt;
-      text-decoration: none;
-      color: black;
-    }
+  font-size: 30px;
+  border-bottom-width: 1px;
+  a {
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+  }
 }
 .news h2 {
-    font-size: 14pt;
-    padding-bottom: 1px;
+  font-size: 18px;
+  padding-bottom: 1px;
 }
 .news h3 {
-    font-size: 14pt;
-    padding-bottom: 1px;
-    font-weight: normal;
+  font-size: 16px;
+  padding-bottom: 1px;
+  font-weight: normal;
 }
 
 .news hr {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    border-color: gray;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-color: gray;
 }
 
 .cta-buttons {
@@ -198,7 +202,10 @@
 }
 
 .news article {
-    border-bottom-width: 1px;
+  border-bottom-width: 1px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  padding-bottom: 5px;
 }
 
 :is(html[class~="dark"]) .news article {
@@ -214,32 +221,36 @@
   font-size: 11pt;
 }
 
+.news p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
 :is(html[class~="dark"]) .news a {
   color: hsl(var(--primary-hue) var(--primary-saturation) 45% / var(--tw-text-opacity)) !important;
 }
 
 :is(html[class~="dark"]) .news h1 {
-   border-color: rgba(234, 255, 224, 0.1);
-    a {
-      color: rgb(243 244 246 / var(--tw-text-opacity)) !important;
-      text-decoration: none;
-      padding-top: 1px;
-      padding-bottom: 10px;
-      font-weight: bolder;
-      font-size: 20pt;
-    }
+  border-color: rgba(234, 255, 224, 0.1);
+  a {
+    color: rgb(243 244 246 / var(--tw-text-opacity)) !important;
+    text-decoration: none;
+    padding-top: 1px;
+    padding-bottom: 10px;
+    font-size: 30px;
+  }
 }
 
 .pagination ul {
- display: ruby !important;
- list-style-type: none !important;
+  display: ruby !important;
+  list-style-type: none !important;
 }
 
 .pagination-default {
- display: ruby !important;
- list-style-type: none !important;
+  display: ruby !important;
+  list-style-type: none !important;
 }
 .page-item ul li {
- display: inline !important;
- list-style-type: none !important;
+  display: inline !important;
+  list-style-type: none !important;
 }

@@ -1,6 +1,6 @@
 ---
-title: News
-linkTitle: Green Project
+title:
+icon: newspaper
 layout: green-home
 toc: true
 disableSidebar: true

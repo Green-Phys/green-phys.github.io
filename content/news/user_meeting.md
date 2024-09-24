@@ -2,10 +2,11 @@
 title: First User meeting
 linkTitle: First User meeting
 weight: 2
-date: Oct 2nd, 2024
+params:
+  date: Oct 2nd, 2024
 ---
 
-Will take place in the Rackham Earl Lewis Room in the University of Michigan on
+Will take place in the Rackham Earl Lewis Room at the University of Michigan on
 Wednesday, October 2nd, 2024.
 
 <!--more-->

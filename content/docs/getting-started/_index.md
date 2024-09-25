@@ -26,6 +26,6 @@ icon: rocket-launch
   {{< hextra/feature-card
     title="Examples"
     subtitle="Simple examples on running Green codes for periodic Silicon"
-    link="si"
+    link="examples/si"
   >}}
 {{< /hextra/feature-grid >}}

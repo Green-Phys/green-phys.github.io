@@ -12,7 +12,7 @@ The second-order contribution to the self-energy in imaginary time and momentum 
 {{< raw >}}
 $$
 \begin{align*}
-\Sigma^{(2)}_{ij}(\tau,\mathbf{k}) = - \frac{1}{N_{\mathbf{k}}^3}\sum\limits_{\substack{klmnop\\ \mathbf{k_1}\mathbf{k_2}\mathbf{k_3} }} & 
+\Sigma^{(2)}_{ij}(\tau,\mathbf{k}) = - \frac{1}{N_{\mathbf{k}}^3}\sum\limits_{\substack{klmnpq\\ \mathbf{k_1}\mathbf{k_2}\mathbf{k_3} }} & 
 (2U^{\mathbf{k_1}\mathbf{k}\mathbf{k_2}\mathbf{k_3}}_{qjln} - U^{\mathbf{k_2}\mathbf{k}\mathbf{k_1}\mathbf{k_3}}_{ljqn})
 \times U^{\mathbf{k}\mathbf{k_1}\mathbf{k_3}\mathbf{k_2}}_{ipmk}
 \\ \times

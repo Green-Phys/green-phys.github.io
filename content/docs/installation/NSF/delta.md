@@ -10,14 +10,14 @@ weight: 1
 ### Load necessary modules
 
 ```ShellSession
- module load PrgEnv-gnu/8.4.0 cuda/12.3.0 cray-hdf5
+ module load PrgEnv-gnu/8.4.0 cuda/12.3.0 cray-hdf5 cray-python cray-pmi
 ```
 
 The following modules will be loaded:
 
 ```
-1) cue-login-env/1.0   2) slurm-env/0.1   3) default-s11   4) gcc-native/12.2   5) craype/2.7.23
-6) craype-network-ofi   7) cray-mpich/8.1.28   8) cray-libsci/23.12.5   9) PrgEnv-gnu/8.4.0  10) libfabric/1.13.1  11) cray-hdf5/1.12.2.9  12) cuda/12.3.0
+  1) cue-login-env/1.0   3) default-s11       5) craype/2.7.23        7) cray-mpich/8.1.28     9) PrgEnv-gnu/8.4.0    11) cray-python/3.11.5  13) cuda/12.3.0
+  2) slurm-env/0.1       4) gcc-native/12.2   6) craype-network-ofi   8) cray-libsci/23.12.5  10) cray-hdf5/1.12.2.9  12) libfabric/1.13.1    14) cray-pmi/6.1.13
 ```
 
 ### Install Eigen

@@ -16,7 +16,7 @@ Green provides a pedagogical implementation of the method as it was submitted to
 
 To get started, head to the repositories at:
 
-1. https://github.com/Green-Phys/PronyAC (scalar-valued version, deprecated, as it is a special case of MiniPole)
+1. https://github.com/Green-Phys/PronyAC (scalar-valued version, deprecated as it is a special case of MiniPole)
 
 2. https://github.com/Green-Phys/MiniPole (matrix-valued version)
 

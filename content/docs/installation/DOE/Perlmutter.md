@@ -38,24 +38,23 @@ module load cray-hdf5 eigen cmake
 {{% tab %}}
   ```Bash Session
   git clone https://github.com/Green-Phys/green-mbpt
-  mkdir build
-  cd build
-  cmake -DCMAKE_BUILD_TYPE=Release ../green-mbpt
-  make -j 4 && make test
+  cmake -S green-mbpt -B green-mbpt-build                         \
+   -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
+   -DCMAKE_BUILD_TYPE=Release
+  cmake --build green-mbpt-build -j 4
+  cmake --build green-mbpt-build -t test
   ```
 
 {{% /tab %}}
 {{% tab %}}
   ```Bash Session
   git clone https://github.com/Green-Phys/green-mbpt
-  mkdir build
-  cd build
-  cmake ../green-mbpt -DCMAKE_BUILD_TYPE=Release -DCUSTOM_KERNEL=GPU_KERNEL \
-           -DGREEN_KERNEL_URL="https://github.com/Green-Phys/green-gpu" \
-           -DGREEN_CUSTOM_KERNEL_LIB="GREEN::GPU" \
-           -DGREEN_CUSTOM_KERNEL_ENUM=GPU \
-           -DGREEN_CUSTOM_KERNEL_HEADER=\<green/gpu/gpu_factory.h\>
-  make -j 4 && ctest -j 1
+  cmake -S green-mbpt -B green-mbpt-build                         \
+   -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
+   -DCMAKE_BUILD_TYPE=Release                                     \
+   -DCUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu"
+  cmake --build green-mbpt-build -j 4
+  cmake --build green-mbpt-build -t test
   ```
 
 {{% /tab %}}

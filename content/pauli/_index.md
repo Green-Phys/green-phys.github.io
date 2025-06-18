@@ -7,7 +7,7 @@ toc: false
 
 ## Pauli administration cheat-sheet
 
-{{< tabs items="Slurm, Nodes administartion" >}}
+{{< tabs items="Slurm, Nodes administartion, Adding kernel module" >}}
 
 {{< tab >}}
 
@@ -106,6 +106,46 @@ wwvnfs --chroot=/opt/ohpc/admin/images/<image name>
 ```
 ipmitool -I lanplus -H <node IPMI IP-address> -U <IPMI Admin name> power reset
 ```
+
+{{< /tab >}}
+
+{{< tab >}}
+
+### Preparation
+
+  - Download kernel driver into an image folder, for example to `/opt/ohpc/admin/images/centos8.6_GPU/root`
+  - Mount special partitions
+```
+mount --bind /proc /opt/ohpc/admin/images/centos8.6_GPU/proc
+mount --bind /sys /opt/ohpc/admin/images/centos8.6_GPU/sys
+mount --bind /dev /opt/ohpc/admin/images/centos8.6_GPU/dev
+```
+  - chroot into the image
+```
+chroot /opt/ohpc/admin/images/centos8.6_GPU
+```
+
+### Kernel module installation
+
+Simply run the kernel module installation according to its own instruction
+
+
+### Clean up
+
+  - Exit chroot
+  - Unmount special partitions
+```
+umount /opt/ohpc/admin/images/centos8.6_GPU/proc
+umount /opt/ohpc/admin/images/centos8.6_GPU/sys
+umount /opt/ohpc/admin/images/centos8.6_GPU/dev
+```
+  - Delete downloaded installer of a kernel module from the image (to make image size smaller)
+  - Repack image
+```
+wwvnfs --chroot=/opt/ohpc/admin/images/centos8.6_GPU
+```
+  - Reboot node
+
 
 {{< /tab >}}
 

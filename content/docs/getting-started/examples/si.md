@@ -43,7 +43,7 @@ python <source root>/green-mbpt/python/init_data_df.py        \
 Note that it is possible to run both jobs at once using the flag `--job init sym_path`.
 
 This marks the completion of input data generation and initial mean-field calculation. Before running the `GW` calculation, it is informative to analyse the mean-field band structure. There are several different ways to obtain the band structure from a converged DFT or HF calculation. Perhaps the fastest approach is to perform k-point interpolation using the `green-mbtools` python package.
-Specifically, we can use the [wanner_fock.py](https://github.com/Green-Phys/green-mbtools/blob/master/examples/useful_scripts/wannier_fock.py) for Silicon in the following manner:
+Specifically, we can use the [wannier_fock.py](https://github.com/Green-Phys/green-mbtools/blob/master/examples/useful_scripts/wannier_fock.py) for Silicon in the following manner:
 ```
 python wannier_fock.py --input input.h5 --celltype 'fcc' --bz_type 'fcc' \
   --bandpath 'W G X W L G' --bandpts 100

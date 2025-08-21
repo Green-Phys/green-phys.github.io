@@ -12,7 +12,8 @@ next: "/docs/theory/convergence_acceleration"
     link="thermodynamics"
   >}}
   {{< hextra/feature-card
-    title="Spectral properties"
+    title="Spectral properties (Analytical Continuation)"
     subtitle="Theory on methods to obtain spectral representation"
+    link="Analytical_Continuation"
   >}}
 {{< /hextra/feature-grid >}}

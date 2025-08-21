@@ -33,7 +33,7 @@
   <meta name="yandex-verification" content="7020fef5fe1861c0" />
 
   <!-- Google Analytics -->
-  {{- if and (eq hugo.Environment "production") (or .Site.GoogleAnalytics .Site.Config.Services.GoogleAnalytics.ID) }}
+  {{- if and (eq hugo.Environment "production") .Site.Config.Services.GoogleAnalytics.ID }}
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     {{ partial "google-analytics.html" . }}
   {{- end }}

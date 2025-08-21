@@ -77,7 +77,6 @@ cmake -S seet_solvers -B build \
    -DEDLib_DIR=`pwd`/install/EDLib/share/EDLib/cmake \
    -DUSE_MPI=MPI
 cmake --build build -j 32
-cmake --build build -t install
 rm -rf build
 ```
 

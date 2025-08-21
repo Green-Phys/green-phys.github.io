@@ -27,6 +27,8 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+    extensions:
+      callouts: true
   highlight:
     noClasses: false
 
@@ -50,6 +52,7 @@ params:
       width: 36px
   footer:
     displayCopyright: true
+  callouts: true
 
 menu:
   main:

@@ -26,7 +26,7 @@ To install the `green-mbtools` binary package simply execute
 pip install green-mbtools
 ```
 
-This is already explained in the [installation](/content/docs/installation/from_sources/) and [input preparation](/content/docs/getting-started/preparing_input/) steps.
+This is already explained in the [installation](/docs/installation/from_sources) and [input preparation](/docs/getting-started/preparing_input) steps.
 For more details on installation, check the [Green-MBTools package website](https://green-phys.github.io/green-mbtools).
 
 ## Quickstart
@@ -149,7 +149,7 @@ This can be controlled in the `orth.sao_orth` function using the parameter `type
 
 ### Step 4: Analytic continuation
 
-AS explained in the [Theory](/content/docs/theory/postprocessing/Analytical_Continuation) section,
+AS explained in the [Theory](/docs/theory/postprocessing/Analytical_Continuation) section,
 the simulations inthe Green software suite are performed on the imaginary time and Matsubara frequency axis.
 To obtain the spectral function, we need to analytically continue these results on to the real frequency axis.
 

@@ -149,7 +149,6 @@ This can be controlled in the `orth.sao_orth` function using the parameter `type
 
 ### Step 4: Analytic continuation
 
-AS explained in the [Theory](/docs/theory/postprocessing/Analytical_Continuation) section,
 the simulations inthe Green software suite are performed on the imaginary time and Matsubara frequency axis.
 To obtain the spectral function, we need to analytically continue these results on to the real frequency axis.
 

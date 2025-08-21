@@ -149,7 +149,7 @@ This can be controlled in the `orth.sao_orth` function using the parameter `type
 
 ### Step 4: Analytic continuation
 
-the simulations inthe Green software suite are performed on the imaginary time and Matsubara frequency axis.
+the simulations in the Green software suite are performed on the imaginary time and Matsubara frequency axis.
 To obtain the spectral function, we need to analytically continue these results on to the real frequency axis.
 
 Several ways are available in the literature to perform the analytic continuation of the Matsubara Green's function.

@@ -11,7 +11,7 @@ or execute `pip install green-mbtools`.
 
 ## Initial Mean Field solution
 
-To generate input data a user has to call the `python/init_data_df.py` script located either in the source directory or in the installation directory (for a simple example see the [Si example](./examples/si)).
+To generate input data a user has to call the `python/init_data_df.py` script located either in the source directory or in the installation directory (for a simple example see the [Si example](/docs/getting-started/examples/si)).
 The following parameters are mandatory:
 
   - `--a`  path to a file containing the crystal geometry in the xyz format.

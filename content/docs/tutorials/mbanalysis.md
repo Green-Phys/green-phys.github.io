@@ -8,8 +8,8 @@ math: true
 The [Green-MBTools package](https://github.com/Green-Phys/green-mbtools) is a Python toolkit for initialization and post-processing of Green's function calculations in the Green Software Package.
 The package has two sub-modules:
 
-* `mint` (Mean-field Input generation Toolkit) generates input files for the Green WeakCoupling and SEET solvers.
-* `pesto` (Post-processing Evaluation Software Tools) provides access to various post-processing tools such as analytical continuation, wannier interpolation, orthogonalization schemes, Mulliken analysis and Matsubara transformations.
+* `mint` (Mean-field INput generation Toolkit) generates input files for the Green WeakCoupling and SEET solvers.
+* `pesto` (Post-processing Evaluation Software TOols) provides access to various post-processing tools such as analytical continuation, wannier interpolation, orthogonalization schemes, Mulliken analysis and Matsubara transformations.
 
 {{< note >}}
 The `green_mbtools.pesto` was previously known as the `mbanalysis` package, and can still be imported with the alias `mbanalysis`.

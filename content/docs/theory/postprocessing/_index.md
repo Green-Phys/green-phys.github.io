@@ -14,5 +14,6 @@ next: "/docs/theory/convergence_acceleration"
   {{< hextra/feature-card
     title="Spectral properties"
     subtitle="Theory on methods to obtain spectral representation"
+    link="Analytical_Continuation"
   >}}
 {{< /hextra/feature-grid >}}

@@ -15,7 +15,7 @@ The package has two sub-modules:
 The `green_mbtools.pesto` was previously known as the `mbanalysis` package, and can still be imported with the alias `mbanalysis`.
 {{< /note >}}
 
-For a complete guide and source-code documentation, see the [package website](https:://Green-Phys.github.io/green-mbtools).
+For a complete guide and source-code documentation, see the [package website](https://green-phys.org/green-mbtools).
 Several example python scripts for the `pesto` module are provided in the [Github](https://github.com/Green-Phys/green-mbtools/tree/master/examples) repository. Some of the key components are discussed below.
 
 ## Installation
@@ -26,7 +26,7 @@ To install the `green-mbtools` binary package simply execute
 pip install green-mbtools
 ```
 
-This is already explained in the [installation](/content/docs/installation/from_sources.md) and [input preparation](/content/docs/getting-started/preparing_input.md) steps.
+This is already explained in the [installation](/docs/installation/from_sources) and [input preparation](/docs/getting-started/preparing_input) steps.
 For more details on installation, check the [Green-MBTools package website](https://green-phys.github.io/green-mbtools).
 
 ## Quickstart
@@ -112,7 +112,7 @@ The results of the interpolation are:
 The accuracy of interpolation depends on the density of the original Brillouin zone grid.
 To reduce the errors, we recommend using PySCF to directly calculate the one-body Hamiltonain and the
 overlap matrix along the high-symmetry path rather than interpolation. See, e.g.,
-[examples/useful_scripts/nvnl_winter_analysis.py](https://github.com/Green-Phys/green-mbtools/tree/master/examples/useful_scripts/nvnl_winter_analysis.py>).
+[examples/useful_scripts/nvnl_winter_analysis.py](https://github.com/Green-Phys/green-mbtools/tree/master/examples/useful_scripts/nvnl_winter_analysis.py).
 {{< /tip >}}
 
 
@@ -149,8 +149,7 @@ This can be controlled in the `orth.sao_orth` function using the parameter `type
 
 ### Step 4: Analytic continuation
 
-AS explained in the [Theory](/content/docs/theory/postprocessing/Analytical_Continuation.md) section,
-the simulations inthe Green software suite are performed on the imaginary time and Matsubara frequency axis.
+The simulations in the Green software suite are performed on the imaginary time and Matsubara frequency axis.
 To obtain the spectral function, we need to analytically continue these results on to the real frequency axis.
 
 Several ways are available in the literature to perform the analytic continuation of the Matsubara Green's function.
@@ -200,7 +199,7 @@ if __name__ == "__main__":
 
 ## Other useful scripts
 
-Practical scripts combining initialization, Wannier interpolation, orthogonalization, and analytic continuation for post-processing of Green simulation output are also available in the [examples/useful_scripts](https://Green-Phys/green-mbtools/tree/master/examples/useful_scripts) directory:
+Practical scripts combining initialization, Wannier interpolation, orthogonalization, and analytic continuation for post-processing of Green simulation output are also available in the [examples/useful_scripts](https://github.com/Green-Phys/green-mbtools/tree/master/examples/useful_scripts) directory:
 
 
 * `nvnl_winter_analysis.py` offers a versatile script with support for various orthogonalization schemes, and returns the full orbital resolved spectral function and occupancies along the specified high-symmetry path.

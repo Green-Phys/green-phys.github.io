@@ -46,7 +46,7 @@ This marks the completion of input data generation and initial mean-field calcul
 Specifically, we can use the [wannier_fock.py](https://github.com/Green-Phys/green-mbtools/blob/master/examples/useful_scripts/wannier_fock.py) for Silicon in the following manner:
 ```
 python wannier_fock.py --input input.h5 --celltype 'fcc' --bz_type 'fcc' \
-  --bandpath 'W G X W L G' --bandpts 100
+  --bandpath W G X W L G --bandpts 100
 ```
 The resultant band structure (saved as a PDF file) is expected to look like:
 

@@ -25,7 +25,7 @@ prev: "/docs/troubleshoot"
 
 {{<person name="Tianran Chen" head="/headshots/tchen.jpg" />}}
 
-{{<person name="Gaurav Harsha" />}}
+{{<person name="Gaurav Harsha" head="/headshots/gaurav.jpg" />}}
 
 {{<person name="Pavel Pokhilko" head="/headshots/pokhilko.jpg" />}}
 

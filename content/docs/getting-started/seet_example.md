@@ -75,8 +75,7 @@ cmake -S seet_solvers -B build \
    -DCMAKE_BUILD_TYPE=Release         \
    -DALPSCore_DIR=`pwd`/install/ALPSCore/share/ALPSCore  \
    -DARPACK_DIR=`pwd`/install/arpack \
-   -DEDLib_DIR=`pwd`/install/EDLib/share/EDLib/cmake \
-   -DUSE_MPI=MPI
+   -DEDLib_DIR=`pwd`/install/EDLib/share/EDLib/cmake
 cmake --build build -j 32
 cmake --build `pwd`/build -t install
 rm -rf build

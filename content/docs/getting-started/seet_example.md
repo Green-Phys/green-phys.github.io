@@ -48,7 +48,7 @@ rm -rf build
 
 ```
 cmake -S arpack-ng -B build \
-  --install-prefix `pwd`/install/arpack  -DMPI=ON \
+  --install-prefix `pwd`/install/arpack \
   -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j 32
 cmake --build build -t test install
@@ -61,7 +61,7 @@ rm -rf build
 cmake -S EDLib -B build --install-prefix `pwd`/install/EDLib \
   -DCMAKE_BUILD_TYPE=Release \
   -DALPSCore_DIR=`pwd`/install/ALPSCore/share/ALPSCore \
-  -DARPACK_DIR=`pwd`/install/arpack -DUSE_MPI=MPI
+  -DARPACK_DIR=`pwd`/install/arpack
 cmake --build build -j 32
 cmake --build build -t install
 rm -rf build

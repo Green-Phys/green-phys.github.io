@@ -31,8 +31,7 @@ First, clone required repositories:
 ```
 git clone https://github.com/ALPSCore/ALPSCore
 git clone https://github.com/opencollab/arpack-ng
-git clone https://github.com/Q-Solvers/EDLib
-git clone https://github.com/Green-Phys/seet_solvers
+git clone https://github.com/Green-Phys/green-seet-solvers
 ```
 
  1. ALPSCore -- Core libraries of ALPS software package
@@ -55,27 +54,14 @@ cmake --build build -t test install
 rm -rf build
 ```
 
- 3. EDLib -- Exact diagonalization library for quantum electron problems
-
-```
-cmake -S EDLib -B build --install-prefix `pwd`/install/EDLib \
-  -DCMAKE_BUILD_TYPE=Release \
-  -DALPSCore_DIR=`pwd`/install/ALPSCore/share/ALPSCore \
-  -DARPACK_DIR=`pwd`/install/arpack
-cmake --build build -j 32
-cmake --build build -t install
-rm -rf build
-```
-
- 4. `seet_solver` -- Exact diagonalization solver for SEET impurity problem
+ 3. `green-seet-solver` -- Exact diagonalization solver for SEET impurity problem
  
 ```
-cmake -S seet_solvers -B build \
+cmake -S green-seet-solvers -B build \
    --install-prefix `pwd`/install/seet_solvers \
-   -DCMAKE_BUILD_TYPE=Release         \
-   -DALPSCore_DIR=`pwd`/install/ALPSCore/share/ALPSCore  \
-   -DARPACK_DIR=`pwd`/install/arpack \
-   -DEDLib_DIR=`pwd`/install/EDLib/share/EDLib/cmake
+   -DCMAKE_BUILD_TYPE=Release \
+   -DALPSCore_DIR=`pwd`/install/ALPSCore/share/ALPSCore \
+   -DARPACK_DIR=`pwd`/install/arpack
 cmake --build build -j 32
 cmake --build `pwd`/build -t install
 rm -rf build

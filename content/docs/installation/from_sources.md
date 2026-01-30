@@ -50,7 +50,8 @@ The following instructions will download and build the CPU-only version of the M
        -DCMAKE_INSTALL_PREFIX=/path/to/install/directory  \
        -DCMAKE_BUILD_TYPE=Release
   $ cmake --build green-mbpt-build -j 4
-  $ cmake --build green-mbpt-build -t test
+  $ cmake --build green-mbpt-build -t test install
+  $ rm -rf green-mbpt-build
   ```
 
 If you have a non-standard installation location of the dependent packages installed in step 1, cmake will fail to find the package. Green uses the standard cmake mechanism (FindXXX.cmake) to find packages. The following pointers may help:
@@ -85,6 +86,7 @@ The following instructions will download and build the Many-Body Perturbation th
      -DCUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu"
   $ cmake --build green-mbpt-build -j 4
   $ cmake --build green-mbpt-build -t test install
+  $ rm -rf green-mbpt-build
   ```
 
 {{% /steps %}}
@@ -132,6 +134,7 @@ The following instructions will download and build the Analytical Continuation p
           -DCMAKE_BUILD_TYPE=Release
   $ cmake --build green-ac-build -j 4 
   $ cmake --build green-ac-build -t test install
+  $ rm -rf green-ac-build
 ```
 
 If you have a non-standard installation location of the dependent packages installed in step 1, cmake will fail to find the package. Green uses the standard cmake mechanism (FindXXX.cmake) to find packages. The following pointers may help:

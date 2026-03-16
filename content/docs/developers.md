@@ -15,17 +15,15 @@ prev: "/docs/troubleshoot"
 
 ## Lead Developer
 
-{{< person name="Sergei Iskakov" contact="siskakov@umich.edu" head="/headshots/siskakov.jpg" />}}
+{{<person name="Gaurav Harsha" head="/headshots/gaurav.jpg" />}}
 
-## Team members
+## Team Members
 
 {{<person name="Vibin Abraham" head="/headshots/avibin.jpg" />}}
 
 {{<person name="Jacob Adamski" head="/headshots/adamskij.jpg" />}}
 
 {{<person name="Tianran Chen" head="/headshots/tchen.jpg" />}}
-
-{{<person name="Gaurav Harsha" head="/headshots/gaurav.jpg" />}}
 
 {{<person name="Pavel Pokhilko" head="/headshots/pokhilko.jpg" />}}
 
@@ -37,10 +35,18 @@ prev: "/docs/troubleshoot"
 
 {{<person name="Lei Zhang" head="/headshots/lzphy.jpg" />}}
 
+{{<person name="Agnieszka Jażdżewska"/>}}
+
 ## Contributors
 
 {{<person name="Jia Li" head="/headshots/jli.jpg" />}}
 
 {{<person name="Chia-Nan Yeh"  head="/headshots/cnyeh.jpg" />}}
+
+## Retired Team Members
+
+{{< person name="Sergei Iskakov" contact="siskakov@umich.edu" head="/headshots/siskakov.jpg" />}}
+
+
 
 {{<person name="Runxue Yu" head="/headshots/runxueyu.jpg" />}}

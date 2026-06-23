@@ -36,13 +36,11 @@ dependencies, so pip installs them automatically:
 
   Numba depends on `llvmlite`. On platforms for which pip does not provide a
   compatible `llvmlite` wheel, pip attempts a lengthy source build that also
-  requires a compatible LLVM installation. Install these compiled packages
-  from Conda first to avoid that source build:
-
-  ```ShellSession
-  $ conda install -c conda-forge numba llvmlite
-  $ python -m pip install green-mbtools
-  ```
+  requires a compatible LLVM installation. Check the installation output for
+  this fallback and allow additional build time, or install a compatible LLVM
+  toolchain before retrying. See the
+  [llvmlite installation guide](https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html)
+  for source-build requirements.
 
   The minimal supported Python version is 3.8 (any minor version up to 3.12.x
   should work). For help with Python package installation, see the

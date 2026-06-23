@@ -95,8 +95,20 @@ Then configure and build:
   $ cmake --build green-mbpt-build -t test
   ```
 
-If you have a non-standard installation location of the dependent packages installed in step 1, cmake will fail to find the package. Green uses the standard cmake mechanism (FindXXX.cmake) to find packages. The following pointers may help:
-  - For Eigen: specify in the cmake line: -DEigen3_DIR=/header/directory/of/eigen
+If dependencies are installed under a non-default prefix, add that prefix to
+the configure command. For an active Conda environment, for example:
+
+  ```ShellSession
+  $ cmake -S green-mbpt -B green-mbpt-build               \
+       -DCMAKE_INSTALL_PREFIX=/path/to/install/directory  \
+       -DCMAKE_PREFIX_PATH="$CONDA_PREFIX"                 \
+       -DCMAKE_BUILD_TYPE=Release
+  ```
+
+`CMAKE_PREFIX_PATH` gives CMake one common search root for packages including
+MPI, HDF5, BLAS, and Eigen. Separate multiple prefixes with semicolons. For a
+package-specific override, the following pointers may help:
+  - For Eigen: specify `-DEigen3_DIR=/path/to/lib/cmake/eigen3`, pointing to the directory that contains `Eigen3Config.cmake`
   - For MPI: Follow the instructions on [cmake with mpi](https://cmake.org/cmake/help/latest/module/FindMPI.html)
   - For BLAS: Follow the instructions on [cmake with BLAS](https://cmake.org/cmake/help/latest/module/FindBLAS.html)
   - For HDF5: Follow the instructions on [cmake with HDF5](https://cmake.org/cmake/help/latest/module/FindHDF5.html)
@@ -183,8 +195,12 @@ The following instructions will download and build the Analytical Continuation p
   $ cmake --build green-ac-build -t test install
 ```
 
-If you have a non-standard installation location of the dependent packages installed in step 1, cmake will fail to find the package. Green uses the standard cmake mechanism (FindXXX.cmake) to find packages. The following pointers may help:
-  - For Eigen: specify in the cmake line: -DEigen3_DIR=/header/directory/of/eigen
+If dependencies are installed under a non-default prefix, pass it during
+configuration, for example `-DCMAKE_PREFIX_PATH="$CONDA_PREFIX"` for an active
+Conda environment. This gives CMake one common search root for MPI, HDF5, BLAS,
+Eigen, and GMP. For a package-specific override, the following pointers may
+help:
+  - For Eigen: specify `-DEigen3_DIR=/path/to/lib/cmake/eigen3`, pointing to the directory that contains `Eigen3Config.cmake`
   - For MPI: Follow the instructions on [cmake with mpi](https://cmake.org/cmake/help/latest/module/FindMPI.html)
   - For BLAS: Follow the instructions on [cmake with BLAS](https://cmake.org/cmake/help/latest/module/FindBLAS.html)
   - For HDF5: Follow the instructions on [cmake with HDF5](https://cmake.org/cmake/help/latest/module/FindHDF5.html)

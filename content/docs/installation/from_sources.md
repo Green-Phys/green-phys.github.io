@@ -81,6 +81,11 @@ To install a specific release, pass `--branch` with the desired tag. Check the [
 
 To instead track the development tip, omit `--branch`:
 
+The first CMake configure requires network access. Green uses CMake
+`FetchContent` to download its `green-*` component libraries and, when tests
+are enabled, Catch2. On an offline HPC system, configure the project only after
+arranging access to those sources or pre-populating CMake's dependency cache.
+
   ```ShellSession
   $ git clone https://github.com/Green-Phys/green-mbpt
   ```
@@ -94,6 +99,13 @@ Then configure and build:
   $ cmake --build green-mbpt-build -j 4
   $ cmake --build green-mbpt-build -t test
   ```
+
+A successful test run ends with CTest reporting
+`100% tests passed, 0 tests failed`. The number of discovered tests and the
+runtime vary with the Green release, enabled options, machine, and build
+parallelism. On macOS, the linker
+may also report harmless `duplicate -rpath ... ignored` warnings; these do not
+indicate a failed build when linking completes and the tests pass.
 
 If dependencies are installed under a non-default prefix, add that prefix to
 the configure command. For an active Conda environment, for example:
@@ -122,7 +134,12 @@ To install the code run:
   ```ShellSession
   $ cmake --install green-mbpt-build
   ```
-Your install directory will be created; if everything was successful you can find the executable mbpt.exe under the bin directory of your installation path.
+Your install directory will be created. A successful installation places the
+following executables under its `bin` directory:
+
+  - `mbpt.exe`
+  - `embedding.exe`
+  - `int-transform.exe`
 
 ### Download and Build: Nvidia GPU kernels
 

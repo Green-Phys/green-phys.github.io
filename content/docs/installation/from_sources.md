@@ -21,7 +21,7 @@ following third-party software:
     - HDF5 >= 1.10.0
     - BLAS
     - CMake >= 3.18
-    - CUDAToolkit > 12.0 (optional)
+    - CUDAToolkit >= 11.0 (optional, CUDA 13+ supported)
 
   On a workstation, a package manager can install the compiler and libraries
   together. For example:
@@ -66,10 +66,23 @@ Please make sure to have python and the `green-mbtools` python package available
    The minimal supported python version is 3.8 (any minor version up to 3.12.x should work). Note that some installations use pip3 instead of pip, for help on python package installation see https://pypi.org/project/pip/ .
 
 ### Download and Build: CPU version
-The following instructions will download and build the CPU-only version of the Many-Body Perturbation theory solver (replace /path/to/install/directory with the directory where you'd like to install the code):
+The following instructions will download and build the CPU-only version of the Many-Body Perturbation theory solver (replace /path/to/install/directory with the directory where you'd like to install the code).
+
+To install a specific release, pass `--branch` with the desired tag. Check the [releases page](https://github.com/Green-Phys/green-mbpt/releases) for the latest tag, then clone:
+
+  ```ShellSession
+  $ git clone --branch <tag> --depth 1 https://github.com/Green-Phys/green-mbpt
+  ```
+
+To instead track the development tip, omit `--branch`:
 
   ```ShellSession
   $ git clone https://github.com/Green-Phys/green-mbpt
+  ```
+
+Then configure and build:
+
+  ```ShellSession
   $ cmake -S green-mbpt -B green-mbpt-build               \
        -DCMAKE_INSTALL_PREFIX=/path/to/install/directory  \
        -DCMAKE_BUILD_TYPE=Release
@@ -99,7 +112,13 @@ Your install directory will be created; if everything was successful you can fin
 GPU kernels for the many-body perturbation framework use extensions from a custom repository. You enable the GPU kernels by setting the following CMake parameter:
    - `CUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu"`
 
-The following instructions will download and build the Many-Body Perturbation theory solver with additional GPU kernels (replace /path/to/install/directory with the directory where you'd like to install the code):
+By default, code is generated for sm_80, sm_86, and sm_90 (Ampere and Hopper). To target a specific GPU, add `-DGPU_ARCHS="<cc>"`, where `<cc>` is your GPU's compute capability with the dot removed (e.g. `89` for compute capability 8.9). You can find your GPU's compute capability with:
+
+  ```ShellSession
+  $ nvidia-smi --query-gpu=compute_cap --format=csv,noheader
+  ```
+
+The following instructions will download and build the Many-Body Perturbation theory solver with additional GPU kernels (replace /path/to/install/directory with the directory where you'd like to install the code). Use the same `--branch` approach described above to target a specific release. Then configure and build:
 
   ```ShellSession
   $ git clone https://github.com/Green-Phys/green-mbpt
@@ -108,7 +127,8 @@ The following instructions will download and build the Many-Body Perturbation th
      -DCMAKE_BUILD_TYPE=Release                                     \
      -DCUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu"
   $ cmake --build green-mbpt-build -j 4
-  $ cmake --build green-mbpt-build -t test install
+  $ cmake --build green-mbpt-build -t test
+  $ cmake --install green-mbpt-build
   ```
 
 {{% /steps %}}

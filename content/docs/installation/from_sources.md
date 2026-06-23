@@ -50,20 +50,25 @@ following third-party software:
     [Cmake](https://cmake.org/) is a build system that will find the locations of the above packages and generate compilation instructions in Makefiles. [CUDA](https://developer.nvidia.com/cuda-toolkit) is an Nvidia GPU development environment.
 
 ### Prerequisites: Python Libraries
-Please make sure to have python and the `green-mbtools` python package available. `green-mbtools` python package has the following dependencies:
+Please make sure to have Python and the `green-mbtools` package available.
+`green-mbtools` declares PySCF, Numba, spglib, ASE, and its other Python
+dependencies, so pip installs them automatically:
 
-   * Third-Party Dependencies
-     - pySCF
-     - numba
-     - spglib
-     - ase
-
-  These are third-party packages that you can install using your favorite python package manager, such as pip:
   ```ShellSession
-  $ pip install green-mbtools pyscf numba spglib ase
+  $ python -m pip install green-mbtools
   ```
 
-   The minimal supported python version is 3.8 (any minor version up to 3.12.x should work). Note that some installations use pip3 instead of pip, for help on python package installation see https://pypi.org/project/pip/ .
+  Numba depends on `llvmlite`. On platforms for which pip does not provide a
+  compatible `llvmlite` wheel, pip attempts a lengthy source build that also
+  requires a compatible LLVM installation. Check the installation output for
+  this fallback and allow additional build time, or install a compatible LLVM
+  toolchain before retrying. See the
+  [llvmlite installation guide](https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html)
+  for source-build requirements.
+
+  The minimal supported Python version is 3.8 (any minor version up to 3.12.x
+  should work). For help with Python package installation, see the
+  [pip documentation](https://pip.pypa.io/en/stable/installation/).
 
 ### Download and Build: CPU version
 The following instructions will download and build the CPU-only version of the Many-Body Perturbation theory solver (replace /path/to/install/directory with the directory where you'd like to install the code).

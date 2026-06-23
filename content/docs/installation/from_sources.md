@@ -12,7 +12,8 @@ weight: 1
 {{% steps %}}
 
 ### Prerequisites: HPC libraries and tools
-Please make sure to have the following third-party software installed and available:
+Building Green requires a C++17 compiler, a working build toolchain, and the
+following third-party software:
 
   * Third-Party Dependencies
     - Eigen3 >= 3.4.0
@@ -21,6 +22,29 @@ Please make sure to have the following third-party software installed and availa
     - BLAS
     - CMake >= 3.18
     - CUDAToolkit > 12.0 (optional)
+
+  On a workstation, a package manager can install the compiler and libraries
+  together. For example:
+
+  ```ShellSession
+  $ conda install -c conda-forge cxx-compiler cmake eigen hdf5 openmpi openblas gmp
+  ```
+
+  or, on macOS with Homebrew:
+
+  ```ShellSession
+  $ brew install cmake eigen hdf5 open-mpi openblas gmp
+  ```
+
+  or, on macOS with MacPorts:
+
+  ```ShellSession
+  $ sudo port install cmake eigen3 hdf5 openmpi OpenBLAS gmp
+  ```
+
+  Activate the Conda environment, or ensure the Homebrew or MacPorts packages
+  are on your search path, before configuring the build. HPC systems commonly
+  provide the same compiler and libraries through environment modules instead.
 
   These packages are external to Green. Their installation will depend on your computer. Important: ensure there is only one version of each dependency being used across all steps. Eigen3 is a C++ matrix library, you can find more information [here](https://eigen.tuxfamily.org/). MPI is the Message Passing Interface, several standard implementations exist, including [OpenMPI](https://www.open-mpi.org/) and [MPICH](https://www.mpich.org/). High performance computers will have proprietary MPI installations, and most clusters provide a version for all users. [HDF5](https://www.hdfgroup.org/solutions/hdf5/) is a library for binary data storage. More information on  BLAS, the Basic Linear Algebra System, can be found on [netlib.org](netlib.org). However, most computers provide highly optimized versions tuned for their respective hardware. Do NOT install the reference BLAS from netlib but instead have a look at a generic high-performance implementation from [OpenBLAS](https://www.openblas.net/) and the hardware-specific vendor libraries (among many others: [Apple](https://developer.apple.com/documentation/accelerate/blas/), [Intel MKL/OneAPI](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html), [AMD AOCL](https://www.amd.com/en/developer/aocl.html), [IBM ESSL](https://www.ibm.com/docs/en/essl/6.2?topic=whats-new)).
     [Cmake](https://cmake.org/) is a build system that will find the locations of the above packages and generate compilation instructions in Makefiles. [CUDA](https://developer.nvidia.com/cuda-toolkit) is an Nvidia GPU development environment.

@@ -44,6 +44,11 @@ Please make sure to have python and the `green-mbtools` python package available
 ### Download and Build: CPU version
 The following instructions will download and build the CPU-only version of the Many-Body Perturbation theory solver (replace /path/to/install/directory with the directory where you'd like to install the code):
 
+The first CMake configure requires network access. Green uses CMake
+`FetchContent` to download its `green-*` component libraries and, when tests
+are enabled, Catch2. On an offline HPC system, configure the project only after
+arranging access to those sources or pre-populating CMake's dependency cache.
+
   ```ShellSession
   $ git clone https://github.com/Green-Phys/green-mbpt
   $ cmake -S green-mbpt -B green-mbpt-build               \
@@ -52,6 +57,13 @@ The following instructions will download and build the CPU-only version of the M
   $ cmake --build green-mbpt-build -j 4
   $ cmake --build green-mbpt-build -t test
   ```
+
+A successful test run ends with CTest reporting
+`100% tests passed, 0 tests failed`. The number of discovered tests and the
+runtime vary with the Green release, enabled options, machine, and build
+parallelism. On macOS, the linker
+may also report harmless `duplicate -rpath ... ignored` warnings; these do not
+indicate a failed build when linking completes and the tests pass.
 
 If you have a non-standard installation location of the dependent packages installed in step 1, cmake will fail to find the package. Green uses the standard cmake mechanism (FindXXX.cmake) to find packages. The following pointers may help:
   - For Eigen: specify in the cmake line: -DEigen3_DIR=/header/directory/of/eigen
@@ -68,7 +80,12 @@ To install the code run:
   ```ShellSession
   $ cmake --install green-mbpt-build
   ```
-Your install directory will be created; if everything was successful you can find the executable mbpt.exe under the bin directory of your installation path.
+Your install directory will be created. A successful installation places the
+following executables under its `bin` directory:
+
+  - `mbpt.exe`
+  - `embedding.exe`
+  - `int-transform.exe`
 
 ### Download and Build: Nvidia GPU kernels
 

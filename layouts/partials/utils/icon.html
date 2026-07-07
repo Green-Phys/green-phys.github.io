@@ -1,5 +1,5 @@
-{{/* Render raw svg icon from .Site.Data */}}
-{{- $icon := index site.Data.icons .name -}}
+{{/* Render raw svg icon from site data */}}
+{{- $icon := index (partial "utils/hugo-compat/site-data") "icons" .name -}}
 
 {{- if not $icon -}}
   {{- $icon = (printf "<span class='material-icons'>%s</span>" .name) -}}

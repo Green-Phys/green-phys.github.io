@@ -166,11 +166,9 @@ The following parameters in additional to regular `Green` parameters are used
 
 The bath file provides an initial guess for constructing the impurity-bath interaction in the Anderson impurity model for the active space.
 This interaction is constructed by fitting the hybridization to the form
-{{< raw >}}
 $$
 \Delta_{ij \in A_\lambda}(\omega_n) = \sum\limits_{b}\frac{V_{ib}V^*_{bj}}{\omega_n - \epsilon_b},
 $$
-{{< /raw >}}
 where the interaction $V$ and energy $\epsilon$'s are both unknowns (see [Theory](/docs/theory/embedding_theory) for more details).
 
 For our example, the bath file may be initialized as:

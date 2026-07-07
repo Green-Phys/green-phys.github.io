@@ -1,22 +1,15 @@
 {{ define "main" }}
-  <div class='mx-auto flex {{ partial "utils/page-width" . }}'>
-    <aside style="width:20%" class="sponsor-container flex flex-col print:hidden md:top-16 md:shrink-0 md:w-64 md:self-start md:sticky max-md:[transform:translate3d(0,-100%,0)]" >
-      <br/>
-      <figure style="text-align: center;width:100%;"><img src="/logo/NSF.webp" alt="NSF logo" />
-      <figurecaption style="text-align: center;width:100%;">This material is based upon work supported by the National Science Foundation (NSF) CSSI program under award No. <b>OAC-2310582</b></figurecaption>
-      </figure>
-
-    </aside>
+  <div class='hx:mx-auto hx:flex hextra-max-page-width'>
     {{ partial "toc.html" . }}
-    <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
-      <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+    <article class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="hx:w-full hx:min-w-0 hx:max-w-6xl hx:px-6 hx:pt-4 hx:md:px-12">
         <div class="content">
           <h1>{{ .Title }}</h1>
           {{ .Content }}
         </div>
 
 <div class="news">
-{{ $pages := (where .Site.RegularPages "File.Dir" "news/").ByWeight.Reverse }}
+{{ $pages := (where site.RegularPages "File.Dir" "news/").ByWeight.Reverse }}
 {{ range (.Paginate $pages 5).Pages }}
   <h1><a href="{{ .RelPermalink }}">{{ .Params.date }}: {{ .Title }}</a></h2>
   <article>

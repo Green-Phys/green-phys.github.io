@@ -7,7 +7,7 @@ enableGitInfo: true
 enableEmoji: true
 hasCJKLanguage: true
 enableInlineShortcodes: true
-copyright: University of Michigan
+copyright: Green Software Developers 2023-2026
 
 outputs:
   home: [HTML]
@@ -19,7 +19,7 @@ defaultContentLanguage: en
 module:
   hugoVersion:
     extended: true
-    min: "0.112.0"
+    min: "0.146.0"
   imports:
     - path: github.com/imfing/hextra
 
@@ -29,6 +29,15 @@ markup:
       unsafe: true
     extensions:
       callouts: true
+      passthrough:
+        enable: true
+        delimiters:
+          inline:
+            - - $
+              - $
+          block:
+            - - $$
+              - $$
   highlight:
     noClasses: false
 
@@ -56,6 +65,18 @@ params:
 
 menu:
   main:
+    - identifier: installation
+      name: Installation
+      pageRef: /docs/installation
+      weight: 1
+    - identifier: start
+      name: Getting Started
+      pageRef: /docs/getting-started
+      weight: 2
+    - identifier: documentation
+      name: Documentation
+      pageRef: /docs
+      weight: 3
     - identifier: about
       name: About
       pageRef: /about
@@ -77,5 +98,5 @@ menu:
     - name: Toggle
       weight: 8
       params:
-        type: toggle
+        type: theme-toggle
         icon: sun

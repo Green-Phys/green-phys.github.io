@@ -19,4 +19,12 @@ All codes under Green framework will be released under MIT open-source license
 
 ## Acknowledgements
 
-This work is supported by the National Science Foundation under the award NSF OAC 2310582
+This work is supported by the National Science Foundation under the award NSF OAC-2310582.
+
+<div style="display:flex; align-items:center; gap:1.5rem; margin-top:1rem; flex-wrap:wrap;">
+<a href="https://www.nsf.gov" target="_blank"><img src="/logo/NSF.webp" alt="NSF" style="height:80px;" /></a>
+<div>
+Supported by the US National Science Foundation under award
+<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2310582" target="_blank">NSF OAC-2310582</a>.
+</div>
+</div>

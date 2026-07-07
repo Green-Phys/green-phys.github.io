@@ -31,6 +31,6 @@ next: "/docs/installation"
   {{< hextra/feature-card
     title="Convergence"
     subtitle="Theory on acceleration iterative solvers' convergence"
-    link="diis_theory"
+    link="convergence_acceleration"
   >}}
 {{< /hextra/feature-grid >}}

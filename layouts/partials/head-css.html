@@ -3,7 +3,9 @@
   {{- $styles = $styles | resources.PostCSS (dict "inlineImports" true) }}
   <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
 {{- else }}
-  {{- $styles := resources.Get "css/compiled/main.css" -}}
+  {{- $mainCss := resources.Get "css/compiled/main.css" -}}
+  {{- $variablesCss := resources.Get "css/variables.css" | resources.ExecuteAsTemplate "css/variables.css" . -}}
+  {{- $styles := slice $variablesCss $mainCss | resources.Concat "css/compiled/main.css" -}}
 
   {{- if hugo.IsProduction }}
     {{- $styles = $styles | minify | fingerprint }}

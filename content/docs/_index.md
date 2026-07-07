@@ -29,4 +29,10 @@ icon: home
     link="contribution"
     icon="user-group"
   >}}
+  {{< hextra/feature-card
+    title="Papers and Citations"
+    subtitle="How to cite Green in your publications"
+    link="publications"
+    icon="auto-story"
+  >}}
 {{< /hextra/feature-grid >}}

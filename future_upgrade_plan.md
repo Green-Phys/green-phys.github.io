@@ -137,13 +137,19 @@ beginners", #86 "rewrite installation index with audience guidance and
 action buttons", #98 "Remove sample supercomputer batch script from Spack
 install docs", #103.)
 
-### 8. Add a "Papers and Citations" page
-GREEN doesn't appear to have a citation/publications section at all. Worth
-adding a `docs/publications/` (or top-level `papers/`) page modeled on ALPS's:
-explain what to cite (the method paper vs. the GREEN library paper itself),
-list the GREEN release paper(s), and link out to a BibTeX file.
-(Mirrors ALPS PR #87 "redesign Publications section as Papers and
-Citations".)
+### 8. Add a "Papers and Citations" page — DONE
+Added `content/docs/publications/_index.md`, modeled directly on ALPS's
+`documentation/pubs/_index.md` + `papers.md`: an intro explaining GREEN's
+MIT license and citation expectations, the Green/WeakCoupling CPC paper
+(Iskakov et al. 2025, https://doi.org/10.1016/j.cpc.2024.109380) as the
+paper to cite, with Journal/Scholar/BibTeX buttons in a `btn-grid-4`, and a
+closing note pointing to the Theory pages for individual algorithm
+citations. The BibTeX itself lives at `static/data/iskakov2025.bib` and is
+also linked directly from a new "Cite" button in the homepage CTA row and
+a "Papers and Citations" button in the homepage panel, plus a feature-card
+on the docs index page — matching ALPS's pattern of linking the bib file
+straight from the homepage. (Mirrors ALPS PR #87 "redesign Publications
+section as Papers and Citations".)
 
 ### 9. Audit content for correctness and pedagogy
 ALPS did several multi-page passes fixing dead citations, factual/code

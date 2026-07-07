@@ -16,7 +16,7 @@ Source of comparison: local `green-phys.github.io` repo vs. a fresh clone of
 |---|---|---|
 | hextra theme version | `v0.7.3` (go.mod) | `v0.12.3` |
 | Top nav | About, Search, GitHub, Discord, Toggle | Installation, Getting Started, Tutorials, Documentation, About, Governance, Events, FAQs, Search, GitHub, Discord, YouTube, Toggle, Language |
-| Languages | English only | English, 中文 (zh-cn), 日本語 (ja), Español (es) |
+| Languages | English only | English, 中文 (zh-cn), 日本語 (ja), Español (es) — *out of scope, see note below* |
 | Homepage | Single feature-grid of components + 3 flex buttons (`cta-buttons` class, no true grid) | Two-column intro + logo, responsive `.btn-grid` of 12 CTA buttons, dedicated Tutorials button row, Acknowledgement section with funding-agency logo |
 | About page | One paragraph + licensing + acknowledgements, no nav aids | Intro, Mission, Licensing, Acknowledgements, **and** a `btn-grid` linking to Events/Governance/FAQ |
 | Governance | None | `govern/_index.md`, `maintainers.md`, `contribute.md`, `onboard.md` (student onboarding) |
@@ -24,10 +24,14 @@ Source of comparison: local `green-phys.github.io` repo vs. a fresh clone of
 | Installation | One page + subpages, some cards missing links (e.g. "Install Packaged Versions" has no `link=`) | Split into Binary / Source / Spack pages with explicit audience guidance ("most users...", "developers...", "HPC operators...") |
 | Publications | Not present as own section | "Papers and Citations" page explaining 3 citation categories (algorithm / implementation / library), separate `papers.md` + `refs.md` |
 | Search | Hextra default only | Auto-generated docs search index used as chatbot fallback |
-| Chatbot | None | Keyword-based "ALPS Assistant" widget (explicitly labeled "not AI") with a limitations warning |
+| Chatbot | None | Keyword-based "ALPS Assistant" widget (explicitly labeled "not AI") with a limitations warning — *out of scope, see note below* |
 | Math rendering | Custom `mathjax/inline` shortcode | Goldmark `passthrough` extension configured for native `$...$` / `$$...$$` KaTeX delimiters; had to fix a triple-backslash CI build break |
 | Mobile | Not recently audited | Fixed hamburger menu breakage on iOS Safari/Chrome, fixed language-selector label disappearing |
 | Tutorials content | Present, not recently audited for correctness | Multi-pass rewrite: fixed factual/code bugs, heading hierarchy, dead citations, translated everything into zh-cn/ja/es |
+
+**Decision: multi-language support and the ALPS-style chatbot are explicitly
+out of scope for GREEN** and have been dropped from the punch list below.
+Kept in this table only as factual comparison points against ALPS.
 
 ## Proposed changes for green-phys.org, in priority order
 
@@ -151,14 +155,7 @@ especially the `legacy/` docs which by name suggest older, potentially
 stale content.
 (Mirrors ALPS PRs #44, #60-#64, #73-#76, #102.)
 
-### 10. Consider multi-language support
-This is the largest lift ALPS undertook (zh-cn, ja, and most recently es —
-PR #101) and should only be pursued if GREEN's user base/community would
-benefit; it requires restructuring `content/` into per-language directories
-and a `languages:` block in `hugo.yaml`, plus ongoing translation
-maintenance. Flagging as a possibility, not a near-term recommendation.
-
-### 11. Fix math rendering approach — DONE
+### 10. Fix math rendering approach — DONE
 This turned out not to be optional: after the hextra upgrade (#1), math had
 silently stopped rendering site-wide (reported as `/docs/theory/introduction/`
 showing raw LaTeX). Root causes:
@@ -191,17 +188,10 @@ matches) and spot-checked every flagged page in-browser in both light/dark
 mode. (Mirrors ALPS's `passthrough` config and PR #82's
 KaTeX-build-break fix.)
 
-### 12. Small polish items
-- Language selector / theme toggle: N/A until #10 is done, but keep in mind
-  ALPS had to fix a regression where the language-selector lost its visible
-  label (PR #80).
+### 11. Small polish items
 - Mobile hamburger menu: audit GREEN's homepage nav on iOS Safari/Chrome;
   ALPS had a homepage-specific breakage here (PR #90) that wouldn't
   necessarily show up on inner doc pages.
-- A lightweight, clearly-labeled "not AI" keyword chatbot backed by an
-  auto-generated search index is a nice-to-have (ALPS PRs #83, #72) but
-  should be considered only after the structural/content items above, since
-  it's the most speculative, highest-effort item ALPS shipped.
 
 ## Suggested first PR
 

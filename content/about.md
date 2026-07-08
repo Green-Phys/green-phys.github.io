@@ -1,5 +1,5 @@
 ---
-title: "Elements: Embedding Framework for Quantum Many-Body Simulations"
+title: "Green: Embedding Framework for Quantum Many-Body Simulations"
 layout: green-home
 cascade:
   type: blog

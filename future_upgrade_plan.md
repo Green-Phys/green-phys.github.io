@@ -219,10 +219,25 @@ matches) and spot-checked every flagged page in-browser in both light/dark
 mode. (Mirrors ALPS's `passthrough` config and PR #82's
 KaTeX-build-break fix.)
 
-### 11. Small polish items
-- Mobile hamburger menu: audit GREEN's homepage nav on iOS Safari/Chrome;
-  ALPS had a homepage-specific breakage here (PR #90) that wouldn't
-  necessarily show up on inner doc pages.
+### 11. Small polish items — DONE (mobile hamburger menu)
+Audited every custom page template for the exact bug ALPS hit in PR #90:
+`core/menu.js`'s `DOMContentLoaded` handler calls
+`sidebarContainer.setAttribute(...)`/`removeAttribute(...)` unconditionally
+on load, before registering the hamburger's click listener — if
+`.hextra-sidebar-container` isn't in the DOM, this throws and the whole
+handler aborts, silently breaking the hamburger button on that page
+(confirmed via direct `.click()` + `aria-expanded` checks, not just visual
+inspection, since the failure is viewport-independent).
+
+Unlike ALPS (whose bug was homepage-only), GREEN's homepage
+(`green-home.html`) already included the sidebar partial and was fine.
+The actual bugged templates were `layouts/news/list.html` and
+`layouts/news/single.html` — neither ever called `partial "sidebar.html"`,
+so the hamburger menu was completely non-functional on `/news/` and every
+individual news post. Fixed with ALPS's exact approach: add
+`{{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" false) }}`
+to both — invisible on desktop, functional on mobile. Verified no other
+custom template (green-home, docs pages, about, pauli) has the bug.
 
 ## Suggested first PR
 

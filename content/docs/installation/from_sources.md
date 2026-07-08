@@ -27,19 +27,19 @@ following third-party software:
   together. For example:
 
   ```ShellSession
-  $ conda install -c conda-forge cxx-compiler cmake eigen hdf5 openmpi openblas gmp
+  conda install -c conda-forge cxx-compiler cmake eigen hdf5 openmpi openblas gmp
   ```
 
   or, on macOS with Homebrew:
 
   ```ShellSession
-  $ brew install cmake eigen hdf5 open-mpi openblas gmp
+  brew install cmake eigen hdf5 open-mpi openblas gmp
   ```
 
   or, on macOS with MacPorts:
 
   ```ShellSession
-  $ sudo port install cmake eigen3 hdf5 openmpi OpenBLAS gmp
+  sudo port install cmake eigen3 hdf5 openmpi OpenBLAS gmp
   ```
 
   Activate the Conda environment, or ensure the Homebrew or MacPorts packages
@@ -55,7 +55,7 @@ Please make sure to have Python and the `green-mbtools` package available.
 dependencies, so pip installs them automatically:
 
   ```ShellSession
-  $ python -m pip install green-mbtools
+  python -m pip install green-mbtools
   ```
 
   Numba depends on `llvmlite`. On platforms for which pip does not provide a
@@ -76,7 +76,7 @@ The following instructions will download and build the CPU-only version of the M
 To install a specific release, pass `--branch` with the desired tag. Check the [releases page](https://github.com/Green-Phys/green-mbpt/releases) for the latest tag, then clone:
 
   ```ShellSession
-  $ git clone --branch <tag> --depth 1 https://github.com/Green-Phys/green-mbpt
+  git clone --branch <tag> --depth 1 https://github.com/Green-Phys/green-mbpt
   ```
 
 To instead track the development tip, omit `--branch`:
@@ -87,17 +87,17 @@ are enabled, Catch2. On an offline HPC system, configure the project only after
 arranging access to those sources or pre-populating CMake's dependency cache.
 
   ```ShellSession
-  $ git clone https://github.com/Green-Phys/green-mbpt
+  git clone https://github.com/Green-Phys/green-mbpt
   ```
 
 Then configure and build:
 
   ```ShellSession
-  $ cmake -S green-mbpt -B green-mbpt-build               \
+  cmake -S green-mbpt -B green-mbpt-build               \
        -DCMAKE_INSTALL_PREFIX=/path/to/install/directory  \
        -DCMAKE_BUILD_TYPE=Release
-  $ cmake --build green-mbpt-build -j 4
-  $ cmake --build green-mbpt-build -t test
+  cmake --build green-mbpt-build -j 4
+  cmake --build green-mbpt-build -t test
   ```
 
 A successful test run ends with CTest reporting
@@ -111,7 +111,7 @@ If dependencies are installed under a non-default prefix, add that prefix to
 the configure command. For an active Conda environment, for example:
 
   ```ShellSession
-  $ cmake -S green-mbpt -B green-mbpt-build               \
+  cmake -S green-mbpt -B green-mbpt-build               \
        -DCMAKE_INSTALL_PREFIX=/path/to/install/directory  \
        -DCMAKE_PREFIX_PATH="$CONDA_PREFIX"                 \
        -DCMAKE_BUILD_TYPE=Release
@@ -132,7 +132,7 @@ changed by explicitly providing a new installation path to the `--prefix` parame
 To install the code run:
 
   ```ShellSession
-  $ cmake --install green-mbpt-build
+  cmake --install green-mbpt-build
   ```
 Your install directory will be created. A successful installation places the
 following executables under its `bin` directory:
@@ -149,20 +149,20 @@ GPU kernels for the many-body perturbation framework use extensions from a custo
 By default, code is generated for sm_80, sm_86, and sm_90 (Ampere and Hopper). To target a specific GPU, add `-DGPU_ARCHS="<cc>"`, where `<cc>` is your GPU's compute capability with the dot removed (e.g. `89` for compute capability 8.9). You can find your GPU's compute capability with:
 
   ```ShellSession
-  $ nvidia-smi --query-gpu=compute_cap --format=csv,noheader
+  nvidia-smi --query-gpu=compute_cap --format=csv,noheader
   ```
 
 The following instructions will download and build the Many-Body Perturbation theory solver with additional GPU kernels (replace /path/to/install/directory with the directory where you'd like to install the code). Use the same `--branch` approach described above to target a specific release. Then configure and build:
 
   ```ShellSession
-  $ git clone https://github.com/Green-Phys/green-mbpt
-  $ cmake -S green-mbpt -B green-mbpt-build                         \
+  git clone https://github.com/Green-Phys/green-mbpt
+  cmake -S green-mbpt -B green-mbpt-build                         \
      -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
      -DCMAKE_BUILD_TYPE=Release                                     \
      -DCUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu"
-  $ cmake --build green-mbpt-build -j 4
-  $ cmake --build green-mbpt-build -t test
-  $ cmake --install green-mbpt-build
+  cmake --build green-mbpt-build -j 4
+  cmake --build green-mbpt-build -t test
+  cmake --install green-mbpt-build
   ```
 
 {{% /steps %}}
@@ -204,12 +204,12 @@ These packages are the same as the ones required for the mbpt code, except for G
 The following instructions will download and build the Analytical Continuation package (replace /path/to/install/directory with the directory where you'd like to install the code):
 
 ```ShellSession
-  $ git clone https://github.com/Green-Phys/green-ac.git
-  $ cmake -S green-ac -B green-ac-build                     \
+  git clone https://github.com/Green-Phys/green-ac.git
+  cmake -S green-ac -B green-ac-build                     \
           -DCMAKE_INSTALL_PREFIX=/path/to/install/directory \
           -DCMAKE_BUILD_TYPE=Release
-  $ cmake --build green-ac-build -j 4 
-  $ cmake --build green-ac-build -t test install
+  cmake --build green-ac-build -j 4 
+  cmake --build green-ac-build -t test install
 ```
 
 If dependencies are installed under a non-default prefix, pass it during

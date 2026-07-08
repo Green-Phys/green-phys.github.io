@@ -56,7 +56,7 @@ fatal: detected dubious ownership in repository at '/path/to/build/_deps/...'
 The fix is to tell git to trust the affected directories:
 
 ```ShellSession
-$ git config --global --add safe.directory '*'
+git config --global --add safe.directory '*'
 ```
 
 ### GPU build fails: `nvcc fatal: Unsupported gpu architecture 'compute_70'`
@@ -66,14 +66,14 @@ CUDA 13 or later, pass `-DGPU_ARCHS` to target only your GPU's architecture
 instead of relying on the default list:
 
 ```ShellSession
-$ nvidia-smi --query-gpu=compute_cap --format=csv,noheader
+nvidia-smi --query-gpu=compute_cap --format=csv,noheader
 ```
 
 Use the reported value with the dot removed (e.g. `8.9` → `89`) in the CMake
 configure step:
 
 ```ShellSession
-$ cmake -S green-mbpt -B green-mbpt-build \
+cmake -S green-mbpt -B green-mbpt-build \
     -DCMAKE_BUILD_TYPE=Release            \
     -DCUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu" \
     -DGPU_ARCHS="89"

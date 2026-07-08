@@ -122,16 +122,32 @@ to report a bug, how to install, how to cite, how to contribute.
 (Mirrors ALPS PR #85 "rewrite FAQ page with improved content and action
 buttons".)
 
-### 7. Split installation docs by audience and fix broken cards
-`content/docs/installation/_index.md` has a feature-card ("Install Packaged
-Versions") with no `link=` set — dead card, same class of bug ALPS was
-fixing throughout its install docs. Beyond that, consider ALPS's audience-first
-framing: "most users should do X", "developers/advanced users should do Y",
-"HPC operators should do Z" applied to GREEN's from-source / NSF-machine /
-Perlmutter installation paths. Also double check GREEN's ShellSession code
-blocks don't have the same copy-button `$`-prefix problem ALPS just fixed
-(PR #103) — if GREEN's install docs use `$ ` prompts inside copyable shell
-blocks, users copying them will get literal `$` characters.
+### 7. Split installation docs by audience and fix broken cards — DONE
+Removed the dead "Install Packaged Versions" feature-card from
+`content/docs/installation/_index.md` — it had no `link=` and there's no
+actual packaged-install content behind it (GREEN currently only ships
+source builds), so a missing link would have been the wrong fix; removing
+the card was the honest one. Added ALPS-style audience-first framing above
+the card grid: most users → general source install, NSF ACCESS users →
+the NSF machine guide, DOE users → the DOE machine guide.
+
+Fixed the copy-button `$`-prefix bug ALPS had already hit (PR #103): all 21
+`$ ` shell-prompt prefixes in `from_sources.md`'s ShellSession blocks are
+gone, so the copy button now yields runnable commands instead of lines
+starting with a literal `$`. Also fixed a lexer-name typo (`ShellSesion` →
+`ShellSession`) in the NCSA Delta guide.
+
+Along the way, found and fixed a real regression from the hextra upgrade
+(#1): GREEN's own `layouts/shortcodes/tabs.html` override predates the new
+theme's `tab`/`tabs` shortcode protocol (child `tab` shortcodes now feed
+their content into the parent's `.Store` instead of rendering directly),
+so every tabbed page on the site — `from_sources.md`, `seet_example.md`,
+`examples/si.md`, `examples/N2.md`, `pauli/_index.md` — was silently
+rendering **empty tab panels** (tab buttons with no content behind them).
+Deleted the redundant override; the theme's own `tabs.html` already
+supports the legacy `items="..."` syntax GREEN's content uses, so this
+was a net deletion, not a rewrite. Verified all five affected pages now
+render their tab content and switch correctly.
 (Mirrors ALPS PRs #43, #59 "improve source installation guide for
 beginners", #86 "rewrite installation index with audience guidance and
 action buttons", #98 "Remove sample supercomputer batch script from Spack

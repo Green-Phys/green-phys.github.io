@@ -81,22 +81,26 @@ menu:
       name: About
       pageRef: /about
       weight: 4
-    - name: Search
+    - identifier: troubleshooting
+      name: Troubleshooting
+      pageRef: /docs/troubleshoot
       weight: 5
+    - name: Search
+      weight: 6
       params:
         type: search
     - name: GitHub
-      weight: 6
+      weight: 7
       url: "https://github.com/Green-Phys"
       params:
         icon: github
     - name: Discord
-      weight: 7
+      weight: 8
       url: "https://discord.gg/ty9FE6u3mg"
       params:
         icon: discord
     - name: Toggle
-      weight: 8
+      weight: 9
       params:
         type: theme-toggle
         icon: sun

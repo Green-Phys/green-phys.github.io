@@ -7,6 +7,13 @@ math: true
 prev: "/docs/tutorials"
 ---
 
+If you run into an issue that isn't covered below, please file an issue or reach us on Discord — we will do our best to help.
+
+<div class="btn-grid">
+{{< cta-button text="Submit an issue" link="https://green-phys.youtrack.cloud/newIssue" icon="bug_report" >}}
+{{< cta-button text="Discord" link="https://discord.gg/ty9FE6u3mg" icon="forum" >}}
+</div>
+
 ## Calculation does not converge
 
 Quite often the self-consistent iterations will not lead to a converged solution. There are several possible causes for calculation to diverge, the two main reasons are:
@@ -40,6 +47,11 @@ WARNING: The leakage is larger than 1e-8
 When the `Green`/`WeakCoupling` simulations are done in single precision, spectral leakage will almost always exceed $10^{-8}$ cutoff
 and we suggest to monitor spectral leakage for couple of iterations and if it does not grow, the calculations are expected to be 
 stable and no further actions are needed.
+
+<div class="btn-grid">
+{{< cta-button text="DIIS Tutorial" link="/docs/tutorials/diis/" icon="speed" >}}
+{{< cta-button text="Convergence Theory" link="/docs/theory/convergence_acceleration/" icon="trending_down" >}}
+</div>
 
 ## Build and installation problems
 
@@ -78,3 +90,8 @@ cmake -S green-mbpt -B green-mbpt-build \
     -DCUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu" \
     -DGPU_ARCHS="89"
 ```
+
+<div class="btn-grid">
+{{< cta-button text="Installation Guide" link="/docs/installation/" icon="rocket_launch" >}}
+{{< cta-button text="Submit an issue" link="https://green-phys.youtrack.cloud/newIssue" icon="bug_report" >}}
+</div>

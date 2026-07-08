@@ -35,4 +35,10 @@ icon: home
     link="publications"
     icon="auto-story"
   >}}
+  {{< hextra/feature-card
+    title="Troubleshooting"
+    subtitle="Solutions to common problems"
+    link="troubleshoot"
+    icon="troubleshoot"
+  >}}
 {{< /hextra/feature-grid >}}

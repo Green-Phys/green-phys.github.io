@@ -114,11 +114,20 @@ GREEN has no equivalent of ALPS's `govern/` section. Worth adding:
 (Mirrors ALPS PRs #94 "Add Contributing to ALPS page and update governance
 section", #97 "Add Code Maintainers page under Governance".)
 
-### 6. Add an FAQ page
-A single `faqs/_index.md` with Q&A blocks, each ending in a small
-`btn-grid` of relevant action buttons (Issues, Discord, Installation, etc.),
-same pattern as ALPS. Good candidate questions for GREEN: license terms, how
-to report a bug, how to install, how to cite, how to contribute.
+### 6. Add an FAQ page — DONE (via the existing Troubleshooting page)
+Rather than write a separate, largely-redundant FAQ page from scratch,
+GREEN already had a `docs/troubleshoot.md` page covering the same
+"how do I get unstuck" need with real content (convergence issues, build
+failures) — so it got the ALPS-FAQ treatment instead of duplicating it:
+- Added to the top navbar (`hugo.yaml` `menu.main`) and to the homepage
+  CTA `.btn-grid`, so it's reachable in one click like ALPS's FAQ.
+- Added to the docs index page's feature-card grid.
+- Added ALPS-style action-button rows: an intro "need more help?"
+  Issues/Discord row at the top, and a closing button row after each of
+  the two major sections (DIIS Tutorial/Convergence Theory after the
+  convergence section; Installation Guide/Submit an issue after the
+  build section) — matching how ALPS ends every FAQ answer with
+  relevant action buttons.
 (Mirrors ALPS PR #85 "rewrite FAQ page with improved content and action
 buttons".)
 

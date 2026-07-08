@@ -9,6 +9,3 @@ This is a tutorial on how to use the Exact Diagonalization code.
 Talk by Sergei on May 3:
 
 {{< youtube id="T7QInxh_DY0" >}}
-
-You can find the slides of the talk
-[here](/files/ED_talk.pdf).

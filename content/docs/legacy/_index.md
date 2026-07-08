@@ -8,21 +8,21 @@ hidden: true
 ## Introductory Guidelines
 
 -   [Getting Started – Package
-    Installation](/legacy/package_installation "wikilink")
+    Installation](/docs/legacy/package_installation)
 -   Getting Started – General Considerations
 -   Getting Started – Basis sets and Basis functions
 -   [Getting Started – Lattice Parameters and
-    Geometries](/legacy/lattice "wikilink")
+    Geometries](/docs/tutorials/lattice)
 -   [Getting Started – Running Density Functional
-    Theory](/legacy/running_density_functional_theory "wikilink")
+    Theory](/docs/legacy/running_density_functional_theory)
 -   [Getting Started – Running GW in the non-relativistic
-    case](/legacy/running_gw_in_the_non-relativistic_case "wikilink")
+    case](/docs/legacy/running_gw_in_the_non-relativistic_case)
 -   [Getting Started – How to use the Exact Diagonalization
-    Code](/legacy/how_to_use_the_exact_diagonalization_code "wikilink")
+    Code](/docs/legacy/how_to_use_the_exact_diagonalization_code)
 -   [Getting Started – Fitting a continuous bath with finite bath
-    levels](/legacy/fitting_a_continuous_bath_with_finite_bath_levels "wikilink")
+    levels](/docs/legacy/fitting_a_continuous_bath_with_finite_bath_levels)
 -   [Getting Started – Running Self-Energy
-    Embedding](/legacy/running_self-energy_embedding "wikilink")
+    Embedding](/docs/legacy/running_self-energy_embedding)
 -   Getting Started – The Double Counting Correction \[tbd\]
 -   Getting Started – Inner and Outer Self-Consistencies
 

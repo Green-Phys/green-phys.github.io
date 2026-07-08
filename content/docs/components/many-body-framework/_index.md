@@ -3,25 +3,26 @@ title: Many-Body Framework
 weight: 2
 ---
 
-{{< hextra/feature-grid maxcolumns="2" >}}
-  {{< hextra/feature-card
-    title="WeakCoupling"
-    subtitle="Green Weak Coupling solver"
-    link="weak_coupling"
-  >}}
-  {{< hextra/feature-card
-    title="Self-consistency"
-    subtitle="Library to perform self-consistent iterations"
-    link="selfconsistency"
-  >}}
-  {{< hextra/feature-card
-    title="Analitic Continuation"
-    subtitle="Implementations of analytical continuation methods"
-    link="analytical-continuation"
-  >}}
-  {{< hextra/feature-card
-    title="Impurity Solvers"
-    subtitle="Implementation of impurirty solvers for strong-correlation problems"
-    link="solvers"
-  >}}
-{{< /hextra/feature-grid >}}
+### WeakCoupling
+
+The Green weak-coupling solver, implementing finite-temperature fully self-consistent GF2 and GW.
+
+{{< cta-button text="Read more" link="weak_coupling" icon="functions" >}}
+
+### Self-consistency
+
+A header-only C++ template library implementing a generic iterative self-consistency loop.
+
+{{< cta-button text="Read more" link="selfconsistency" icon="loop" >}}
+
+### Analytic Continuation
+
+Implementations of analytic continuation methods used to obtain spectral properties from imaginary-time/Matsubara-frequency data.
+
+{{< cta-button text="Read more" link="analytical-continuation" icon="show_chart" >}}
+
+### Impurity Solvers
+
+Implementations of impurity solvers for strongly-correlated problems, including the non-/one-crossing approximation and coupled-cluster solvers.
+
+{{< cta-button text="Read more" link="solvers" icon="hub" >}}

@@ -6,20 +6,20 @@ prev: "/docs/components"
 next: "/docs/troubleshoot"
 ---
 
-{{< hextra/feature-grid maxcolumns="2" >}}
-  {{< hextra/feature-card
-    title="Lattice Parameters"
-    subtitle="Tutorial on setting up unit cell and lattice parameters"
-    link="lattice"
-  >}}
-  {{< hextra/feature-card
-    title="Convergence Acceleration"
-    subtitle="Tutorial on using acceleration convergence techniques"
-    link="diis"
-  >}}
-  {{< hextra/feature-card
-    title="MBAnalysis"
-    subtitle="Tutorial on using toolset for post-processing"
-    link="mbanalysis"
-  >}}
-{{< /hextra/feature-grid >}}
+### Lattice Parameters
+
+Tutorial on setting up unit cell and lattice parameters for periodic calculations.
+
+{{< cta-button text="Read more" link="lattice" icon="grid_view" >}}
+
+### Convergence Acceleration
+
+Tutorial on using DIIS convergence acceleration techniques, worked through simple and advanced examples.
+
+{{< cta-button text="Read more" link="diis" icon="speed" >}}
+
+### MBAnalysis
+
+Tutorial on using the `green_mbtools.pesto` (formerly `mbanalysis`) toolset for post-processing Green's output.
+
+{{< cta-button text="Read more" link="mbanalysis" icon="insights" >}}

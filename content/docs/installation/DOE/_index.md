@@ -3,13 +3,10 @@ title: DOE machines
 weight: 2
 ---
 
-### Green has been tested on the following NSF-managed machines
+Green has been tested on the following DOE-managed machines.
 
-{{< hextra/feature-grid maxcolumns="2" >}}
-  {{< hextra/feature-card
-    title="NERSC Permutter"
-    subtitle=""
-    link="perlmutter"
-  >}}
-{{< /hextra/feature-grid >}}
+### NERSC Perlmutter
 
+Build instructions for NERSC Perlmutter, covering all four supported programming environments (GNU, Intel, AOCC, Cray) and both CPU and GPU partitions.
+
+{{< cta-button text="Read more" link="perlmutter" icon="dns" >}}

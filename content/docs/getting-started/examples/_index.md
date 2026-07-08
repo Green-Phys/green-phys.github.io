@@ -7,18 +7,18 @@ weight: 6
 icon: rocket-launch
 ---
 
-{{< hextra/feature-grid maxcolumns="2" >}}
-  {{< hextra/feature-card
-    title="GW band structure"
-    subtitle="Example on computing band structure of Silicon from self consistent GW"
-    link="si"
-  >}}
-  {{< hextra/feature-card
-    title="[TBA] Ionization potential"
-    subtitle="Example on computing ionization potential from self-consistent GW"
-  >}}
-  {{< hextra/feature-card
-    title="[TBA] Spin-orbit coupling"
-    subtitle="Example on running GW with spin-orbit coupling"
-  >}}
-{{< /hextra/feature-grid >}}
+### GW band structure
+
+Example on computing the band structure of periodic Silicon from a self-consistent GW calculation.
+
+{{< cta-button text="Read more" link="si" icon="code" >}}
+
+### Ionization potential and electron affinity
+
+Example on computing the ionization potential and electron affinity of the nitrogen molecule from a self-consistent GW calculation.
+
+{{< cta-button text="Read more" link="N2" icon="code" >}}
+
+### Spin-orbit coupling
+
+Example on running GW with spin-orbit coupling — coming soon.

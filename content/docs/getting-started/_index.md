@@ -7,25 +7,26 @@ weight: 3
 icon: rocket-launch
 ---
 
-{{< hextra/feature-grid maxcolumns="2" >}}
-  {{< hextra/feature-card
-    title="Input preparation"
-    subtitle="Instruction on preparing input for GF2/GW simulations"
-    link="preparing_input"
-  >}}
-  {{< hextra/feature-card
-    title="Weak-coupling code"
-    subtitle="Instruction on running GF2/GW for real materials"
-    link="running_greens"
-  >}}
-  {{< hextra/feature-card
-    title="Post-processing"
-    subtitle="Information on how to specify lattice geometries"
-    link="postprocessing"
-  >}}
-  {{< hextra/feature-card
-    title="Examples"
-    subtitle="Simple examples on running Green codes for periodic Silicon"
-    link="examples/si"
-  >}}
-{{< /hextra/feature-grid >}}
+### Input preparation
+
+Instructions on preparing input for GF2/GW simulations using PySCF.
+
+{{< cta-button text="Read more" link="preparing_input" icon="input" >}}
+
+### Weak-coupling code
+
+Instructions on running the GF2/GW weak-coupling solver for real materials.
+
+{{< cta-button text="Read more" link="running_greens" icon="terminal" >}}
+
+### Post-processing
+
+Information on how to specify lattice geometries and post-process Green's output.
+
+{{< cta-button text="Read more" link="postprocessing" icon="analytics" >}}
+
+### Examples
+
+Simple worked examples on running Green codes, including a full GW band structure calculation for periodic Silicon.
+
+{{< cta-button text="Read more" link="examples/si" icon="code" >}}

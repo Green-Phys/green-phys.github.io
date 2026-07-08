@@ -17,20 +17,8 @@ Green is currently installed by building from source. Choose the guide that matc
 
 If your system isn't covered here and you run into trouble, please file an [issue](https://green-phys.youtrack.cloud/newIssue) — we're glad to help, and to add new machine-specific guides as they're worked out.
 
-{{< hextra/feature-grid maxcolumns="2" >}}
-  {{< hextra/feature-card
-    title="Installation From Sources"
-    subtitle="Installation instruction to install Green codes on generic Linux/Mac machines"
-    link="from_sources"
-  >}}
-  {{< hextra/feature-card
-    title="Installation on NSF managed machines"
-    subtitle="Installation instructions for NSF machines"
-    link="nsf"
-  >}}
-  {{< hextra/feature-card
-    title="Installation on NERSC Perlmutter"
-    subtitle="Installation instruction for NERSC Perlmutter"
-    link="doe"
-  >}}
-{{< /hextra/feature-grid >}}
+<div class="btn-grid">
+{{< cta-button text="General Installation" link="from_sources" icon="rocket_launch" >}}
+{{< cta-button text="NSF machines" link="nsf" icon="dns" >}}
+{{< cta-button text="DOE machines" link="doe" icon="dns" >}}
+</div>

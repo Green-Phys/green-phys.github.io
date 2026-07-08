@@ -15,6 +15,37 @@
   --btn-saturation: 100%;
 }
 
+.home-flex {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.home-intro {
+  flex: 2 1 320px;
+}
+
+.home-image {
+  flex: 1 1 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.home-image img {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  .home-image {
+    order: -1;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

@@ -5,14 +5,14 @@
   --navbar-height: 4rem;
   --menu-height: 3.75rem;
   --button-width: 210px;
-  --btn-hue: 42deg;
-  --btn-saturation: 50%;
+  /* Buttons track the site's green primary (in both light and dark modes). */
+  --btn-hue: var(--primary-hue);
+  --btn-saturation: var(--primary-saturation);
 }
 
 .dark {
   --primary-hue: 102deg;
   --primary-saturation: 100%;
-  --btn-saturation: 100%;
 }
 
 .home-flex {
@@ -64,14 +64,14 @@
 }
 
 .btn-primary {
-  background-color: hsl(var(--btn-hue) var(--btn-saturation) 35%);
-  border: 2px solid hsl(var(--btn-hue) var(--btn-saturation) 35%);
+  background-color: hsl(var(--btn-hue) var(--btn-saturation) 30%);
+  border: 2px solid hsl(var(--btn-hue) var(--btn-saturation) 30%);
   color: #f7f7f7 !important;
 }
 
 .btn-primary:hover {
-  background-color: hsl(var(--btn-hue) var(--btn-saturation) 28%);
-  border-color: hsl(var(--btn-hue) var(--btn-saturation) 28%);
+  background-color: hsl(var(--btn-hue) var(--btn-saturation) 24%);
+  border-color: hsl(var(--btn-hue) var(--btn-saturation) 24%);
   color: #ffffff !important;
 }
 
@@ -178,6 +178,26 @@
 .btn-grid-4 .btn {
   width: 100%;
   margin: 0;
+}
+
+/* Secondary tier: small, wrapping pill buttons below the hero row. */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.btn-sm {
+  width: auto;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  border-width: 1px;
+  margin: 0;
+}
+
+.btn-sm .material-icons {
+  font-size: 1rem;
 }
 
 .news {

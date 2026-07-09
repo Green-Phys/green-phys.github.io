@@ -14,7 +14,7 @@ are mature and foolproof.
 
 The Vienna Ab-Initio Simulation Package [VASP](https://www.vasp.at) is a
 good place to get started for standard DFT. Codes are installed on
-[Pauli](/Pauli_Cluster_Information "wikilink") but running VASP requires
+Pauli but running VASP requires
 you to be a registered user, please contact Dominika to make sure that
 you are. Following the guidelines at the VASP homepage, make sure that
 you can obtain the band structure of your compound of interest. VASP is
@@ -23,7 +23,7 @@ your choice of basis.
 [PBE](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.77.3865)
 is a very standard functional and a decent initial choice of functional.
 
-Runxue gave an [introduction to VASP](/tutorials/introduction_to_vasp "wikilink")
+Runxue gave an [introduction to VASP](/docs/tutorials/introduction_to_vasp)
 in our group seminar
 
 ## Step 2 – Crystal or CP2K with PBE
@@ -37,7 +37,7 @@ pseudopotentials, while CP2K is a more established standard Gaussian DFT
 code. Gaussian bases are differently biased from plane wave basis sets
 with pseudopotential. Obtaining a bandstructure plot in both codes will
 give you a basis for comparison. Yanbing gave an excellent [tutorial on
-using Crystal](/tutorials/tutorial_on_using_crystal "wikilink").
+using Crystal](/docs/tutorials/tutorial_on_using_crystal).
 
 ## Step 3 – DFT in pySCF
 

@@ -7,6 +7,13 @@ math: true
 prev: "/docs/tutorials"
 ---
 
+If you run into an issue that isn't covered below, please file an issue or reach us on Discord — we will do our best to help.
+
+<div class="btn-grid">
+{{< cta-button text="Submit an issue" link="https://green-phys.youtrack.cloud/newIssue" icon="bug_report" >}}
+{{< cta-button text="Discord" link="https://discord.gg/ty9FE6u3mg" icon="forum" >}}
+</div>
+
 ## Calculation does not converge
 
 Quite often the self-consistent iterations will not lead to a converged solution. There are several possible causes for calculation to diverge, the two main reasons are:
@@ -41,6 +48,11 @@ When the `Green`/`WeakCoupling` simulations are done in single precision, spectr
 and we suggest to monitor spectral leakage for couple of iterations and if it does not grow, the calculations are expected to be 
 stable and no further actions are needed.
 
+<div class="btn-grid">
+{{< cta-button text="DIIS Tutorial" link="/docs/tutorials/diis/" icon="speed" >}}
+{{< cta-button text="Convergence Theory" link="/docs/theory/convergence_acceleration/" icon="trending_down" >}}
+</div>
+
 ## Build and installation problems
 
 ### CMake configure fails with "detected dubious ownership"
@@ -56,7 +68,7 @@ fatal: detected dubious ownership in repository at '/path/to/build/_deps/...'
 The fix is to tell git to trust the affected directories:
 
 ```ShellSession
-$ git config --global --add safe.directory '*'
+git config --global --add safe.directory '*'
 ```
 
 ### GPU build fails: `nvcc fatal: Unsupported gpu architecture 'compute_70'`
@@ -66,15 +78,20 @@ CUDA 13 or later, pass `-DGPU_ARCHS` to target only your GPU's architecture
 instead of relying on the default list:
 
 ```ShellSession
-$ nvidia-smi --query-gpu=compute_cap --format=csv,noheader
+nvidia-smi --query-gpu=compute_cap --format=csv,noheader
 ```
 
 Use the reported value with the dot removed (e.g. `8.9` → `89`) in the CMake
 configure step:
 
 ```ShellSession
-$ cmake -S green-mbpt -B green-mbpt-build \
+cmake -S green-mbpt -B green-mbpt-build \
     -DCMAKE_BUILD_TYPE=Release            \
     -DCUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu" \
     -DGPU_ARCHS="89"
 ```
+
+<div class="btn-grid">
+{{< cta-button text="Installation Guide" link="/docs/installation/" icon="rocket_launch" >}}
+{{< cta-button text="Submit an issue" link="https://green-phys.youtrack.cloud/newIssue" icon="bug_report" >}}
+</div>

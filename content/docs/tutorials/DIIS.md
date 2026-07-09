@@ -137,9 +137,9 @@ The saved files above contain basis sets in the CP2K format, while our generatin
 
 In our case, the user can execute the following commands performing conversion:
 ```ShellSession
-  $ bse convert-basis --in-fmt cp2k --out-fmt nwchem Bi_basis Bi_basis_nwchem
-  $ bse convert-basis --in-fmt cp2k --out-fmt nwchem V_basis V_basis_nwchem
-  $ bse convert-basis --in-fmt cp2k --out-fmt nwchem O_basis O_basis_nwchem
+  bse convert-basis --in-fmt cp2k --out-fmt nwchem Bi_basis Bi_basis_nwchem
+  bse convert-basis --in-fmt cp2k --out-fmt nwchem V_basis V_basis_nwchem
+  bse convert-basis --in-fmt cp2k --out-fmt nwchem O_basis O_basis_nwchem
 ```
 These commands will create `Bi_basis_nwchem`, `V_basis_nwchem`, and `O_basis_nwchem` file with the basis sets in NWChem format.
 

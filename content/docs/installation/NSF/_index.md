@@ -3,17 +3,16 @@ title: NSF machines
 weight: 1
 ---
 
-### Green has been tested on the following NSF-managed machines
+Green has been tested on the following NSF-managed machines.
 
-{{< hextra/feature-grid maxcolumns="2" >}}
-  {{< hextra/feature-card
-    title="SDSC Expanse"
-    subtitle=""
-    link="expanse"
-  >}}
-  {{< hextra/feature-card
-    title="NCSA Delta"
-    subtitle=""
-    link="delta"
-  >}}
-{{< /hextra/feature-grid >}}
+### SDSC Expanse
+
+Build instructions for SDSC Expanse, using the `mvapich2` MPI implementation and the `openblas/dynamic` BLAS module.
+
+{{< cta-button text="Read more" link="expanse" icon="dns" >}}
+
+### NCSA Delta
+
+Build instructions for NCSA Delta, including how to build Eigen from source and link against Delta's GPU-enabled module set.
+
+{{< cta-button text="Read more" link="delta" icon="dns" >}}

@@ -22,7 +22,7 @@ The following modules will be loaded:
 
 ### Install Eigen
 
-```ShellSesion
+```ShellSession
  wget https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.bz2
  bzcat eigen-3.4.0.tar.bz2 | tar -x
  cmake -B eigen-build -S eigen-3.4.0 --install-prefix <install/directory/for/eigen> \

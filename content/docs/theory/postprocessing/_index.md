@@ -5,15 +5,14 @@ prev: "/docs/theory/gw_theory"
 next: "/docs/theory/convergence_acceleration"
 ---
 
-{{< hextra/feature-grid maxcolumns="2" >}}
-  {{< hextra/feature-card
-    title="Thermodynamics"
-    subtitle="Thermidynamics observables in finite-temperature calculations"
-    link="thermodynamics"
-  >}}
-  {{< hextra/feature-card
-    title="Spectral properties"
-    subtitle="Theory on methods to obtain spectral representation"
-    link="Analytical_Continuation"
-  >}}
-{{< /hextra/feature-grid >}}
+### Thermodynamics
+
+Self-consistent finite $\Phi$-derivable theories give direct access to thermodynamic properties such as entropy, free energy, and specific heat, expressed in terms of Green's functions, self-energies, and a $\Phi$-functional.
+
+{{< cta-button text="Read more" link="thermodynamics" icon="analytics" >}}
+
+### Spectral properties
+
+Theory on the analytic continuation methods used to obtain the spectral representation of a Green's function from imaginary-time or Matsubara-frequency data.
+
+{{< cta-button text="Read more" link="Analytical_Continuation" icon="show_chart" >}}

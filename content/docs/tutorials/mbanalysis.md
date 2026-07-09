@@ -15,7 +15,7 @@ The package has two sub-modules:
 The `green_mbtools.pesto` was previously known as the `mbanalysis` package, and can still be imported with the alias `mbanalysis`.
 {{< /note >}}
 
-For a complete guide and source-code documentation, see the [package website](https://green-phys.org/green-mbtools).
+For a complete guide and source-code documentation, see the [package website](https://green-phys.github.io/green-mbtools).
 Several example python scripts for the `pesto` module are provided in the [Github](https://github.com/Green-Phys/green-mbtools/tree/master/examples) repository. Some of the key components are discussed below.
 
 ## Installation

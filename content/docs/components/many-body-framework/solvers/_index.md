@@ -3,15 +3,14 @@ title: Solvers
 weight: 5
 ---
 
-{{< hextra/feature-grid maxcolumns="2" >}}
-  {{< hextra/feature-card
-    title="x-Crossing Approximation"
-    subtitle="Implementation of Non- and One-Crossing Approximation method"
-    link="xca"
-  >}}
-  {{< hextra/feature-card
-    title="GF-CCSD"
-    subtitle="Implementation of Green's function coupled cluster singles and doubles impurity solver"
-    link="gfccsd"
-  >}}
-{{< /hextra/feature-grid >}}
+### x-Crossing Approximation
+
+Implementation of the Non-Crossing and One-Crossing Approximation methods, standard impurity solvers for strongly-correlated problems.
+
+{{< cta-button text="Read more" link="xca" icon="hub" >}}
+
+### GF-CCSD
+
+Implementation of the Green's function coupled cluster singles and doubles impurity solver.
+
+{{< cta-button text="Read more" link="gfccsd" icon="hub" >}}

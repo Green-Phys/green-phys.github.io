@@ -107,7 +107,7 @@ $$
 The commutator residual is defined as
 
 $$
-e_i^{comm}(i\omega) = [G_{i-1}(i\omega), G_0^{-1}(i\omega) - \Sigma[G_{i-1}](i\omega\) ]
+e_i^{comm}(i\omega) = [G_{i-1}(i\omega), G_0^{-1}(i\omega) - \Sigma[G_{i-1}](i\omega) ]
 $$
 
 The commutator residual follows directly from the Dyson equation multiplied by $G$ from the left and from the right. It is a Green's function generalization of the Hartree--Fock commutator residual commonly used in practice due to their better performance than the difference residuals. Norms of both residuals go to zero once the self-consistent solution is found. In our practice, for simple systems both choices gives a comparable behaviour of iterations outperforming mixing in most cases. The commutator residuals can perform better in difficult cases because they estimate error using both Green's function and self-energy on equal footing.

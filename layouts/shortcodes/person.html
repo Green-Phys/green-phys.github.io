@@ -2,11 +2,12 @@
 {{- $name := .Get "name" }}
 {{- $title := .Get "title" }}
 {{- $head := .Get "head" }}
+{{- $link := .Get "link" }}
 
 
 <div class="gdoc-columns gdoc-columns--regular hx:flex flex-gap flex-mobile-column">
 <div style="display: inline-block; width:600px">
-<h3>{{- $name }}</h3>
+<h3>{{- if $link }}<a href="{{ $link }}" target="_blank" rel="noopener">{{- $name }}</a>{{- else }}{{- $name }}{{- end }}</h3>
 
 {{- if $title }}
 <h3>{{- $title }}</h3>

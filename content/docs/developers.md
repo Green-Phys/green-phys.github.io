@@ -7,46 +7,40 @@ prev: "/docs/troubleshoot"
 ---
 
 
-## Primary Investigators
+## Principal Investigators
 
-{{<person name="Emanuel Gull" contact="egull@umich.edu" title="" head="/headshots/egull.jpg" />}}
+{{<person name="Emanuel Gull" contact="egull@umich.edu" title="" head="/headshots/egull.jpg" link="https://gull-group.org" />}}
 
-{{<person name="Dominika Zgid" contact="zgid@umich.edu" title="" head="/headshots/zgid.jpg" />}}
+{{<person name="Dominika Zgid" contact="zgid@umich.edu" title="" head="/headshots/zgid.jpg" link="https://sites.lsa.umich.edu/zgid/" />}}
 
 ## Lead Developer
 
-{{<person name="Gaurav Harsha" head="/headshots/gaurav.jpg" />}}
+{{<person name="Gaurav Harsha" head="/headshots/gaurav.jpg" link="https://gauravharsha.github.io/" />}}
 
-## Team Members
+## Current and Former Contributors
 
-{{<person name="Vibin Abraham" head="/headshots/avibin.jpg" />}}
+{{<person name="Vibin Abraham" head="/headshots/avibin.jpg" link="https://scholar.google.com/citations?hl=en&user=86sYnsYAAAAJ" />}}
 
 {{<person name="Jacob Adamski" head="/headshots/adamskij.jpg" />}}
 
-{{<person name="Tianran Chen" head="/headshots/tchen.jpg" />}}
+{{<person name="Tianran Chen" head="/headshots/tchen.jpg" link="https://www.wcupa.edu/_admin/research/forms/ram-research-directory/profile.aspx?id=104" />}}
 
-{{<person name="Pavel Pokhilko" head="/headshots/pokhilko.jpg" />}}
+{{< person name="Sergei Iskakov" contact="siskakov@umich.edu" head="/headshots/siskakov.jpg" link="https://scholar.google.com/citations?user=NZ93EwYAAAAJ" />}}
 
-{{<person name="Munkhorgil Wang" head="/headshots/munkhw.jpg"/>}}
+{{<person name="Agnieszka Jażdżewska" link="https://m.fuw.edu.pl/phd-students.html?show=481931" />}}
 
-{{<person name="Ming Wen" />}}
+{{<person name="Jia Li" head="/headshots/jli.jpg" link="https://scholar.google.com/citations?hl=en&user=E6h8_CEAAAAJ" />}}
 
-{{<person name="Yang Yu" head="/headshots/umyangyu.jpg" />}}
+{{<person name="Pavel Pokhilko" head="/headshots/pokhilko.jpg" link="https://scholar.google.com/citations?hl=en&user=7yROcoIAAAAJ" />}}
 
-{{<person name="Lei Zhang" head="/headshots/lzphy.jpg" />}}
+{{<person name="Munkhorgil Wang" head="/headshots/munkhw.jpg" link="https://scholar.google.com/citations?hl=en&user=ndw73lcAAAAJ" />}}
 
-{{<person name="Agnieszka Jażdżewska"/>}}
+{{<person name="Ming Wen" link="https://scholar.google.com/citations?hl=en&user=t7HA5-sAAAAJ" />}}
 
-## Contributors
-
-{{<person name="Jia Li" head="/headshots/jli.jpg" />}}
-
-{{<person name="Chia-Nan Yeh"  head="/headshots/cnyeh.jpg" />}}
-
-## Retired Team Members
-
-{{< person name="Sergei Iskakov" contact="siskakov@umich.edu" head="/headshots/siskakov.jpg" />}}
-
-
+{{<person name="Chia-Nan Yeh"  head="/headshots/cnyeh.jpg" link="https://www.simonsfoundation.org/people/chia-nan-yeh/" />}}
 
 {{<person name="Runxue Yu" head="/headshots/runxueyu.jpg" />}}
+
+{{<person name="Yang Yu" head="/headshots/umyangyu.jpg" link="https://scholar.google.com/citations?user=fjJ3INIAAAAJ" />}}
+
+{{<person name="Lei Zhang" head="/headshots/lzphy.jpg" link="https://scholar.google.com/citations?user=znwC5ycAAAAJ" />}}

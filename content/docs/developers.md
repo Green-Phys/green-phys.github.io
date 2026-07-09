@@ -7,17 +7,17 @@ prev: "/docs/troubleshoot"
 ---
 
 
-## Primary Investigators
+## Principal Investigators
 
-{{<person name="Emanuel Gull" contact="egull@umich.edu" title="" head="/headshots/egull.jpg" />}}
+{{<person name="Emanuel Gull" contact="egull@umich.edu" title="" head="/headshots/egull.jpg" link="https://gull-group.org" />}}
 
-{{<person name="Dominika Zgid" contact="zgid@umich.edu" title="" head="/headshots/zgid.jpg" />}}
+{{<person name="Dominika Zgid" contact="zgid@umich.edu" title="" head="/headshots/zgid.jpg" link="https://sites.lsa.umich.edu/zgid/" />}}
 
 ## Lead Developer
 
-{{<person name="Gaurav Harsha" head="/headshots/gaurav.jpg" />}}
+{{<person name="Gaurav Harsha" head="/headshots/gaurav.jpg" link="https://gauravharsha.github.io/" />}}
 
-## Team Members
+## Current and Former Contributors
 
 {{<person name="Vibin Abraham" head="/headshots/avibin.jpg" />}}
 
@@ -37,16 +37,10 @@ prev: "/docs/troubleshoot"
 
 {{<person name="Agnieszka Jażdżewska"/>}}
 
-## Contributors
-
 {{<person name="Jia Li" head="/headshots/jli.jpg" />}}
 
 {{<person name="Chia-Nan Yeh"  head="/headshots/cnyeh.jpg" />}}
 
-## Retired Team Members
-
 {{< person name="Sergei Iskakov" contact="siskakov@umich.edu" head="/headshots/siskakov.jpg" />}}
-
-
 
 {{<person name="Runxue Yu" head="/headshots/runxueyu.jpg" />}}

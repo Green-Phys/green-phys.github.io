@@ -25,22 +25,22 @@ prev: "/docs/troubleshoot"
 
 {{<person name="Tianran Chen" head="/headshots/tchen.jpg" />}}
 
+{{< person name="Sergei Iskakov" contact="siskakov@umich.edu" head="/headshots/siskakov.jpg" />}}
+
+{{<person name="Agnieszka Jażdżewska"/>}}
+
+{{<person name="Jia Li" head="/headshots/jli.jpg" />}}
+
 {{<person name="Pavel Pokhilko" head="/headshots/pokhilko.jpg" />}}
 
 {{<person name="Munkhorgil Wang" head="/headshots/munkhw.jpg"/>}}
 
 {{<person name="Ming Wen" />}}
 
+{{<person name="Chia-Nan Yeh"  head="/headshots/cnyeh.jpg" />}}
+
+{{<person name="Runxue Yu" head="/headshots/runxueyu.jpg" />}}
+
 {{<person name="Yang Yu" head="/headshots/umyangyu.jpg" />}}
 
 {{<person name="Lei Zhang" head="/headshots/lzphy.jpg" />}}
-
-{{<person name="Agnieszka Jażdżewska"/>}}
-
-{{<person name="Jia Li" head="/headshots/jli.jpg" />}}
-
-{{<person name="Chia-Nan Yeh"  head="/headshots/cnyeh.jpg" />}}
-
-{{< person name="Sergei Iskakov" contact="siskakov@umich.edu" head="/headshots/siskakov.jpg" />}}
-
-{{<person name="Runxue Yu" head="/headshots/runxueyu.jpg" />}}

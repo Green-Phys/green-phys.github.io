@@ -1,6 +1,6 @@
 ---
 title: NSF machines
-weight: 1
+weight: 3
 ---
 
 Green has been tested on the following NSF-managed machines.

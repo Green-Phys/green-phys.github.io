@@ -70,10 +70,14 @@ dependencies, so pip installs them automatically:
 ### Download and Build: CPU version
 The following instructions will download and build the CPU-only version of the Many-Body Perturbation theory solver (replace /path/to/install/directory with the directory where you'd like to install the code).
 
-We recommend building a specific released version. Pass `--branch` with the desired tag — check the [releases page](https://github.com/Green-Phys/green-mbpt/releases) for the latest tag, then clone:
+We recommend building a specific released version. Check the [releases page](https://github.com/Green-Phys/green-mbpt/releases) for the newest tags — as of this writing the latest stable release is [`v0.3.2`](https://github.com/Green-Phys/green-mbpt/releases/tag/v0.3.2) and the latest pre-release is [`v1.0.0a1`](https://github.com/Green-Phys/green-mbpt/releases/tag/v1.0.0a1). Clone the tag you want, for example:
 
   ```ShellSession
-  git clone --branch <tag> --depth 1 https://github.com/Green-Phys/green-mbpt
+  # Latest stable release (v0.3.2)
+  git clone --branch v0.3.2 --depth 1 https://github.com/Green-Phys/green-mbpt
+
+  # Latest pre-release (v1.0.0a1)
+  git clone --branch v1.0.0a1 --depth 1 https://github.com/Green-Phys/green-mbpt
   ```
 
 To track the development tip instead, omit `--branch`:
@@ -149,10 +153,10 @@ By default, code is generated for sm_80, sm_86, and sm_90 (Ampere and Hopper). T
   nvidia-smi --query-gpu=compute_cap --format=csv,noheader
   ```
 
-The following instructions will download and build the Many-Body Perturbation theory solver with additional GPU kernels (replace /path/to/install/directory with the directory where you'd like to install the code). Use the same `--branch` approach described above to target a specific release. Then configure and build:
+The following instructions will download and build the Many-Body Perturbation theory solver with additional GPU kernels (replace /path/to/install/directory with the directory where you'd like to install the code). Use the same `--branch` approach described above to target a specific release — for example the latest stable [`v0.3.2`](https://github.com/Green-Phys/green-mbpt/releases/tag/v0.3.2) or the latest pre-release [`v1.0.0a1`](https://github.com/Green-Phys/green-mbpt/releases/tag/v1.0.0a1). Then configure and build:
 
   ```ShellSession
-  git clone --branch <tag> --depth 1 https://github.com/Green-Phys/green-mbpt
+  git clone --branch v0.3.2 --depth 1 https://github.com/Green-Phys/green-mbpt
   cmake -S green-mbpt -B green-mbpt-build                         \
      -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
      -DCMAKE_BUILD_TYPE=Release                                     \

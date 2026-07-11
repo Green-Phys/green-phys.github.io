@@ -19,6 +19,13 @@ Example on computing the ionization potential and electron affinity of the nitro
 
 {{< cta-button text="Read more" link="N2" icon="code" >}}
 
+### SEET embedding
+
+Example on running a Self-Energy Embedding Theory (SEET) calculation on top of a
+weak-coupling result.
+
+{{< cta-button text="Read more" link="seet" icon="code" >}}
+
 ### Spin-orbit coupling
 
 Example on running GW with spin-orbit coupling — coming soon.

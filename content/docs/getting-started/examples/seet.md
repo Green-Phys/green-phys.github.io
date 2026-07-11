@@ -31,7 +31,7 @@ The various parameters used in this step primarily control the orbitals used in 
 * `--input_file` -- path to the input file for weak-coupling (e.g., GW, GF2) solution,
 * `--gf2_input_file` -- path to the weak-coupling output file,
 * `--transform_file` -- path to the output file containing transformation matrices,
-* `--active_space` -- multiple sets of of orbital indices to define the active space for impurities,
+* `--active_space` -- multiple sets of orbital indices to define the active space for impurities,
 * `--from_ibz` -- set to `true` if the `sim.h5` is in the reduced Brillouin Zone,
 * `--orth_method` -- type of orthogonalization (available options: `natural_orbitals`, `symmetrical_orbitals`, and `canonical_orbitals`),
 
@@ -58,10 +58,10 @@ Here the following parameters have to be provided:
   - `--input_file` -- file with the trasformation matrices that has been obtained at the previous step
   - `--in_file` -- input file for the weak-coupling problem, i.e., `input.h5` from the previous step
   - `--in_int_file` -- path to two body integrals that will be used for impurity problem. Note that `Green` has two sets of integrals,
-  one to be used for Hartree-Fock solution, and one that is used for `GW` calculations. We strongly advice using `GW` integrals
+  one to be used for Hartree-Fock solution, and one that is used for `GW` calculations. We strongly advise using `GW` integrals
   as they contain additional finite-size correction.
 
-This procedure is time consuming and we advice to submit it as job on cluster.
+This procedure is time consuming and we advise to submit it as a job on a cluster.
 
 ### Embedding solution
 

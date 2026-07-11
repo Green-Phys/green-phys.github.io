@@ -14,6 +14,7 @@ weight: 2
 Code has been tested for the following NERSC programming environments:
 
    - `PrgEnv-gnu/8.5.0`
+   - `PrgEnv-gnu/8.6.0`
    - `PrgEnv-intel/8.5.0`
    - `PrgEnv-aocc/8.5.0`
    - `PrgEnv-cray/8.5.0`
@@ -27,7 +28,7 @@ module load PrgEnv-gnu/8.5.0
 Load third-party libraries
 
 ```Shell
-module load cray-hdf5 eigen cmake
+module load cray-hdf5 cmake
 ```
 
 ### Download and build the Many-Body Perturbation theory solver

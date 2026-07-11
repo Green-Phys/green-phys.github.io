@@ -1,0 +1,102 @@
+---
+title: SEET Impurity Solver
+linkTitle: SEET Impurity Solver
+weight: 3
+---
+
+[Self-Energy Embedding Theory (SEET)](/docs/theory/embedding_theory) runs through
+`green-mbpt`'s `embedding.exe` together with an exact-diagonalization impurity solver
+provided by [`green-seet-solvers`](https://github.com/Green-Phys/green-seet-solvers).
+
+For Green **1.0.0-alpha (`v1.0.0a0`) and later**, `embedding.exe` is built as part of the
+standard [General Installation](/docs/installation/from_sources/) — no separate branch or
+build is required for the framework itself. You only need to additionally build the
+exact-diagonalization impurity solver described below. See the
+[SEET example](/docs/getting-started/examples/seet/) for how to run a calculation once
+everything is installed.
+
+{{% steps %}}
+
+### Prerequisites
+
+System libraries:
+ 1. MPI
+ 2. HDF5
+ 3. BLAS
+ 4. CMake (version >= 3.27)
+ 5. C++17 compatible compiler
+
+Third-party libraries:
+ 1. Eigen3
+ 2. Boost
+
+### Build the exact-diagonalization impurity solver
+
+First, clone the required repositories:
+
+```ShellSession
+git clone https://github.com/ALPSCore/ALPSCore
+git clone https://github.com/opencollab/arpack-ng
+git clone https://github.com/Green-Phys/green-seet-solvers
+```
+
+**1. ALPSCore** — core libraries of the ALPS software package:
+
+```ShellSession
+cmake -S ALPSCore -B build --install-prefix `pwd`/install/ALPSCore
+cmake --build build -j 32
+cmake --build build -t test install
+rm -rf build
+```
+
+**2. ARPACK** — Arnoldi/Lanczos factorization library:
+
+```ShellSession
+cmake -S arpack-ng -B build \
+  --install-prefix `pwd`/install/arpack \
+  -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j 32
+cmake --build build -t test install
+rm -rf build
+```
+
+**3. `green-seet-solvers`** — exact-diagonalization solver for the SEET impurity problem:
+
+```ShellSession
+cmake -S green-seet-solvers -B build \
+   --install-prefix `pwd`/install/seet_solvers \
+   -DCMAKE_BUILD_TYPE=Release \
+   -DALPSCore_DIR=`pwd`/install/ALPSCore/share/ALPSCore \
+   -DARPACK_DIR=`pwd`/install/arpack
+cmake --build build -j 32
+cmake --build `pwd`/build -t install
+rm -rf build
+```
+
+{{% /steps %}}
+
+## Legacy: Green v0.3.2
+
+{{< callout type="warning" >}}
+On Green **v0.3.2**, `embedding.exe` is **not** part of the default `green-mbpt` build.
+To obtain the SEET framework on that release, build `green-mbpt` from the `SEET` branch as
+shown below. The exact-diagonalization impurity solver above is still required.
+{{< /callout >}}
+
+```ShellSession
+git clone https://github.com/Green-Phys/green-mbpt
+cd green-mbpt
+git checkout SEET
+cd ..
+cmake -S green-mbpt -B build \
+   --install-prefix `pwd`/install/green-mbpt \
+   -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j 32
+cmake --build build -t test install
+rm -rf build
+```
+
+### Installation issues
+If you encounter issues with compiling, installing, or testing the package, please file an
+issue on our [GitHub issues page](https://github.com/Green-Phys/green-mbpt/issues), and we
+will do our best to help.

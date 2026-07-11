@@ -32,44 +32,16 @@ Third-party libraries:
 
 ### Build the exact-diagonalization impurity solver
 
-First, clone the required repositories:
+Clone [`green-seet-solvers`](https://github.com/Green-Phys/green-seet-solvers) — the
+exact-diagonalization solver for the SEET impurity problem — and build it:
 
 ```ShellSession
-git clone https://github.com/ALPSCore/ALPSCore
-git clone https://github.com/opencollab/arpack-ng
 git clone https://github.com/Green-Phys/green-seet-solvers
-```
-
-**1. ALPSCore** — core libraries of the ALPS software package:
-
-```ShellSession
-cmake -S ALPSCore -B build --install-prefix `pwd`/install/ALPSCore
-cmake --build build -j 32
-cmake --build build -t test install
-rm -rf build
-```
-
-**2. ARPACK** — Arnoldi/Lanczos factorization library:
-
-```ShellSession
-cmake -S arpack-ng -B build \
-  --install-prefix `pwd`/install/arpack \
-  -DCMAKE_BUILD_TYPE=Release
-cmake --build build -j 32
-cmake --build build -t test install
-rm -rf build
-```
-
-**3. `green-seet-solvers`** — exact-diagonalization solver for the SEET impurity problem:
-
-```ShellSession
 cmake -S green-seet-solvers -B build \
    --install-prefix `pwd`/install/seet_solvers \
-   -DCMAKE_BUILD_TYPE=Release \
-   -DALPSCore_DIR=`pwd`/install/ALPSCore/share/ALPSCore \
-   -DARPACK_DIR=`pwd`/install/arpack
+   -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j 32
-cmake --build `pwd`/build -t install
+cmake --build build -t install
 rm -rf build
 ```
 

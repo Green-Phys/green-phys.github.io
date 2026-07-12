@@ -18,8 +18,10 @@ weight: 2
 
 ### Download Green Many-Body framework and create build directory
 
+We recommend building a specific released version — for example the latest stable [`v0.3.2`](https://github.com/Green-Phys/green-mbpt/releases/tag/v0.3.2) or the latest pre-release [`v1.0.0a1`](https://github.com/Green-Phys/green-mbpt/releases/tag/v1.0.0a1). See the [releases page](https://github.com/Green-Phys/green-mbpt/releases) for newer tags.
+
 ```ShellSession
- git clone https://github.com/Green-Phys/green-mbpt
+ git clone --branch v0.3.2 --depth 1 https://github.com/Green-Phys/green-mbpt
  cd green-mbpt
  mkdir build
  cd build

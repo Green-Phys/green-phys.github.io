@@ -14,6 +14,7 @@ weight: 2
 Code has been tested for the following NERSC programming environments:
 
    - `PrgEnv-gnu/8.5.0`
+   - `PrgEnv-gnu/8.6.0`
    - `PrgEnv-intel/8.5.0`
    - `PrgEnv-aocc/8.5.0`
    - `PrgEnv-cray/8.5.0`
@@ -27,17 +28,18 @@ module load PrgEnv-gnu/8.5.0
 Load third-party libraries
 
 ```Shell
-module load cray-hdf5 eigen cmake
+module load cray-hdf5 cmake
 ```
 
 ### Download and build the Many-Body Perturbation theory solver
 
+We recommend building a specific released version — for example the latest stable [`v0.3.2`](https://github.com/Green-Phys/green-mbpt/releases/tag/v0.3.2) or the latest pre-release [`v1.0.0a1`](https://github.com/Green-Phys/green-mbpt/releases/tag/v1.0.0a1). See the [releases page](https://github.com/Green-Phys/green-mbpt/releases) for newer tags.
 
 {{% tabs items="CPU, GPU" %}}
 
 {{% tab %}}
   ```Bash Session
-  git clone https://github.com/Green-Phys/green-mbpt
+  git clone --branch v0.3.2 --depth 1 https://github.com/Green-Phys/green-mbpt
   cmake -S green-mbpt -B green-mbpt-build                         \
    -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
    -DCMAKE_BUILD_TYPE=Release
@@ -48,7 +50,7 @@ module load cray-hdf5 eigen cmake
 {{% /tab %}}
 {{% tab %}}
   ```Bash Session
-  git clone https://github.com/Green-Phys/green-mbpt
+  git clone --branch v0.3.2 --depth 1 https://github.com/Green-Phys/green-mbpt
   cmake -S green-mbpt -B green-mbpt-build                         \
    -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
    -DCMAKE_BUILD_TYPE=Release                                     \

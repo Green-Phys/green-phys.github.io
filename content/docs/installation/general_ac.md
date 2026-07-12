@@ -6,6 +6,8 @@ weight: 2
 
 ### Analytical continuation package
 
+This page covers installation of the Nevanlinna and Caratheodory analytical continuation methods. For the MiniPole continuation code, see the [MiniPole repository](https://github.com/Green-Phys/MiniPole) for installation instructions.
+
 {{% steps %}}
 
 ### Prerequisites: HPC libraries and tools

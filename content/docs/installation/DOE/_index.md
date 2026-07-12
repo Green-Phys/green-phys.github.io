@@ -1,6 +1,6 @@
 ---
 title: DOE machines
-weight: 4
+weight: 5
 ---
 
 Green has been tested on the following DOE-managed machines.

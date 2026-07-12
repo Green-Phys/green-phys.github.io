@@ -1,92 +1,24 @@
 ---
-title: SEET Example
-linkTitle: SEET Example
-weight : 7
+title: Example of SEET embedding calculation
+linkTitle: SEET embedding
+weight: 3
 math: true
-hidden: false
+prev: "/docs/getting-started/postprocessing"
 ---
 
-{{< tabs items="Installation, Initialization, Integral Transformation, Embedding solution" >}}
+Here we provide a worked example of a Self-Energy Embedding Theory (SEET) calculation on
+top of a weak-coupling result. Prerequisites: you must have `green-mbpt` (providing
+`embedding.exe`) and the SEET exact-diagonalization impurity solver installed — see the
+[SEET Impurity Solver installation guide](/docs/installation/seet_solver/). We assume you
+have already solved the weak-coupling problem for the input file `input.h5`, with results
+in the `sim.h5` file.
 
+{{% steps %}}
 
-{{< tab >}}
+### Initialization
 
-### Prerequsite
-
-System libraries:
- 1. MPI
- 2. HDF5
- 3. BLAS
- 4. CMake (version >= 3.27)
- 5. C++17 compatible compiler
-
-Third party libraries:
- 1. Eigen3
- 2. Boost
-
-### Install dependencies
-
-First, clone required repositories:
-
-```
-git clone https://github.com/ALPSCore/ALPSCore
-git clone https://github.com/opencollab/arpack-ng
-git clone https://github.com/Green-Phys/green-seet-solvers
-```
-
- 1. ALPSCore -- Core libraries of ALPS software package
-
-```
-cmake -S ALPSCore -B build --install-prefix `pwd`/install/ALPSCore
-cmake --build build -j 32
-cmake --build build -t test install
-rm -rf build
-```
-
- 2. ARPACK -- Arnoldi/Lancsoz factorization library
-
-```
-cmake -S arpack-ng -B build \
-  --install-prefix `pwd`/install/arpack \
-  -DCMAKE_BUILD_TYPE=Release
-cmake --build build -j 32
-cmake --build build -t test install
-rm -rf build
-```
-
- 3. `green-seet-solver` -- Exact diagonalization solver for SEET impurity problem
- 
-```
-cmake -S green-seet-solvers -B build \
-   --install-prefix `pwd`/install/seet_solvers \
-   -DCMAKE_BUILD_TYPE=Release \
-   -DALPSCore_DIR=`pwd`/install/ALPSCore/share/ALPSCore \
-   -DARPACK_DIR=`pwd`/install/arpack
-cmake --build build -j 32
-cmake --build `pwd`/build -t install
-rm -rf build
-```
-
-### SEET framework build
-
-```
-git clone https://github.com/Green-Phys/green-mbpt
-cd green-mbpt
-git checkout SEET
-cd ..
-cmake -S green-mbpt -B build \
-   --install-prefix `pwd`/install/green-mbpt \
-   -DCMAKE_BUILD_TYPE=Release
-cmake --build build -j 32
-cmake --build build -t test install
-rm -rf build
-```
-
-{{< /tab >}}
-
-{{< tab >}}
-First, we assume that we have solved weak-coupling problem for the input file `input.h5` and the results are in the `sim.h5` file.
-The input data for SEET can be prepared with the help of `init_seet.py` file which is available in the SEET installation directory:
+The input data for SEET can be prepared with the help of the `init_seet.py` file which is
+available in the SEET installation directory:
 
 ```
 python <installation path>/python/init_seet.py --orth true --gf2_input_file sim.h5 \
@@ -99,11 +31,11 @@ The various parameters used in this step primarily control the orbitals used in 
 * `--input_file` -- path to the input file for weak-coupling (e.g., GW, GF2) solution,
 * `--gf2_input_file` -- path to the weak-coupling output file,
 * `--transform_file` -- path to the output file containing transformation matrices,
-* `--active_space` -- multiple sets of of orbital indices to define the active space for impurities,
+* `--active_space` -- multiple sets of orbital indices to define the active space for impurities,
 * `--from_ibz` -- set to `true` if the `sim.h5` is in the reduced Brillouin Zone,
 * `--orth_method` -- type of orthogonalization (available options: `natural_orbitals`, `symmetrical_orbitals`, and `canonical_orbitals`),
 
-### Selecting active-space orbitals
+#### Selecting active-space orbitals
 One of the most important step in SEET is to select the correct orbitals to form the active space, also known as the impurity. The process generally involves heuristics and analysis of the weak-coupling result. For instance, one can look at occupation number of symmetrized atomic orbitals (SAO) and identify half-filled $d$-orbitals as impurity.
 For further details, please see the [SEET theory](/docs/theory/embedding_theory) page and references therein.
 
@@ -113,12 +45,10 @@ Since `Green` results are obtained in the reduced Brillouin zone we also specify
 
 As the result we will get `transform.h5` file with orthogonal trasformation matrices and projection matrices.
 
-{{< /tab >}}
-
-{{< tab >}}
+### Integral Transformation
 
 The next preprocessing step for SEET solver is the transformation of the active-space two-electron integrals to the orthonormal basis-set selected and prepared in the previous step.
-This is done by calling 
+This is done by calling
 
 ```
 <installation path>/bin/int-transform.exe --input_file transform.h5 --in_file input.h5 --in_int_file df_int --transform 1
@@ -128,13 +58,12 @@ Here the following parameters have to be provided:
   - `--input_file` -- file with the trasformation matrices that has been obtained at the previous step
   - `--in_file` -- input file for the weak-coupling problem, i.e., `input.h5` from the previous step
   - `--in_int_file` -- path to two body integrals that will be used for impurity problem. Note that `Green` has two sets of integrals,
-  one to be used for Hartree-Fock solution, and one that is used for `GW` calculations. We strongly advice using `GW` integrals
+  one to be used for Hartree-Fock solution, and one that is used for `GW` calculations. We strongly advise using `GW` integrals
   as they contain additional finite-size correction.
 
-This procedure is time consuming and we advice to submit it as job on cluster.
+This procedure is time consuming and we advise to submit it as a job on a cluster.
 
-{{< /tab >}}
-{{< tab >}}
+### Embedding solution
 
 After all the preparations are done, SEET can be run as
 
@@ -162,7 +91,7 @@ The following parameters in additional to regular `Green` parameters are used
  - `--seet_root_dir` -- root directory for `SEET` intermediate input/outputs
  - `--spin_symm` -- whether the bath spin-symmetrization is needed during bath-fitting
 
-### Bath file
+#### Bath file
 
 The bath file provides an initial guess for constructing the impurity-bath interaction in the Anderson impurity model for the active space.
 This interaction is constructed by fitting the hybridization to the form
@@ -188,6 +117,4 @@ The format for bath file is as follows (example below):
 * In the next line, we specify the number of bath sites for each impurity orbital, which we choose as {3, 3}.
 * Finally, for each impurity orbital we specify the initial values for $V_k$ and for $\epsilon_k$. In our example, we initialize all the $V_k$'s to 0.5 and the $\epsilon_k$'s to {-1.0, 0.0, 1.0}.
 
-{{< /tab >}}
-
-{{< /tabs >}}
+{{% /steps %}}

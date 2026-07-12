@@ -10,7 +10,7 @@ prev: "/docs/tutorials"
 If you run into an issue that isn't covered below, please file an issue or reach us on Discord — we will do our best to help.
 
 <div class="btn-grid">
-{{< cta-button text="Submit an issue" link="https://green-phys.youtrack.cloud/newIssue" icon="bug_report" >}}
+{{< cta-button text="Submit an issue" link="https://github.com/Green-Phys/green-mbpt/issues/new/choose" icon="error" err="yes" >}}
 {{< cta-button text="Discord" link="https://discord.gg/ty9FE6u3mg" icon="forum" >}}
 </div>
 
@@ -93,5 +93,5 @@ cmake -S green-mbpt -B green-mbpt-build \
 
 <div class="btn-grid">
 {{< cta-button text="Installation Guide" link="/docs/installation/" icon="rocket_launch" >}}
-{{< cta-button text="Submit an issue" link="https://green-phys.youtrack.cloud/newIssue" icon="bug_report" >}}
+{{< cta-button text="Submit an issue" link="https://github.com/Green-Phys/green-mbpt/issues/new/choose" icon="error" err="yes" >}}
 </div>

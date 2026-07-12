@@ -15,7 +15,7 @@ Green is currently installed by building from source. Choose the guide that matc
 
 **Users on DOE systems** (e.g. NERSC Perlmutter) should follow the DOE machine guide for the same reason.
 
-If your system isn't covered here and you run into trouble, please file an [issue](https://green-phys.youtrack.cloud/newIssue) — we're glad to help, and to add new machine-specific guides as they're worked out.
+If your system isn't covered here and you run into trouble, please file an [issue](https://github.com/Green-Phys/green-mbpt/issues/new/choose) — we're glad to help, and to add new machine-specific guides as they're worked out.
 
 <div class="btn-grid">
 {{< cta-button text="General Installation" link="from_sources" icon="rocket_launch" >}}

@@ -49,5 +49,5 @@ help:
 
 
 ### Installation issues
-   If you encounter issues with compiling, installing, or testing the package please file an issue on our issues server [page](https://green-phys.youtrack.cloud/newIssue), and we will do our best to help.
+   If you encounter issues with compiling, installing, or testing the package please file an issue on our issues server [page](https://github.com/Green-Phys/green-mbpt/issues/new/choose), and we will do our best to help.
    Help is also available on our [discord server](https://discord.gg/ty9FE6u3mg).

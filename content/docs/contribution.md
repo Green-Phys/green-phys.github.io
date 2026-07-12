@@ -7,7 +7,7 @@ icon: thumb-up
 Contribution to any part of the Green project is open for every user.
 
 There are three options to contribute
-  - [Submit an issue](#submit-an-issue) on [issue tracker](https://green-phys.youtrack.cloud/newIssue)
+  - [Submit an issue](#submit-an-issue) on [issue tracker](https://github.com/Green-Phys/green-mbpt/issues/new/choose)
   - [Propose changes](#contributing-to-green) in the code via pull-request (PR)
   - [Writing Documentation](#writing-documentation)
 
@@ -15,7 +15,7 @@ There are three options to contribute
 ## Submit an issue
 
 If you found a bug or want new feature to be implemented, Green project 
-has an [issue tracking](https://green-phys.youtrack.cloud/newIssue) website where you can submit related information. Please try to 
+has an [issue tracking](https://github.com/Green-Phys/green-mbpt/issues/new/choose) website where you can submit related information. Please try to 
 put a detailed and reproducible description.
 
 

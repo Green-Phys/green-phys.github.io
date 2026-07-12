@@ -10,8 +10,9 @@ provided by [`green-seet-solvers`](https://github.com/Green-Phys/green-seet-solv
 
 For Green **1.0.0-alpha (`v1.0.0a0`) and later**, `embedding.exe` is built as part of the
 standard [General Installation](/docs/installation/from_sources/) — no separate branch or
-build is required for the framework itself. You only need to additionally build the
-exact-diagonalization impurity solver described below. See the
+build is required for the framework itself. Unless you supply your own impurity solver,
+you will need the Green exact-diagonalization impurity solver, which you will need to
+build in addition, as described below. See the
 [SEET example](/docs/getting-started/examples/seet/) for how to run a calculation once
 everything is installed.
 

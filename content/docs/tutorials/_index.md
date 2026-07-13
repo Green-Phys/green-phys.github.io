@@ -18,8 +18,8 @@ Tutorial on using DIIS convergence acceleration techniques, worked through simpl
 
 {{< cta-button text="Read more" link="diis" icon="speed" >}}
 
-### MBAnalysis
+### Pesto (Post-Processing)
 
-Tutorial on using the `green_mbtools.pesto` (formerly `mbanalysis`) toolset for post-processing Green's output.
+Tutorial on using `green_mbtools.pesto` (formerly the standalone `mbanalysis` package) for post-processing Green's output.
 
 {{< cta-button text="Read more" link="mbanalysis" icon="insights" >}}

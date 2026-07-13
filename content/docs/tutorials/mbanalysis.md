@@ -1,208 +1,206 @@
 ---
-title: MBAnalysis Package
-linkTitle: MBAnalysis
+title: Post-Processing with Green-MBTools (Pesto)
+linkTitle: Pesto (Post-Processing)
 weight: 3
 math: true
 ---
 
 The [Green-MBTools package](https://github.com/Green-Phys/green-mbtools) is a Python toolkit for initialization and post-processing of Green's function calculations in the Green Software Package.
-The package has two sub-modules:
+It has two sub-modules:
 
 * `mint` (Mean-field INput generation Toolkit) generates input files for the Green WeakCoupling and SEET solvers.
-* `pesto` (Post-processing Evaluation Software TOols) provides access to various post-processing tools such as analytical continuation, wannier interpolation, orthogonalization schemes, Mulliken analysis and Matsubara transformations.
+* `pesto` (Post-processing Evaluation Software TOols) provides post-processing tools such as analytic continuation, Wannier interpolation, orthogonalization schemes, Mulliken analysis, and Matsubara transformations.
+
+This tutorial focuses on `pesto`.
 
 {{< note >}}
-The `green_mbtools.pesto` was previously known as the `mbanalysis` package, and can still be imported with the alias `mbanalysis`.
+`green_mbtools.pesto` was previously distributed as the standalone `mbanalysis` package. Existing scripts that do `from mbanalysis import mb` will keep working, since `mbanalysis` is kept as a compatibility alias for `green_mbtools.pesto`.
 {{< /note >}}
 
 For a complete guide and source-code documentation, see the [package website](https://green-phys.github.io/green-mbtools).
-Several example python scripts for the `pesto` module are provided in the [Github](https://github.com/Green-Phys/green-mbtools/tree/master/examples) repository. Some of the key components are discussed below.
+Several example Python scripts for the `pesto` module are provided in the [GitHub repository](https://github.com/Green-Phys/green-mbtools/tree/master/examples); the key components are walked through below.
 
 ## Installation
 
-To install the `green-mbtools` binary package simply execute
+To install the `green-mbtools` binary package, run
 
 ```Shell
 pip install green-mbtools
 ```
 
-This is already explained in the [installation](/docs/installation/from_sources) and [input preparation](/docs/getting-started/preparing_input) steps.
-For more details on installation, check the [Green-MBTools package website](https://green-phys.github.io/green-mbtools).
+This is also covered in the [installation](/docs/installation/from_sources) and [input preparation](/docs/getting-started/preparing_input) guides.
+For more detail, see the [Green-MBTools package website](https://green-phys.github.io/green-mbtools).
 
 ## Quickstart
 
-Several [example scripts](https://github.com/Green-Phys/green-mbtools/tree/master/examples) are provided in the
-Github repository of the _Green-MBTools_ package, particularly for the post-processing of Green output.
-For detailed explanation of these scripts, please visit the [package website](http://Green-Phys.github.io/green-mbtools/examples.html).
-A typical post-processing pipeline looks as follows:
+Several [example scripts](https://github.com/Green-Phys/green-mbtools/tree/master/examples) covering post-processing of Green output are provided in the Green-MBTools repository.
+For a detailed explanation of these scripts, see the [package website](https://green-phys.github.io/green-mbtools/examples.html).
 
-### Step 1: Initialise the MB post processing class
-To get started with the post-processing of `green-mbpt` output, we can initialize the ``MB_post`` class using the
-input, output and Matsubara grid (aka IR grid) files:
+A typical post-processing pipeline has four steps: initialize the post-processing class, interpolate onto a high-symmetry path, orthogonalize the basis, and analytically continue to the real axis.
+The snippets below build on one another and share a single set of imports:
 
 ```python
 from ase.spacegroup import crystal
-from green_mbtools.pesto import mb
-# alternatively
-# from mbanalysis import mb
-from green_mbtools.pesto import orth
+from green_mbtools.pesto import mb, orth
 import matplotlib.pyplot as plt
 import numpy as np
-
-if __name__ == "__main__":
-
-    # path to files
-    input_path = "path/to/input.h5"
-    output_path = "path/to/sim.h5"
-    ir_path = "path/to/ir/grid.h5"
-
-    # initialize the MB_post class
-    my_mb = mb.initialize_MB_post(output_path, input_path, ir_path)
 ```
-
-### Step 2: Wannier Interpolation
-For solid-state calculations, results such as orbital occupancy and spectral function are generally visualized along
-the high-symmetry path connecting special (high-symmetry) _k_-points in the Brillouin zone.
-
-On the other hand, simulations are performed on evenly sampled _k_-points. Therefore, interpolation of results is a crucial
-step in the post-processing, which can be performed using the `wannier_interpolation` member function:
-
-```python
-from ase.spacegroup import crystal
-from green_mbtools.pesto import mb
-# alternatively
-# from mbanalysis import mb
-from green_mbtools.pesto import orth
-import matplotlib.pyplot as plt
-import numpy as np
-
-if __name__ == "__main__":
-    
-    # initialization part here
-    # ...
-
-    # obtain high-symmetry path
-    # e.g. assuming we are working with Silicon
-    a, b, c = 5.43, 5.43, 5.43  # angstroms
-    alpha, beta, gamma = 90, 90, 90  # angles
-    group = 227
-    cc = crystal(
-        symbols=['Si', 'Si'],
-        basis=[(0.0, 0.0, 0.0), (0.25, 0.25, 0.25)],
-        spacegroup=group,
-        cellpar=[a, b, c, alpha, beta, gamma], primitive_cell=True
-    )
-    path = cc.cell.bandpath('LGXKGK', npoints=100)
-    kpts_inter = path.kpts
-
-    # interpolation
-    G_tk_int, Sigma_tk_int, tau_mesh, Fk_int, Sk_int = my_mb.wannier_interpolation(kpts_inter, hermi=True)
-```
-
-Here, `kpts_inter` provide the kpoints for which the results are interpolated, and `hermi=True` specifies that the
-interpolation is performed for Hermitian quantities.
-The results of the interpolation are:
-* `G_tk_int`: Green's function
-* `Sigma_tk_int`: Self-energy
-* `tau_mesh`: Imaginary time grid
-* `Fk_int`: Fock matrix (with static self-energy)
-* `Sk_int`: Overlap matrix
 
 {{< tip >}}
-The accuracy of interpolation depends on the density of the original Brillouin zone grid.
-To reduce the errors, we recommend using PySCF to directly calculate the one-body Hamiltonain and the
-overlap matrix along the high-symmetry path rather than interpolation. See, e.g.,
-[examples/useful_scripts/nvnl_winter_analysis.py](https://github.com/Green-Phys/green-mbtools/tree/master/examples/useful_scripts/nvnl_winter_analysis.py).
+Migrating an older script? Replace `from mbanalysis import mb` with `from green_mbtools.pesto import mb` -- the API is unchanged.
 {{< /tip >}}
 
+### Step 1: Initialize the post-processing class
 
-### Step 3: Orthogonalization
-Simulations in the _Green_ code are performed in the atomic orbital basis, which is a non-orthogonal basis-set.
-Orthogonalization utilities, offered in the `green_mbtools.pesto.orth` library, are required
-to transform the output Green's function and self-energies to an orthonormal basis, which is more suited for visualization and analysis.
-
-The _Green-MBTools_ package offers three ways to orthogonalize -- symmetric AO, canonical AO, and molecular orbitals.
-Let's see an example with symmetric AOs:
+To post-process `green-mbpt` output, initialize the `MB_post` class from the input, output, and Matsubara-grid (IR grid) files:
 
 ```python
-from ase.spacegroup import crystal
-from green_mbtools.pesto import mb
-# alternatively
-# from mbanalysis import mb
-from green_mbtools.pesto import orth
-import matplotlib.pyplot as plt
-import numpy as np
+# path to files
+input_path = "path/to/input.h5"
+output_path = "path/to/sim.h5"
+ir_path = "path/to/ir/grid.h5"
 
-if __name__ == "__main__":
-    
-    # initialization part here
-    # ...
-
-    gtau_orth = orth.sao_orth(G_tk_int, Sk_int, type='g')
+my_mb = mb.initialize_MB_post(output_path, input_path, ir_path)
 ```
 
-The orthogonalization procedure for Green's functions or density matrices is different from that for Fock matrix or self-energy.
-This can be controlled in the `orth.sao_orth` function using the parameter `type`:
-* `type='g'` treats the input arrays as a Green's function or density matrix,
-* `type='f'` treats them as Fock or self-energy matrix.
+### Step 2: Wannier interpolation
 
+For solid-state calculations, quantities such as orbital occupancy and the spectral function are usually plotted along the
+high-symmetry path connecting special _k_-points in the Brillouin zone. Simulations, however, run on an evenly sampled
+_k_-point mesh, so interpolating results onto the high-symmetry path is a necessary post-processing step. The
+`wannier_interpolation` member function handles this:
+
+```python
+# high-symmetry path, e.g. for silicon
+a, b, c = 5.43, 5.43, 5.43  # angstroms
+alpha, beta, gamma = 90, 90, 90  # angles
+group = 227
+cc = crystal(
+    symbols=['Si', 'Si'],
+    basis=[(0.0, 0.0, 0.0), (0.25, 0.25, 0.25)],
+    spacegroup=group,
+    cellpar=[a, b, c, alpha, beta, gamma], primitive_cell=True
+)
+path = cc.cell.bandpath('LGXKGK', npoints=100)
+kpts_inter = path.kpts
+
+G_tk_int, Sigma_tk_int, tau_mesh, Fk_int, Sk_int = my_mb.wannier_interpolation(kpts_inter, hermi=True)
+```
+
+`kpts_inter` gives the _k_-points onto which results are interpolated, and `hermi=True` tells the routine that the
+interpolated quantities are Hermitian. The interpolation returns:
+
+* `G_tk_int`: Green's function
+* `Sigma_tk_int`: self-energy
+* `tau_mesh`: imaginary-time grid
+* `Fk_int`: Fock matrix (including the static part of the self-energy)
+* `Sk_int`: overlap matrix
+
+{{< tip >}}
+Interpolation accuracy depends on the density of the original Brillouin-zone grid. For better accuracy, use PySCF to
+compute the one-body Hamiltonian and overlap matrix directly along the high-symmetry path instead of interpolating them. See
+[examples/useful_scripts/nvnl_winter_analysis.py](https://github.com/Green-Phys/green-mbtools/tree/master/examples/useful_scripts/nvnl_winter_analysis.py)
+for an example.
+{{< /tip >}}
+
+### Step 3: Orthogonalization
+
+Simulations in _Green_ are performed in the atomic-orbital basis, which is non-orthogonal. The `green_mbtools.pesto.orth`
+module transforms the output Green's function and self-energy into an orthonormal basis, which is better suited to
+visualization and analysis.
+
+Green-MBTools supports three orthogonalization schemes: symmetric atomic orbitals (AO), canonical AO, and molecular orbitals.
+Here's an example using symmetric AOs:
+
+```python
+gtau_orth = orth.sao_orth(G_tk_int, Sk_int, type='g')
+```
+
+Orthogonalizing a Green's function or density matrix differs from orthogonalizing a Fock matrix or self-energy; the
+`type` keyword tells `sao_orth` which case applies:
+
+* `type='g'` for a Green's function or density matrix,
+* `type='f'` for a Fock or self-energy matrix.
 
 ### Step 4: Analytic continuation
 
-The simulations in the Green software suite are performed on the imaginary time and Matsubara frequency axis.
-To obtain the spectral function, we need to analytically continue these results on to the real frequency axis.
+Green simulations run on the imaginary-time and Matsubara-frequency axes. To obtain the spectral function, these results
+must be analytically continued to the real-frequency axis.
 
-Several ways are available in the literature to perform the analytic continuation of the Matsubara Green's function.
-The _Green-MBTools_ package offers support for four different alternatives:
+Green-MBTools supports four analytic continuation methods:
+
 * Nevanlinna (default),
 * Caratheodory,
-* Pole Estimation and Semi-definite relaxation, and
+* Pole estimation and semi-definite relaxation (PES), and
 * Maxent.
 
-In our experience, Nevanlinna offers a good balance between accuracy and stability.
-Therefore, it is provided as a default member function of the `MB_post` class, and can be used as:
+Nevanlinna offers a good balance of accuracy and stability in our experience, so it's exposed as a default member
+function of `MB_post`:
+
+```python
+# Nevanlinna analytic continuation to get the spectral function on the real axis,
+# with frequencies between -5 and 5 a.u. over 1001 grid points and a broadening of 0.01
+freqs, Aw = my_mb.AC_nevanlinna(gtau_orth=gtau_orth, n_real=1001, w_min=-5.0, w_max=5.0, eta=0.01)
+
+# trace over spin, k-points, and orbitals
+Aw_traced = np.einsum('wska -> w', Aw)
+
+# plot the density of states
+freqs_ev = freqs * 27.211  # convert frequency from a.u. to eV
+plt.plot(freqs_ev, Aw_traced)
+plt.show()
+```
+
+### Putting it all together
 
 ```python
 from ase.spacegroup import crystal
-from green_mbtools.pesto import mb
-# alternatively
-# from mbanalysis import mb
-from green_mbtools.pesto import orth
+from green_mbtools.pesto import mb, orth
 import matplotlib.pyplot as plt
 import numpy as np
 
 if __name__ == "__main__":
-    
-    # initialization part here
-    # ...
 
-    # Interpolation part here
-    # ...
+    # Step 1: initialize
+    input_path = "path/to/input.h5"
+    output_path = "path/to/sim.h5"
+    ir_path = "path/to/ir/grid.h5"
+    my_mb = mb.initialize_MB_post(output_path, input_path, ir_path)
 
-    # Orthogonalization part here
-    # ...
+    # Step 2: Wannier interpolation (silicon high-symmetry path)
+    a, b, c = 5.43, 5.43, 5.43
+    alpha, beta, gamma = 90, 90, 90
+    cc = crystal(
+        symbols=['Si', 'Si'],
+        basis=[(0.0, 0.0, 0.0), (0.25, 0.25, 0.25)],
+        spacegroup=227,
+        cellpar=[a, b, c, alpha, beta, gamma], primitive_cell=True
+    )
+    kpts_inter = cc.cell.bandpath('LGXKGK', npoints=100).kpts
+    G_tk_int, Sigma_tk_int, tau_mesh, Fk_int, Sk_int = my_mb.wannier_interpolation(kpts_inter, hermi=True)
 
-    # use my_mb to do other tasks
-    # e.g., Nevanlinna analytic continuation to get spectral function on real-axis
-    # with frequencies between -5 and 5 a.u. with 1001 grid points
-    # and broadening parameter of 0.01
+    # Step 3: orthogonalize to the symmetric-AO basis
+    gtau_orth = orth.sao_orth(G_tk_int, Sk_int, type='g')
+
+    # Step 4: analytically continue and plot the density of states
     freqs, Aw = my_mb.AC_nevanlinna(gtau_orth=gtau_orth, n_real=1001, w_min=-5.0, w_max=5.0, eta=0.01)
-
-    # trace over spin, k-points and orbitals
     Aw_traced = np.einsum('wska -> w', Aw)
+    freqs_ev = freqs * 27.211
 
-    # plot the density of states
-    freqs_ev = freqs * 27.211  # convert frequency from a.u. to eV
     plt.plot(freqs_ev, Aw_traced)
     plt.show()
 ```
 
 ## Other useful scripts
 
-Practical scripts combining initialization, Wannier interpolation, orthogonalization, and analytic continuation for post-processing of Green simulation output are also available in the [examples/useful_scripts](https://github.com/Green-Phys/green-mbtools/tree/master/examples/useful_scripts) directory:
+Practical scripts combining initialization, Wannier interpolation, orthogonalization, and analytic continuation are
+available in the [examples/useful_scripts](https://github.com/Green-Phys/green-mbtools/tree/master/examples/useful_scripts)
+directory:
 
-
-* `nvnl_winter_analysis.py` offers a versatile script with support for various orthogonalization schemes, and returns the full orbital resolved spectral function and occupancies along the specified high-symmetry path.
-* `nvnl_winter_mol.py` offers a similar functionality for molecules, while `plot_dos_mol.py`
-* `wannier_fock.py` provides a fast and inexpensive script to interpolate DFT results along the high-symmetry path and generate mean-field band structures.
-* `wannier_occ.py` allows the interpolation of density matrix and occupation numbers along the high-symmetry path
+* `nvnl_winter_analysis.py` supports various orthogonalization schemes and returns the full orbital-resolved spectral
+  function and occupancies along a specified high-symmetry path.
+* `nvnl_winter_mol.py` provides the same functionality for molecules; `plot_dos_mol.py` plots the resulting molecular
+  density of states.
+* `wannier_fock.py` is a fast, inexpensive script that interpolates DFT results along the high-symmetry path to
+  generate mean-field band structures.
+* `wannier_occ.py` interpolates the density matrix and occupation numbers along the high-symmetry path.

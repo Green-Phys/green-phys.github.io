@@ -21,6 +21,12 @@ Hartree-Fock theory, the static Hartree and exchange contributions, their relati
 
 {{< cta-button text="Read more" link="hartree_fock" icon="schema" >}}
 
+### Matsubara Basis
+
+Compact representations of imaginary-time and Matsubara-frequency functions, including Legendre, spline, Chebyshev, intermediate-representation, sparse-sampling, and DLR grids.
+
+{{< cta-button text="Read more" link="matsubara_basis" icon="grid_on" >}}
+
 ### GF2
 
 Self-consistent second-order perturbation theory (GF2), also known as Second Order Born — a conserving diagrammatic approximation that is accurate whenever gaps are large and interactions are weak, though it is known to fail for metals.

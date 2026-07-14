@@ -7,13 +7,13 @@ next: "/docs/theory/postprocessing"
 ---
 
 
-The $GW$ approximation is a fully self-consistent Green's-function method in which the dynamical self-energy is built from the interacting one-particle Green's function $G$ and a screened Coulomb interaction $W$.  Green/WeakCoupling implements the finite-temperature, imaginary-axis, non-relativistic Gaussian Bloch-orbital formulation described in Ref. [^YehGW2022].  The calculation does not use a quasiparticle approximation during the self-consistency loop, and all matrix elements of the self-energy are evaluated on the Matsubara axis.[^YehGW2022]
+The $GW$ approximation is a fully self-consistent Green's-function method in which the dynamical self-energy is built from the interacting one-particle Green's function $G$ and a screened Coulomb interaction $W$.  Green/WeakCoupling implements the finite-temperature, imaginary-axis, non-relativistic Gaussian Bloch-orbital formulation described in Ref. {{% citeinline %}}[^YehGW2022]{{% /citeinline %}}.  The calculation does not use a quasiparticle approximation during the self-consistency loop, and all matrix elements of the self-energy are evaluated on the Matsubara axis.[^YehGW2022]
 
-The physical idea is different from GF2.  GF2 expands the self-energy through second order in the bare Coulomb interaction.  $GW$ instead keeps the self-energy first order in a screened interaction $W$, where $W$ itself contains an infinite random-phase-approximation-like series of polarization bubbles.  This screening is essential for extended systems, especially when bare-interaction perturbation theory is poorly behaved.[^Hedin1965][^YehGW2022]
+The physical idea is different from GF2.  GF2 expands the self-energy through second order in the bare Coulomb interaction.  $GW$ instead keeps the self-energy first order in a screened interaction $W$, where $W$ itself contains an infinite random-phase-approximation-like series of polarization bubbles.  This screening is essential for extended systems, especially when bare-interaction perturbation theory is poorly behaved.[^Hedin1965], [^YehGW2022]
 
 ## Dyson Equation
 
-In the non-relativistic periodic notation of Ref. [^YehGW2022], the interacting Green's function satisfies
+In the non-relativistic periodic notation of Ref. {{% citeinline %}}[^YehGW2022]{{% /citeinline %}}, the interacting Green's function satisfies
 $$
 \left[G^{\mathbf{k}}(i\omega_n)\right]^{-1}
 {}=
@@ -31,7 +31,7 @@ $$
 +
 \tilde{\Sigma}^{GW,\mathbf{k}}(i\omega_n).
 $$
-The static part is the Hartree-Fock self-energy built from the current correlated density matrix.  In the notation of Ref. [^YehGW2022], it is the sum of a Hartree term $J$ and an exchange term $K$,
+The static part is the Hartree-Fock self-energy built from the current correlated density matrix.  In the notation of Ref. {{% citeinline %}}[^YehGW2022]{{% /citeinline %}}, it is the sum of a Hartree term $J$ and an exchange term $K$,
 $$
 \left(\Sigma^{GW}_\infty\right)^{\mathbf{k}}_{i\sigma,j\sigma}
 {}=
@@ -49,7 +49,7 @@ W(i\Omega_n)=
 U+
 U\Pi(i\Omega_n)W(i\Omega_n),
 $$
-where $U$ is the bare Coulomb interaction, $\Pi$ is the polarization, and $\Omega_n=2n\pi/\beta$ is a bosonic Matsubara frequency.  This compact expression hides orbital and momentum sums, but it is the same equation written explicitly in Ref. [^YehGW2022].
+where $U$ is the bare Coulomb interaction, $\Pi$ is the polarization, and $\Omega_n=2n\pi/\beta$ is a bosonic Matsubara frequency.  This compact expression hides orbital and momentum sums, but it is the same equation written explicitly in Ref. {{% citeinline %}}[^YehGW2022]{{% /citeinline %}}.
 
 The corresponding polarization bubble in imaginary time is built from two interacting Green's functions,
 $$
@@ -150,11 +150,11 @@ A self-consistent $GW$ iteration follows the structure below.
 7.  Solve the Dyson equation for a new $G$.
 8.  Iterate until $G$, $\Sigma$, the energy, and the chemical potential are converged.
 
-The key point is that the same interacting $G$ is used everywhere in the loop.  This makes the method conserving and thermodynamically consistent when solved to self-consistency.[^BaymKadanoff1961][^YehGW2022]
+The key point is that the same interacting $G$ is used everywhere in the loop.  This makes the method conserving and thermodynamically consistent when solved to self-consistency.[^BaymKadanoff1961], [^YehGW2022]
 
 ## Relation to Spectra
 
-The calculation is performed entirely on the imaginary axis.  After convergence, real-frequency information is obtained by analytic continuation of the Matsubara Green's function.  Ref. [^YehGW2022] uses the relation
+The calculation is performed entirely on the imaginary axis.  After convergence, real-frequency information is obtained by analytic continuation of the Matsubara Green's function.  Ref. {{% citeinline %}}[^YehGW2022]{{% /citeinline %}} uses the relation
 $$
 G^{\mathbf{k}}_{i\sigma,j\sigma'}(i\omega_n)
 {}=

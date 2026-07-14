@@ -6,7 +6,7 @@ weight: 1
 ---
 
 
-The Green Software Package provides tools for the numerical simulation of realistic quantum systems of interacting electrons with finite-temperature Green's function techniques.  The methods implemented in the weak-coupling part of the package, in particular self-consistent GF2 and self-consistent GW, start from the same information that is used in most ab initio electronic-structure calculations: atom positions, nuclear charges or pseudopotentials, a finite one-particle basis, one-electron matrix elements, and two-electron Coulomb integrals.[^YehGW2022][^PokhilkoYeh2024]
+The Green Software Package provides tools for the numerical simulation of realistic quantum systems of interacting electrons with finite-temperature Green's function techniques.  The methods implemented in the weak-coupling part of the package, in particular self-consistent GF2 and self-consistent GW, start from the same information that is used in most ab initio electronic-structure calculations: atom positions, nuclear charges or pseudopotentials, a finite one-particle basis, one-electron matrix elements, and two-electron Coulomb integrals.[^YehGW2022], [^PokhilkoYeh2024]
 
 This page introduces that starting point.  The goal is not yet to define Green's functions, self-energies, or Feynman diagrams.  Instead, we first explain the Hamiltonian and the matrices and tensors that represent it.  This is the layer where electronic-structure notation often becomes confusing: physicists may think in terms of fields and lattice sites, quantum chemists in terms of Gaussian orbitals and electron-repulsion integrals, and solid-state calculations in terms of Bloch functions and $k$-points.  Green's function calculations use all of these languages, but the underlying objects are the same.
 
@@ -23,7 +23,7 @@ $$
 = -\frac{1}{2}\nabla_{\mathbf r}^2 + v_\mathrm{ext}(\mathbf r),
 $$
 
-where the first term is the kinetic energy and $v_\mathrm{ext}$ is the external potential produced by nuclei, pseudopotentials, and possibly other one-body fields.  For an all-electron molecular Hamiltonian, $v_\mathrm{ext}(\mathbf r)=-\sum_A Z_A/|\mathbf r-\mathbf R_A|$.  With pseudopotentials or relativistic one-electron approximations, the detailed expression changes, but it is still represented as a one-body matrix in the chosen basis.[^YehGW2022][^YehX2CGW2022]
+where the first term is the kinetic energy and $v_\mathrm{ext}$ is the external potential produced by nuclei, pseudopotentials, and possibly other one-body fields.  For an all-electron molecular Hamiltonian, $v_\mathrm{ext}(\mathbf r)=-\sum_A Z_A/|\mathbf r-\mathbf R_A|$.  With pseudopotentials or relativistic one-electron approximations, the detailed expression changes, but it is still represented as a one-body matrix in the chosen basis.[^YehGW2022], [^YehX2CGW2022]
 
 Computers cannot store a wave function as an arbitrary function of continuous coordinates.  We therefore choose a finite set of one-particle basis functions
 $$
@@ -39,7 +39,7 @@ S_{ij}^{\mathbf k}
 \psi_i^{\mathbf k *}(\mathbf r)\psi_j^{\mathbf k}(\mathbf r),
 $$
 
-where $\Omega$ is the molecular integration domain or, for periodic systems, the unit-cell volume.  If the basis is orthonormal, $S_{ij}^{\mathbf k}=\delta_{ij}$.  Gaussian atomic orbitals are usually non-orthogonal, so the overlap matrix is an essential part of the problem.  It appears explicitly in the matrix form of the non-interacting propagator and in generalized eigenvalue problems.  Alternatively, one can transform to an orthogonal basis, for example by a Lowdin symmetric orthogonalization, but Green's function implementations often keep $S$ explicitly.[^YehGW2022][^PokhilkoYeh2024]
+where $\Omega$ is the molecular integration domain or, for periodic systems, the unit-cell volume.  If the basis is orthonormal, $S_{ij}^{\mathbf k}=\delta_{ij}$.  Gaussian atomic orbitals are usually non-orthogonal, so the overlap matrix is an essential part of the problem.  It appears explicitly in the matrix form of the non-interacting propagator and in generalized eigenvalue problems.  Alternatively, one can transform to an orthogonal basis, for example by a Lowdin symmetric orthogonalization, but Green's function implementations often keep $S$ explicitly.[^YehGW2022], [^PokhilkoYeh2024]
 
 ## One-electron matrix elements
 
@@ -66,7 +66,7 @@ $$
 
 If spin-orbit coupling or an external magnetic field is included, $H_0$ can contain off-diagonal spin blocks.  Recent relativistic self-consistent GW work in the Zgid group uses exact-two-component one-electron Hamiltonians, where this spin structure is part of the one-electron matrix rather than an afterthought.[^YehX2CGW2022]
 
-The symbol $H_0$ is sometimes replaced by $h$, $t$, or $H^{(0)}$ in the literature.  In older molecular GF2 and SEET papers, the compact second-quantized Hamiltonian is often written with $t_{ij}$ for the one-body term and $v_{ijkl}$ for the Coulomb integral.[^PhillipsZgid2014][^TranSEETGW2017]  In the Green documentation we use $H_0$ or $H^{(0)}$ for the one-body matrix and $U$ for the two-body Coulomb tensor.
+The symbol $H_0$ is sometimes replaced by $h$, $t$, or $H^{(0)}$ in the literature.  In older molecular GF2 and SEET papers, the compact second-quantized Hamiltonian is often written with $t_{ij}$ for the one-body term and $v_{ijkl}$ for the Coulomb integral.[^PhillipsZgid2014], [^TranSEETGW2017]  In the Green documentation we use $H_0$ or $H^{(0)}$ for the one-body matrix and $U$ for the two-body Coulomb tensor.
 
 ## Two-electron Coulomb integrals
 
@@ -120,9 +120,9 @@ If spin is not mixed by $H_0$, the one-body term becomes diagonal in spin.  Olde
 
 ## Integral decompositions
 
-The four-index tensor $U_{ijkl}$ is expensive to store and manipulate.  If there are $N_\mathrm{orb}$ orbitals, the molecular tensor has $O(N_\mathrm{orb}^4)$ elements, and periodic calculations add momentum indices.  Modern GF2 and GW calculations therefore rarely work directly with the full tensor.  Instead, they use decompositions such as density fitting, Cholesky decomposition, resolution of the identity, or tensor hypercontraction.[^YehGW2022][^PokhilkoYeh2024]
+The four-index tensor $U_{ijkl}$ is expensive to store and manipulate.  If there are $N_\mathrm{orb}$ orbitals, the molecular tensor has $O(N_\mathrm{orb}^4)$ elements, and periodic calculations add momentum indices.  Modern GF2 and GW calculations therefore rarely work directly with the full tensor.  Instead, they use decompositions such as density fitting, Cholesky decomposition, resolution of the identity, or tensor hypercontraction.[^YehGW2022], [^PokhilkoYeh2024]
 
-A common low-rank form is $U^{\mathbf k_i\mathbf k_j\mathbf k_k\mathbf k_l}_{ijkl}=\sum_Q V^{\mathbf k_i\mathbf k_j}_{ij}(Q)V^{\mathbf k_k\mathbf k_l}_{kl}(Q)$, where $Q$ is an auxiliary index.  The matrices $V(Q)$ encode the same Coulomb interaction in a factorized form.  This decomposition is not just a storage trick: it changes the practical scaling of GW and GF2 algorithms and is one of the reasons fully self-consistent calculations on realistic molecules and solids have become feasible.[^YehGW2022][^PokhilkoYeh2024]
+A common low-rank form is $U^{\mathbf k_i\mathbf k_j\mathbf k_k\mathbf k_l}_{ijkl}=\sum_Q V^{\mathbf k_i\mathbf k_j}_{ij}(Q)V^{\mathbf k_k\mathbf k_l}_{kl}(Q)$, where $Q$ is an auxiliary index.  The matrices $V(Q)$ encode the same Coulomb interaction in a factorized form.  This decomposition is not just a storage trick: it changes the practical scaling of GW and GF2 algorithms and is one of the reasons fully self-consistent calculations on realistic molecules and solids have become feasible.[^YehGW2022], [^PokhilkoYeh2024]
 
 ## What the Hamiltonian data mean physically
 

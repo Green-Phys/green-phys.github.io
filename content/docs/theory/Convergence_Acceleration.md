@@ -18,7 +18,7 @@ $$
 
 Here $G_0$ is the noninteracting Green's function built from the one-body Hamiltonian and chemical potential, $G$ is the interacting Green's function, and $\Sigma[G]$ is the self-energy functional. In GF2, GW, and related approximations the self-energy contains a static Hartree-Fock part and a frequency-dependent correlation part. A self-consistent cycle therefore proceeds by guessing a one-particle starting point, solving the Dyson equation for $G$, evaluating a new $\Sigma[G]$, adjusting the chemical potential if the electron number is fixed, and repeating until the Green's function, self-energy, energy, and particle number stop changing.
 
-This direct fixed-point iteration is the Green's-function analogue of the Roothaan iteration in Hartree-Fock theory. It is simple, but it is rarely the best numerical algorithm. The self-energy is frequency dependent, the chemical potential may move during the calculation, and the grand-potential landscape is not a simple convex optimization problem. Ref. [^PokhilkoDyson2022] emphasizes that standard electronic-structure acceleration methods cannot be transferred blindly to Dyson-equation iterations because Green's-function calculations have a non-idempotent density matrix, correlation-driven feedback, particle-number fluctuations, and a dynamical self-energy.
+This direct fixed-point iteration is the Green's-function analogue of the Roothaan iteration in Hartree-Fock theory. It is simple, but it is rarely the best numerical algorithm. The self-energy is frequency dependent, the chemical potential may move during the calculation, and the grand-potential landscape is not a simple convex optimization problem. Ref. {{% citeinline %}}[^PokhilkoDyson2022]{{% /citeinline %}} emphasizes that standard electronic-structure acceleration methods cannot be transferred blindly to Dyson-equation iterations because Green's-function calculations have a non-idempotent density matrix, correlation-driven feedback, particle-number fluctuations, and a dynamical self-energy.
 
 In the Green/WeakCoupling interface, direct iteration is selected with `--mixing_type NO_MIXING`. It is useful as a diagnostic, but practical GF2 and GW calculations usually use damping, DIIS, or commutator DIIS.
 
@@ -38,7 +38,7 @@ Damping is robust because it does not require solving any auxiliary linear syste
 
 ## Subspace acceleration
 
-DIIS replaces one-step damping by extrapolation in a small history of previous iterates. The objects being extrapolated are the total self-energies, including both static and dynamical parts. Following Ref. [^PokhilkoDyson2022], one may view each stored vector as
+DIIS replaces one-step damping by extrapolation in a small history of previous iterates. The objects being extrapolated are the total self-energies, including both static and dynamical parts. Following Ref. {{% citeinline %}}[^PokhilkoDyson2022]{{% /citeinline %}}, one may view each stored vector as
 
 $$
 \mathbf v_m =
@@ -90,7 +90,7 @@ $$
 \sum_i c_i=1.
 $$
 
-This is the same minimization problem used in Pulay DIIS for self-consistent-field calculations, but the vectors and residuals must be chosen for the Dyson equation.[^Pulay1980][^Pulay1982] In practice the $B$ matrix can become ill conditioned as the residuals become small. Ref. [^PokhilkoDyson2022] discusses a simple partitioning/preconditioning strategy: solve the coefficient equation up to an overall scale and then renormalize the coefficients so that their sum is one.
+This is the same minimization problem used in Pulay DIIS for self-consistent-field calculations, but the vectors and residuals must be chosen for the Dyson equation.[^Pulay1980], [^Pulay1982] In practice the $B$ matrix can become ill conditioned as the residuals become small. Ref. {{% citeinline %}}[^PokhilkoDyson2022]{{% /citeinline %}} discusses a simple partitioning/preconditioning strategy: solve the coefficient equation up to an overall scale and then renormalize the coefficients so that their sum is one.
 
 ## Difference and commutator residuals
 
@@ -123,7 +123,7 @@ $$
 
 The norm of this residual uses matrix traces over orbital, spin, and momentum labels and sums or integrates over imaginary frequency or time. In periodic calculations, the cost of building the commutator scales similarly to one Dyson solve, $O(n_\omega n_k n^3)$, up to prefactors.[^PokhilkoDyson2022]
 
-The commutator residual is the Green's-function analogue of the Hartree-Fock commutator $[F,P]$, which vanishes when the Fock matrix and density matrix are mutually self-consistent. In Dyson-equation calculations it has an important practical advantage: it tests consistency between $G$, $G_0$, and $\Sigma$, not only the size of the last self-energy update. In the GF2 and GW examples studied in Ref. [^PokhilkoDyson2022], commutator residuals used in CDIIS and LCIIS were more regular and generally outperformed difference residuals for both molecules and solids.
+The commutator residual is the Green's-function analogue of the Hartree-Fock commutator $[F,P]$, which vanishes when the Fock matrix and density matrix are mutually self-consistent. In Dyson-equation calculations it has an important practical advantage: it tests consistency between $G$, $G_0$, and $\Sigma$, not only the size of the last self-energy update. In the GF2 and GW examples studied in Ref. {{% citeinline %}}[^PokhilkoDyson2022]{{% /citeinline %}}, commutator residuals used in CDIIS and LCIIS were more regular and generally outperformed difference residuals for both molecules and solids.
 
 In the Green/WeakCoupling interface, difference-residual DIIS is selected with `--mixing_type DIIS`. Commutator-residual DIIS is selected with `--mixing_type CDIIS`. The implementation uses ordinary damping for the first few iterations, starts the DIIS extrapolation at `--diis_start`, and limits the number of stored vectors with `--diis_size`.[^GreenWeakCoupling2025]
 
@@ -149,11 +149,11 @@ $$
 
 KAIN instead treats convergence as a nonlinear root-finding problem and approximates a Newton step in the Krylov subspace spanned by previous update directions. In the Dyson-equation application, KAIN uses the self-energy as the nonlinear vector and uses difference residuals; commutator residuals are not appropriate for KAIN because they lead to an ill-defined projected system in this formulation.[^PokhilkoDyson2022]
 
-Subspace extrapolation can occasionally overstep. Large DIIS coefficients indicate that the extrapolated point lies far outside the region sampled by previous iterations. Ref. [^PokhilkoDyson2022] discusses step restrictions that reinterpret extrapolation as a step away from the newest vector and rescale that step if the coefficient norm is too large. In day-to-day calculations, the same idea appears in a simpler form: use damping for the earliest iterations, keep a moderate DIIS subspace, and restart or reduce the mixing weight if the extrapolated iterations become erratic.
+Subspace extrapolation can occasionally overstep. Large DIIS coefficients indicate that the extrapolated point lies far outside the region sampled by previous iterations. Ref. {{% citeinline %}}[^PokhilkoDyson2022]{{% /citeinline %}} discusses step restrictions that reinterpret extrapolation as a step away from the newest vector and rescale that step if the coefficient norm is too large. In day-to-day calculations, the same idea appears in a simpler form: use damping for the earliest iterations, keep a moderate DIIS subspace, and restart or reduce the mixing weight if the extrapolated iterations become erratic.
 
 ## Temperature continuation
 
-Difficult GF2 and GW calculations often become harder at lower temperature because the Green's function resolves sharper features and correlation effects are less thermally smoothed. A useful strategy is therefore to converge an easier high-temperature calculation first and then lower the temperature gradually, using each converged solution as the initial guess for the next calculation. Ref. [^PokhilkoDyson2022] found that this heating-cooling or sequential-temperature strategy, combined with CDIIS or LCIIS, could converge restricted GF2 calculations for strongly correlated bond-breaking examples that were otherwise difficult or impossible to converge.
+Difficult GF2 and GW calculations often become harder at lower temperature because the Green's function resolves sharper features and correlation effects are less thermally smoothed. A useful strategy is therefore to converge an easier high-temperature calculation first and then lower the temperature gradually, using each converged solution as the initial guess for the next calculation. Ref. {{% citeinline %}}[^PokhilkoDyson2022]{{% /citeinline %}} found that this heating-cooling or sequential-temperature strategy, combined with CDIIS or LCIIS, could converge restricted GF2 calculations for strongly correlated bond-breaking examples that were otherwise difficult or impossible to converge.
 
 This continuation strategy does not change the equations being solved. It only changes the path by which the nonlinear solver reaches the low-temperature fixed point. That distinction matters: convergence acceleration should not be judged only by the final residual, but also by whether the solver has been guided to the physically intended solution when multiple self-consistent solutions are possible.
 

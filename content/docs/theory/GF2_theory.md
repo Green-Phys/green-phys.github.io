@@ -7,7 +7,7 @@ katex: true
 ---
 
 
-GF2 is the fully self-consistent second-order Green's-function perturbation theory.  It is also called the second-order Born approximation.  In the language of the previous pages, GF2 is an approximation for the dynamical self-energy $\Sigma^\mathrm{dyn}$: the Hamiltonian, overlap matrix, Coulomb integrals, density matrix, static term $\Sigma^\infty$, and Dyson equation remain the same.[^RusakovPeriodic2016][^GreenWeakCoupling2024]
+GF2 is the fully self-consistent second-order Green's-function perturbation theory.  It is also called the second-order Born approximation.  In the language of the previous pages, GF2 is an approximation for the dynamical self-energy $\Sigma^\mathrm{dyn}$: the Hamiltonian, overlap matrix, Coulomb integrals, density matrix, static term $\Sigma^\infty$, and Dyson equation remain the same.[^RusakovPeriodic2016], [^GreenWeakCoupling2024]
 
 The important phrase is "fully self-consistent."  GF2 does not evaluate a second-order correction once on top of fixed Hartree-Fock or DFT orbitals.  Instead, it builds a second-order self-energy from the current interacting Green's function $G$, solves the Dyson equation to obtain a new $G$, updates the density matrix and static self-energy, adjusts the chemical potential, and repeats the process.  The propagator lines in the GF2 diagrams are therefore "bold" lines: they are the dressed, self-consistent Green's function rather than the noninteracting propagator.[^THCGF2GWSOX2024]
 
@@ -20,7 +20,7 @@ $$
 \Sigma(i\omega_n)=
 \Sigma^\infty+\Sigma^{(2)}(i\omega_n).
 $$
-The new object is the dynamical second-order term $\Sigma^{(2)}$.  It contains the direct second-order diagram and the second-order exchange diagram.  This is a useful distinction from fully self-consistent GW: GW screens the direct interaction through $W$ and therefore resums bubble diagrams, but ordinary GW does not contain the bare second-order exchange diagram.[^GreenWeakCoupling2024][^THCGF2GWSOX2024]
+The new object is the dynamical second-order term $\Sigma^{(2)}$.  It contains the direct second-order diagram and the second-order exchange diagram.  This is a useful distinction from fully self-consistent GW: GW screens the direct interaction through $W$ and therefore resums bubble diagrams, but ordinary GW does not contain the bare second-order exchange diagram.[^GreenWeakCoupling2024], [^THCGF2GWSOX2024]
 
 Thus GF2 is not simply MP2 written in a different notation.  If the second-order self-energy is evaluated once from a mean-field Green's function, the result is closely related to finite-temperature second-order perturbation theory.  In GF2, the Dyson iteration feeds the resulting self-energy back into $G$, which effectively generates higher-order contributions through self-consistency.[^RusakovPeriodic2016]
 

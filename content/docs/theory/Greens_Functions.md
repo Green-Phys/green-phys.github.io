@@ -40,7 +40,7 @@ F=\Omega+\mu N,
 \qquad
 E=\Omega+TS+\mu N .
 $$
-These identities are exact.  The diagrammatic machinery enters when $Z$ or $\Omega$ is evaluated through $G$ and $\Sigma$ rather than through an explicit sum over all many-electron states.[^ThermoGF2016][^SEETGW2017]
+These identities are exact.  The diagrammatic machinery enters when $Z$ or $\Omega$ is evaluated through $G$ and $\Sigma$ rather than through an explicit sum over all many-electron states.[^ThermoGF2016], [^SEETGW2017]
 
 ## Imaginary-Time Green's Function
 
@@ -112,7 +112,7 @@ G(i\omega_n)=
 \frac{A(\omega)}
 {i\omega_n-\omega}.
 $$
-For a matrix-valued Green's function, $A(\omega)$ is also a matrix.  The diagonal spectral function measures the distribution of addition and removal energies in a chosen orbital basis.  In periodic calculations this becomes $A^\mathbf{k}(\omega)$, the momentum-resolved spectral function used to extract band gaps and quasiparticle features.[^ShinaokaIR2017][^YehGW2022]
+For a matrix-valued Green's function, $A(\omega)$ is also a matrix.  The diagonal spectral function measures the distribution of addition and removal energies in a chosen orbital basis.  In periodic calculations this becomes $A^\mathbf{k}(\omega)$, the momentum-resolved spectral function used to extract band gaps and quasiparticle features.[^ShinaokaIR2017], [^YehGW2022]
 
 Analytic continuation is the inverse problem of recovering $A(\omega)$ from values of $G$ on the imaginary axis.  It is numerically delicate because many real-frequency spectra are compatible with almost the same imaginary-axis data.  GF2 and GW therefore perform self-consistency on the imaginary axis and use continuation only afterward for spectra.
 
@@ -178,7 +178,7 @@ $$
 -\mathrm{Tr}[\Sigma G]
 \right\}.
 $$
-The functional $\Phi[G]$ is the sum of linked closed skeleton diagrams, and the self-energy is generated from it by functional differentiation.  Approximations such as self-consistent GF2 and self-consistent GW are useful partly because they can be formulated from such a $\Phi$ functional.  This makes particle number, energy, and related conservation laws internally consistent when the equations are solved self-consistently.[^SEETGW2017][^BaymKadanoff1961]
+The functional $\Phi[G]$ is the sum of linked closed skeleton diagrams, and the self-energy is generated from it by functional differentiation.  Approximations such as self-consistent GF2 and self-consistent GW are useful partly because they can be formulated from such a $\Phi$ functional.  This makes particle number, energy, and related conservation laws internally consistent when the equations are solved self-consistently.[^SEETGW2017], [^BaymKadanoff1961]
 
 The role of this page is therefore to define the language.  The Hamiltonian supplies $H_0$, $S$, and the Coulomb integrals.  Hartree-Fock supplies the static term $\Sigma^\infty$ and useful starting density matrices.  The Matsubara basis supplies an efficient representation.  GF2 and GW, introduced next, specify concrete approximations for the dynamical self-energy $\Sigma^\mathrm{dyn}$.
 

@@ -49,7 +49,7 @@ $$
 Alternatively, the entropy can be evaluated from the Gibbs-Duhem relation $\Omega = E - TS - \mu N$; the specific heat from its definition $C_V = \frac{\partial E}{\partial T}$; 
 and the energy from the Galitskii-Migdal formula.[^galitskii]
 When the fully self-consistent conserving theories are applied different approach to evaluate thermodynamic quantities will produce the same 
-result [^yeh] [^iskakov]
+result [^yeh], [^iskakov]
 
 
 ### Grand potential in the second order approximation

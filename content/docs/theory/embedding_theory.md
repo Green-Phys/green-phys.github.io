@@ -161,7 +161,7 @@ This is the term subtracted from the full weak $GW$ self-energy before the stron
 
 ## Self-Consistency
 
-A practical SEET calculation follows two nested ideas.[^ZgidGull2017][^SEETGW2017]
+A practical SEET calculation follows two nested ideas.[^ZgidGull2017], [^SEETGW2017]
 
 1.  Solve the full system with a weak, self-consistent method such as GF2 or GW.
 2.  Select correlated orbitals, often by natural occupations or by a local-orbital criterion.

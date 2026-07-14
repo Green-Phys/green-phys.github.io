@@ -119,14 +119,14 @@
   color: #f7f7f7 !important;
 }
 
-sup[id^="fnref"] {
+.cite-inline sup[id^="fnref"] {
   top: auto;
   font-size: inherit;
   line-height: inherit;
   vertical-align: baseline;
 }
 
-sup[id^="fnref"] .footnote-ref {
+.cite-inline .footnote-ref {
   font-size: inherit;
 }
 

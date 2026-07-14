@@ -6,7 +6,7 @@ weight: 2
 ---
 
 
-The previous page defined the finite-basis Hamiltonian in terms of the one-electron matrix $H_0$, the overlap matrix $S$, and the bare Coulomb integrals $U$.  The next object needed before GF2 or GW is a mean-field description of the same Hamiltonian.  In the Green weak-coupling literature, that role is usually played by Hartree-Fock (HF), density functional theory (DFT), or a density matrix imported from one of these calculations.[^DongLegendre2020][^YehGW2022][^HarshaRelGW2024]
+The previous page defined the finite-basis Hamiltonian in terms of the one-electron matrix $H_0$, the overlap matrix $S$, and the bare Coulomb integrals $U$.  The next object needed before GF2 or GW is a mean-field description of the same Hamiltonian.  In the Green weak-coupling literature, that role is usually played by Hartree-Fock (HF), density functional theory (DFT), or a density matrix imported from one of these calculations.[^DongLegendre2020], [^YehGW2022], [^HarshaRelGW2024]
 
 This page introduces Hartree-Fock as a controlled first approximation to the interacting-electron problem, explains the Hartree and exchange terms that form the Fock matrix, and connects the Fock contribution to the static self-energy $\Sigma^\infty$.  We still avoid the time- and frequency-dependent Green's-function machinery; the only self-energy quantity used here is $\Sigma^\infty$, the frequency-independent part that behaves like an effective one-particle potential.
 
@@ -36,7 +36,7 @@ This procedure is often called the self-consistent field (SCF) method.  The word
 
 ## Relation to $\Sigma^\infty$
 
-In GF2 and GW calculations, the self-energy is separated into a static part and a dynamical part.  The static part is called $\Sigma^\infty$.  It is the part that does not depend on time or frequency, and it is the piece that survives as the high-frequency limit of the self-energy.  In the implementations discussed in this literature, this static part is the Hartree-Fock self-energy built from the current density matrix.[^DongLegendre2020][^YehGW2022]
+In GF2 and GW calculations, the self-energy is separated into a static part and a dynamical part.  The static part is called $\Sigma^\infty$.  It is the part that does not depend on time or frequency, and it is the piece that survives as the high-frequency limit of the self-energy.  In the implementations discussed in this literature, this static part is the Hartree-Fock self-energy built from the current density matrix.[^DongLegendre2020], [^YehGW2022]
 
 For this reason, the same idea appears under several names.  In molecular GF2 discussions one often sees $F=h+\Sigma^{\mathrm{HF}}$.  In fully self-consistent periodic GW, the static contribution is written as $\Sigma^\infty=J+K$, with $J$ the Hartree term and $K$ the exchange term.[^YehGW2022]  These notations refer to the same physical layer: the instantaneous Coulomb and exchange response of the electrons to the density matrix.
 
@@ -56,7 +56,7 @@ Thus HF, LDA, PBE, and PBE0 do not define different Hamiltonians if the same $H_
 
 In a fully self-consistent calculation, the formal goal is to remove the dependence on the initial mean-field reference.  This is one of the motivations for self-consistent GW: unlike one-shot GW, it is not supposed to retain an arbitrary dependence on whether the calculation began from HF, PBE, PBE0, or another reference.[^YehGW2022]
 
-The starting point nevertheless matters in practice.  It can strongly affect convergence speed and stability.  It can also matter in systems with multiple self-consistent solutions, where an initial density matrix may guide the iteration toward a metastable state.[^YehGW2022][^PokhilkoMultSol2021]  This is why Green workflows typically prepare the Hamiltonian data together with a reasonable starting density matrix from a mean-field calculation before the GF2 or GW iteration begins.
+The starting point nevertheless matters in practice.  It can strongly affect convergence speed and stability.  It can also matter in systems with multiple self-consistent solutions, where an initial density matrix may guide the iteration toward a metastable state.[^YehGW2022], [^PokhilkoMultSol2021]  This is why Green workflows typically prepare the Hamiltonian data together with a reasonable starting density matrix from a mean-field calculation before the GF2 or GW iteration begins.
 
 The conceptual hierarchy is therefore simple.  The Hamiltonian page defines $H_0$, $S$, and $U$.  Hartree-Fock and DFT provide practical one-particle starting points and density matrices.  The static Hartree-Fock contribution built from that density matrix is the $\Sigma^\infty$ term used later.  Only after these ingredients are in place do GF2 and GW introduce the dynamical many-body corrections.
 

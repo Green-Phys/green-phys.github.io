@@ -4,7 +4,7 @@ linkTitle: Convergence Acceleration
 permalink: /DIIS_and_Convergence_Acceleration/
 math: true
 weight: 9
-prev: "/docs/theory/postprocessing"
+prev: "/docs/theory/thermodynamics"
 next: "/docs/installation"
 ---
 

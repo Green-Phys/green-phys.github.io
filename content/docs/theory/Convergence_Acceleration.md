@@ -3,7 +3,7 @@ title: DIIS and Convergence Acceleration
 linkTitle: Convergence Acceleration
 permalink: /DIIS_and_Convergence_Acceleration/
 math: true
-weight: 8
+weight: 9
 prev: "/docs/theory/postprocessing"
 next: "/docs/installation"
 ---

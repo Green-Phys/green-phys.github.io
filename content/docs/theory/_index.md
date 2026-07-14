@@ -27,6 +27,12 @@ Compact representations of imaginary-time and Matsubara-frequency functions, inc
 
 {{< cta-button text="Read more" link="matsubara_basis" icon="grid_on" >}}
 
+### Green's Functions
+
+Imaginary-time Green's functions, Matsubara-frequency transforms, spectral functions, self-energies, the grand potential, and energy expressions used by self-consistent many-body methods.
+
+{{< cta-button text="Read more" link="greens_functions" icon="timeline" >}}
+
 ### GF2
 
 Self-consistent second-order perturbation theory (GF2), also known as Second Order Born — a conserving diagrammatic approximation that is accurate whenever gaps are large and interactions are weak, though it is known to fail for metals.

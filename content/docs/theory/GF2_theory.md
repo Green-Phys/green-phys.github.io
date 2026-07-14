@@ -1,7 +1,7 @@
 ---
 title: Second Order approximation (GF2)
 linkTitle: GF2 approximation
-weight: 4
+weight: 5
 math: true
 katex: true
 ---

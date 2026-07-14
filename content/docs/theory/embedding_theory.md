@@ -1,7 +1,7 @@
 ---
 title: Embedding Theory
 linkTitle: Embedding Theory
-weight: 4
+weight: 5
 math: true
 hidden: false
 ---

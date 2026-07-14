@@ -2,7 +2,7 @@
 title: The GW Approximation
 linkTitle: GW approximation
 math: true
-weight: 3
+weight: 4
 next: "/docs/theory/postprocessing"
 ---
 

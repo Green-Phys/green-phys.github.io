@@ -1,6 +1,6 @@
 ---
 title: Postprocessing
-weight: 5
+weight: 6
 prev: "/docs/theory/gw_theory"
 next: "/docs/theory/convergence_acceleration"
 ---

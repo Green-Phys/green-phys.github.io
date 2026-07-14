@@ -15,6 +15,12 @@ An introduction to the language of Green's functions, the many-body Hamiltonian 
 
 {{< cta-button text="Read more" link="introduction" icon="info" >}}
 
+### Hartree-Fock and Starting Points
+
+Hartree-Fock theory, the static Hartree and exchange contributions, their relation to $\Sigma^\infty$, and how HF or DFT calculations provide starting density matrices for GF2 and GW.
+
+{{< cta-button text="Read more" link="hartree_fock" icon="schema" >}}
+
 ### GF2
 
 Self-consistent second-order perturbation theory (GF2), also known as Second Order Born — a conserving diagrammatic approximation that is accurate whenever gaps are large and interactions are weak, though it is known to fail for metals.

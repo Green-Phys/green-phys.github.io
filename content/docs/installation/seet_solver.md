@@ -52,14 +52,21 @@ rm -rf build
 
 {{< callout type="warning" >}}
 On Green **v0.3.2**, `embedding.exe` is **not** part of the default `green-mbpt` build.
-To obtain the SEET framework on that release, build `green-mbpt` from the `SEET` branch as
-shown below. The exact-diagonalization impurity solver above is still required.
+To obtain the SEET framework on that release, build `green-mbpt` from the **`seet-v0.3.2`**
+tag (preserved on the `seet-legacy` branch) as shown below. The exact-diagonalization
+impurity solver above is still required.
+
+Do **not** use the current `SEET` branch for this: it has since migrated to the newer,
+non-templated symmetry library (Green `v1.0.0a0` and later) and will not compile against
+`green-symmetry` v0.3.2. The `seet-v0.3.2` tag is the last state compatible with the
+v0.3.2 dependency stack and already defaults `GREEN_RELEASE` to `v0.3.2`, so the plain
+`cmake` invocation below pulls the correct dependency versions with no extra flags.
 {{< /callout >}}
 
 ```ShellSession
 git clone https://github.com/Green-Phys/green-mbpt
 cd green-mbpt
-git checkout SEET
+git checkout seet-v0.3.2
 cd ..
 cmake -S green-mbpt -B build \
    --install-prefix `pwd`/install/green-mbpt \

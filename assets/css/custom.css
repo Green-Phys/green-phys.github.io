@@ -119,6 +119,17 @@
   color: #f7f7f7 !important;
 }
 
+sup[id^="fnref"] {
+  top: auto;
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+sup[id^="fnref"] .footnote-ref {
+  font-size: inherit;
+}
+
 :is(html[class~="dark"]) .btn-outlined-error {
   border-color: #f87171;
   color: #f87171 !important;

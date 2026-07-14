@@ -17,7 +17,7 @@ K_\mathrm{F}(\tau,\omega)=\frac{e^{-\tau\omega}}{1+e^{-\beta\omega}} .
 $$
 Here $\rho(\omega)$ is the spectral density, $\beta$ is the inverse temperature, and $\omega_{\max}$ is an energy cutoff large enough to contain the relevant spectral weight.  Bosonic response functions have a closely related kernel with Bose statistics.  The dimensionless difficulty of the representation is controlled mainly by $\Lambda=\beta\omega_{\max}$: low temperatures and wide energy windows require more information.[^ShinaokaIR2017]
 
-Uniform imaginary-time or Matsubara-frequency grids are inefficient for this problem.  A uniform Matsubara grid spends many points at high frequencies where the function is smooth, while still needing enough points near zero frequency and enough tail information to preserve moments.  Early realistic finite-temperature calculations therefore used more compact grids and transforms: Legendre-polynomial representations, orthogonal-polynomial transform grids, and cubic-spline interpolation on sparse Matsubara grids all reduced the number of stored points by exploiting smoothness and known high-frequency behavior.[^BoehnkeLegendre2011][^KananenkaGrid2016][^KananenkaSpline2016]
+Uniform imaginary-time or Matsubara-frequency grids are inefficient for this problem.  A uniform Matsubara grid spends many points at high frequencies where the function is smooth, while still needing enough points near zero frequency and enough tail information to preserve moments.  Early realistic finite-temperature calculations therefore used more compact grids and transforms: Legendre-polynomial representations, orthogonal-polynomial transform grids, and cubic-spline interpolation on sparse Matsubara grids all reduced the number of stored points by exploiting smoothness and known high-frequency behavior.[^Chebyshev2018]
 
 ## Chebyshev Basis
 
@@ -32,7 +32,7 @@ The prime on the sum denotes the conventional half weight of the zeroth coeffici
 
 The main advantage of the Chebyshev basis is mathematical control.  Chebyshev approximation theory gives exponential convergence for analytic functions on the interval, and the operations needed in many-body calculations - evaluation, convolution, Fourier transformation, and even solving Dyson-like equations - can be formulated in coefficient space.[^Chebyshev2018]  The method is also transparent: if the high-order coefficients stop decreasing, the basis is not yet converged.
 
-The disadvantage is compactness.  The Chebyshev basis is general and robust, but it is not adapted to the analytic-continuation kernel.  Large $\Lambda$ values can require hundreds of basis functions in realistic calculations.  In the sparse-sampling benchmarks, Chebyshev calculations could require several hundred polynomials in cases where the IR basis reached the same energy tolerance with fewer than one hundred basis functions.[^LiSparseSampling2020]
+The disadvantage is compactness.  The Chebyshev basis is general and robust, but it is not adapted to the analytic-continuation kernel.  Large $\Lambda$ values can require hundreds of basis functions in realistic calculations.
 
 ## Intermediate Representation
 

@@ -80,7 +80,7 @@ DLR is less orthogonal than IR, but it is very explicit.  The basis functions ar
 
 ## How to Choose
 
-All of these bases solve the same problem: represent smooth imaginary-axis functions with far fewer degrees of freedom than a uniform grid.  Legendre, Chebyshev, and spline approaches are simple, controlled, and historically important.  Chebyshev is especially attractive when one wants direct polynomial approximation with clear convergence diagnostics.  IR is usually more compact because it is adapted to the spectral kernel.  Sparse sampling turns Chebyshev or IR coefficients into practical time and Matsubara grids.  DLR uses the same kernel information in an interpolation-oriented form that gives simple basis functions and direct transforms.
+All of these bases solve the same problem: represent smooth imaginary-axis functions with far fewer degrees of freedom than a uniform grid.  Legendre and spline approaches are simple, controlled, and historically important.  Chebyshev is especially attractive when one wants direct polynomial approximation with clear convergence diagnostics.  IR is usually more compact because it is adapted to the spectral kernel.  Sparse sampling turns Chebyshev or IR coefficients into practical time and Matsubara grids.  DLR uses the same kernel information in an interpolation-oriented form that gives simple basis functions and direct transforms.
 
 In Green calculations the best basis is therefore a numerical choice, not a change in physics.  The Hamiltonian, density matrix, and static term $\Sigma^\infty$ are unchanged.  The basis controls how accurately and efficiently the dynamical functions on the imaginary axis are stored, transformed, and iterated.
 

@@ -56,23 +56,23 @@ $$
 -\frac{1}{N_k^3}
 \sum_{\mathbf{k}_1\mathbf{k}_2\mathbf{k}_3}
 \sum_{klmnpq}
-\sum_{\sigma'QQ'}
-X_{\sigma\sigma'}\,
+\sum_{sPQ}
+X_{\sigma s}\,
 Y\,
 G^{\mathbf{k}_1}_{\sigma,pq}(\tau)
-G^{\mathbf{k}_2}_{\sigma',kl}(\tau)
-G^{\mathbf{k}_3}_{\sigma',nm}(-\tau)
+G^{\mathbf{k}_2}_{s,kl}(\tau)
+G^{\mathbf{k}_3}_{s,nm}(-\tau)
 \delta_{\mathbf{k}+\mathbf{k}_3,\mathbf{k}_1+\mathbf{k}_2}.
 $$
 The two vertex contractions are
 $$
-X_{\sigma\sigma'}=
-V^{\mathbf{k}_1\mathbf{k}}_{qj}(Q')
-V^{\mathbf{k}_2\mathbf{k}_3}_{ln}(Q')
--
-V^{\mathbf{k}_2\mathbf{k}}_{lj}(Q')
-V^{\mathbf{k}_1\mathbf{k}_3}_{qn}(Q')
-\delta_{\sigma\sigma'} .
+X_{\sigma s}=
+V^{\mathbf{k}_1\mathbf{k}}_{qj}(P)
+V^{\mathbf{k}_2\mathbf{k}_3}_{ln}(P)
+{}-
+V^{\mathbf{k}_2\mathbf{k}}_{lj}(P)
+V^{\mathbf{k}_1\mathbf{k}_3}_{qn}(P)
+\delta_{\sigma s}.
 $$
 The remaining vertex product is
 $$
@@ -80,7 +80,7 @@ Y=
 V^{\mathbf{k}\mathbf{k}_1}_{ip}(Q)
 V^{\mathbf{k}_3\mathbf{k}_2}_{mk}(Q).
 $$
-The first term in $X_{\sigma\sigma'}$ is the direct second-order contribution.  The second term is the exchange contribution, and it acts only for equal spin, which is why it carries $\delta_{\sigma\sigma'}$.  The final Kronecker delta enforces conservation of crystal momentum.
+The first term in $X_{\sigma s}$ is the direct second-order contribution.  The second term is the exchange contribution, and it acts only for equal spin, which is why it carries $\delta_{\sigma s}$.  The final Kronecker delta enforces conservation of crystal momentum.
 
 Equivalently, if the Coulomb interaction is stored as a four-index tensor rather than as decomposed vertices, the same periodic contraction can be written schematically as
 $$

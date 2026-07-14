@@ -45,11 +45,17 @@ The fully self-consistent $GW$ approximation, implementing Hedin's equations wit
 
 {{< cta-button text="Read more" link="gw_theory" icon="science" >}}
 
-### Post-processing
+### Analytical Continuation
 
-Theory behind the observables Green can extract from a finite-temperature calculation, including thermodynamic quantities and spectral properties.
+Theory on the analytic continuation methods used to obtain the spectral representation of a Green's function from imaginary-time or Matsubara-frequency data.
 
-{{< cta-button text="Read more" link="postprocessing" icon="analytics" >}}
+{{< cta-button text="Read more" link="analytical_continuation" icon="show_chart" >}}
+
+### Thermodynamics
+
+Self-consistent finite $\Phi$-derivable theories give direct access to thermodynamic properties such as entropy, free energy, and specific heat.
+
+{{< cta-button text="Read more" link="thermodynamics" icon="analytics" >}}
 
 ### Convergence
 

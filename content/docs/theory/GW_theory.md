@@ -3,7 +3,7 @@ title: The GW Approximation
 linkTitle: GW approximation
 math: true
 weight: 6
-next: "/docs/theory/postprocessing"
+next: "/docs/theory/analytical_continuation"
 ---
 
 

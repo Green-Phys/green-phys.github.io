@@ -36,7 +36,7 @@ This procedure is often called the self-consistent field (SCF) method.  The word
 
 ## Relation to $\Sigma^\infty$
 
-In GF2 and GW calculations, the self-energy is separated into a static part and a dynamical part.  The static part is called $\Sigma^\infty$.  It is the part that does not depend on time or frequency, and it is the piece that survives as the high-frequency limit of the self-energy.  In the implementations discussed in the Zgid literature, this static part is the Hartree-Fock self-energy built from the current density matrix.[^DongLegendre2020][^YehGW2022]
+In GF2 and GW calculations, the self-energy is separated into a static part and a dynamical part.  The static part is called $\Sigma^\infty$.  It is the part that does not depend on time or frequency, and it is the piece that survives as the high-frequency limit of the self-energy.  In the implementations discussed in this literature, this static part is the Hartree-Fock self-energy built from the current density matrix.[^DongLegendre2020][^YehGW2022]
 
 For this reason, the same idea appears under several names.  In molecular GF2 discussions one often sees $F=h+\Sigma^{\mathrm{HF}}$.  In fully self-consistent periodic GW, the static contribution is written as $\Sigma^\infty=J+K$, with $J$ the Hartree term and $K$ the exchange term.[^YehGW2022]  These notations refer to the same physical layer: the instantaneous Coulomb and exchange response of the electrons to the density matrix.
 

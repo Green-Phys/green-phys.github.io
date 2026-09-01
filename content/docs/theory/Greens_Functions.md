@@ -64,8 +64,7 @@ The minus sign is conventional for fermions.  It is chosen so that the nonintera
 $$
 \gamma_{pq}=
 \langle a_q^\dagger a_p\rangle
-=
--G_{pq}(0^-).
+=-G_{pq}(0^-).
 $$
 In a non-orthogonal atomic-orbital basis the same physical density must be interpreted with the overlap matrix $S$, as described in the Hamiltonian and Hartree-Fock pages.
 

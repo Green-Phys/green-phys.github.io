@@ -75,7 +75,7 @@ The k-point hierarchy describes the full Brillouin-zone mesh, its irreducible re
 | `/symmetry/k/nk_list` | `[3]` | integer | required | Requested mesh dimensions. |
 | `/symmetry/k/ibz2bz` | `[ink]` | integer | required | Full-grid index of each irreducible representative. |
 | `/symmetry/k/bz2ibz` | `[nk]` | integer | required | Full-grid representative index for every full-grid point; not a compact IBZ ordinal. |
-| `/symmetry/k/weight_ibz` | `[nk]` | integer | required | Star size at representative positions and zero elsewhere. |
+| `/symmetry/k/weight_ibz` | `[nk]` | int64 or float64 | required | Integer-valued star size at representative positions and zero elsewhere; periodic files normally use int64, while the molecular one-Gamma identity case uses float64. |
 | `/symmetry/k/tr_conj` | `[nk]` | integer/bool | required | Whether time-reversal conjugation is used during reconstruction. |
 | `/symmetry/k/n_stars` | scalar | integer | required | Number of k-point stars. |
 | `/symmetry/k/stars/<i>` | `[star_size]` | integer | required | Member indices of star `i`. |
@@ -101,7 +101,7 @@ The q mesh is the unique wrapped set of k-point differences. It therefore need n
 | `/symmetry/q/inq` | scalar | integer | required | Irreducible q-point count. |
 | `/symmetry/q/ibz2bz` | `[inq]` | integer | required | Full-grid index of each irreducible q representative. |
 | `/symmetry/q/bz2ibz` | `[nq]` | integer | required | Full-grid representative index for each q point. |
-| `/symmetry/q/weight_ibz` | `[nq]` | integer | required | Star size at representative positions and zero elsewhere. |
+| `/symmetry/q/weight_ibz` | `[nq]` | int64 or float64 | required | Integer-valued star size at representative positions and zero elsewhere; periodic files normally use int64, while the molecular one-Gamma identity case uses float64. |
 | `/symmetry/q/tr_conj` | `[nq]` | integer/bool | required | Time-reversal reconstruction flags. |
 | `/symmetry/q/n_stars` | scalar | integer | required | Number of q-point stars. |
 | `/symmetry/q/stars/<i>` | `[star_size]` | integer | required, advanced | Full-grid members of q-point star `i`. |

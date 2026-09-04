@@ -21,3 +21,8 @@ next: "/docs/tutorials"
     - Weak-coupling Many-Body Perturbation theory solver
     - Self-Energy Embedding Framework
     - Post-processing utilities
+
+ - ### [HDF5 Data Formats](/docs/components/data-formats)
+    - Input data produced by `green-mbtools`
+    - Iteration results produced by `green-mbpt`
+    - Optional high-symmetry-path output

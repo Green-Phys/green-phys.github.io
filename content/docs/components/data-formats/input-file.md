@@ -46,10 +46,12 @@ The matrix axes are ordered as spin channel, full k-point, row orbital, column o
 | `/HF/Energy` | scalar | float64 | required | Mean-field total energy in Hartree. |
 | `/HF/Energy_nuc` | scalar | float64 | required | Nuclear-repulsion energy in Hartree. |
 | `/HF/madelung` | scalar | float64 | required | Periodic Madelung correction in Hartree; zero for molecules. |
-| `/HF/Nk` | scalar | integer | required | Plane-wave count requested for integral evaluation; distinct from k-point counts. |
+| `/HF/Nk` | scalar | integer | required | Requested plane-wave mesh size in each reciprocal direction for integral evaluation; distinct from k-point counts. |
 | `/HF/nk` | scalar | integer | required | Product of the requested k-mesh dimensions. |
 | `/HF/mo_energy` | mode-dependent | float64 | required | PySCF molecular-orbital energies; rank varies with restricted/unrestricted/X2C mode. |
 | `/HF/mo_coeff` | mode-dependent | float64 or complex128 | required | PySCF molecular-orbital coefficients; rank and dtype vary by mode. |
+
+GREEN uses atomic-unit conventions, but these datasets do not store unit attributes. `Fock-k`, `H-k`, and `mo_energy` are in Hartree. `S-k`, symmetry transforms, fractional meshes, and lattice-vector coefficients are dimensionless. Absolute `/symmetry/k/mesh` and `/symmetry/q/mesh` coordinates are in Bohr<sup>-1</sup>.
 
 ## Mulliken metadata
 
@@ -58,8 +60,10 @@ The matrix axes are ordered as spin channel, full k-point, row orbital, column o
 | `/mulliken/Zs` | `[natom]` | integer | required | Nuclear charge for each atom. |
 | `/mulliken/last_ao` | `[natom]` | integer | required, advanced | Exclusive AO end index for each atom. |
 
+Here `natom` is the number of atoms in the cell or molecule.
+
 {{< callout type="warning" >}}
-`/HF/Nk`, `/HF/nk`, `/params/nk`, `/symmetry/k/nk`, and `/symmetry/k/nk_list` are not interchangeable. They respectively describe the requested integral plane-wave count, the product of requested mesh dimensions, the full stored k-mesh size, the symmetry-grid k-point count, and the three requested mesh dimensions.
+`/HF/Nk`, `/HF/nk`, `/params/nk`, `/symmetry/k/nk`, and `/symmetry/k/nk_list` are not interchangeable. They respectively describe the requested plane-wave mesh size in each reciprocal direction for integral evaluation, the product of requested k-mesh dimensions, the full stored k-mesh size, the symmetry-grid k-point count, and the three requested mesh dimensions.
 {{< /callout >}}
 
 ## K-point symmetry and reconstruction
@@ -106,7 +110,7 @@ The q mesh is the unique wrapped set of k-point differences. It therefore need n
 | `/symmetry/q/n_stars` | scalar | integer | required | Number of q-point stars. |
 | `/symmetry/q/stars/<i>` | `[star_size]` | integer | required, advanced | Full-grid members of q-point star `i`. |
 | `/symmetry/q/k_sym_transform_j2c` | `[nq,NQ,NQ]` | complex128 | required, advanced | Auxiliary-basis symmetry transform for the Coulomb metric. |
-| `/symmetry/q/k_sym_transform_p0` | `[nq,NQ,NQ]` | complex128 | required, advanced | Auxiliary-basis symmetry transform for the reference q point. |
+| `/symmetry/q/k_sym_transform_p0` | `[nq,NQ,NQ]` | complex128 | required, advanced | P0 polarization transform in the decomposed Coulomb-metric (`j2c`<sup>-1/2</sup>) auxiliary basis. |
 
 The pair tables index the triangular set of full-grid k-point pairs and its symmetry reductions.
 
@@ -137,12 +141,14 @@ The `/high_symm_path` group is created only when high-symmetry-path evaluation i
 | Path | Shape | Type | Status | Meaning |
 |---|---|---|---|---|
 | `/high_symm_path/k_mesh` | `[nhs_k,3]` | float64 | optional | Fractional reciprocal coordinates along the requested path. |
-| `/high_symm_path/r_mesh` | mesh-dependent | float64 | optional, advanced | Real-space lattice-vector mesh used for interpolation. |
-| `/high_symm_path/Hk` | `[nhs_k,nso,nso]` | complex128 | optional | One-electron Hamiltonian along the path. |
-| `/high_symm_path/Sk` | `[nhs_k,nso,nso]` | complex128 | optional | Overlap matrix along the path. |
+| `/high_symm_path/r_mesh` | `[nk,3]` | float64 | optional, advanced | Dimensionless real-space lattice-vector coefficients used for interpolation. |
+| `/high_symm_path/Hk` | `[nhs_k,nso,nso]` | complex128 | optional | One-electron Hamiltonian along the path, in Hartree. |
+| `/high_symm_path/Sk` | `[nhs_k,nso,nso]` | complex128 | optional | Dimensionless overlap matrix along the path. |
 | `/high_symm_path/xpath` | `[nhs_k]` | float64 | optional | Cumulative plotting coordinate along the path. |
-| `/high_symm_path/special_points` | path-dependent | float64 | optional | Plotting coordinates of labeled special points. |
-| `/high_symm_path/special_labels` | path-dependent | string | optional | Labels of the special points. |
+| `/high_symm_path/special_points` | `[n_special]` | float64 | optional | ASE-derived inverse-angstrom plotting coordinates of labeled special points. |
+| `/high_symm_path/special_labels` | `[n_special]` | string | optional | Labels of the special points. |
+
+`xpath` is the ASE-derived inverse-angstrom coordinate for each of the `nhs_k` path points. Here `n_special` is the number of labeled special points on the selected path; `special_points` and `special_labels` have one value per such point.
 
 ## Reading complex data with Python
 

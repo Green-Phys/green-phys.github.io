@@ -33,5 +33,5 @@ green-mbtools ──writes──> input.h5 ──read by──> green-mbpt
 | `nhs_k` | Number of k-points on the requested high-symmetry path. |
 
 {{< callout type="info" >}}
-This reference applies to GREEN 1.0 and is maintained as the current stable reference. Pre-1.0 inputs may use a different layout.
+This reference applies to GREEN 1.0 and is maintained as the current stable reference. Pre-1.0 inputs may use a different layout; [regenerate `input.h5` with `green-mbtools` 1.0](/docs/getting-started/preparing_input/#initial-mean-field-solution) instead of translating legacy symmetry metadata manually.
 {{< /callout >}}

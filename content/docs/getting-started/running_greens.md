@@ -27,3 +27,4 @@ If input data contains information about high-symmetry path,
 diagonal part of the Green's function can be evaluated on provided high-symmetry path using $\mathbf{k}$-space interpolation, and results will be stored 
 in the `G_tau_hs` group in the [high-symmetry output file](/docs/components/data-formats/output-files/#high-symmetry-path-output) (by default set to `output_hs.h5`).
 To run band-path interpolation option `--jobs` has to be set to `WINTER`.
+WINTER also requires matching `/high_symm_path` data in `input.h5` and an existing `--results_file` checkpoint from an earlier SC run or an earlier ordered SC job; it interpolates the checkpoint selected by `/iter`.

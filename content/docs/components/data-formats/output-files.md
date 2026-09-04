@@ -23,12 +23,12 @@ This page describes the GREEN 1.0 output-file contract. Shapes use the [shared n
     └── mu
 ```
 
-`/iter` is the number of the latest fully written checkpoint, not the group count or a convergence flag.
+`N` in `/iterN` is the self-consistency iteration number. `/iter` is the iteration selected by the v1.0 restart reader, not a group count or convergence flag. It is written before the datasets in `iterN`, so an interrupted write can leave the selected group incomplete; do not treat it as a guarantee of a fully written checkpoint.
 
 | Path | Shape | Type | Status | Meaning |
 |---|---|---|---|---|
 | `/@__grids_version__` | scalar | UTF-8 string | required | GREEN grids-library version used to write the sampled functions. |
-| `/iter` | scalar | unsigned integer | required | Latest fully written iteration number. |
+| `/iter` | scalar | unsigned integer | required | Self-consistency iteration selected by the v1.0 restart reader; an interrupted write can leave its `iterN` group incomplete. |
 | `/iterN/Sigma1` | `[ns,ink,nso,nso]` | complex128 | required | Static self-energy after mixing. |
 | `/iterN/Selfenergy/data` | `[nts,ns,ink,nso,nso]` | complex128 | required | Dynamic self-energy on the imaginary-time mesh after mixing. |
 | `/iterN/Selfenergy/mesh` | `[nts]` | float64 | required | Imaginary-time sampling points. |
@@ -51,8 +51,17 @@ Complex output arrays use an HDF5 compound type with float64 real and imaginary 
 import h5py
 
 with h5py.File("sim.h5", "r") as results:
-    iteration = int(results["iter"][()])
-    group = results[f"iter{iteration}"]
+    required = (
+        "Sigma1", "Selfenergy/data", "Selfenergy/mesh", "G_tau/data",
+        "G_tau/mesh", "Energy_1b", "Energy_HF", "Energy_2b", "mu",
+    )
+    selected = int(results["iter"][()])
+    for iteration in range(selected, 0, -1):
+        group = results.get(f"iter{iteration}")
+        if group is not None and all(path in group for path in required):
+            break
+    else:
+        raise RuntimeError("No complete iteration checkpoint was found")
     green_tau = group["G_tau/data"][...]
     selfenergy_tau = group["Selfenergy/data"][...]
     chemical_potential = float(group["mu"][()])
@@ -81,4 +90,4 @@ The numerical quantities use GREEN's atomic-unit convention, but unit attributes
 `/G_tau_hs/data` is diagonal-only: its final dimension is one orbital index, not two matrix indices.
 {{< /callout >}}
 
-This file is produced only by a WINTER/high-symmetry-path job with matching `/high_symm_path` input.
+This file is produced only by a WINTER/high-symmetry-path job with matching `/high_symm_path` input and an existing main-results checkpoint from an earlier SC run or an earlier ordered SC job. WINTER interpolates the checkpoint selected by `/iter`.

@@ -58,6 +58,7 @@ It defines notation shared by the detailed pages:
 |---|---|
 | `nao` | Number of atomic orbitals in the AO basis. |
 | `nso` | Number of spin orbitals. |
+| `n_ortho` | Number of orbitals retained in the orthogonalized basis. |
 | `ns` | Number of stored spin channels. |
 | `nk` | Number of k-points in the full Brillouin-zone mesh. |
 | `ink` | Number of stored irreducible k-points. |

@@ -57,7 +57,7 @@ It defines notation shared by the detailed pages:
 | Symbol | Meaning |
 |---|---|
 | `nao` | Number of atomic orbitals in the AO basis. |
-| `nso` | Stored one-particle basis dimension. |
+| `nso` | Number of spin orbitals. |
 | `ns` | Number of stored spin channels. |
 | `nk` | Number of k-points in the full Brillouin-zone mesh. |
 | `ink` | Number of stored irreducible k-points. |

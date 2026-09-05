@@ -8,6 +8,8 @@ next: "/docs/getting-started/examples/si"
 The `Green` provides several post-processing procedures such as analytical continuation packages to obtain spectral representations and
 thermodynamic utilities to obtain thermodynamic quantities.
 
+For the dataset layout and dimension conventions used by GREEN's HDF5 inputs and results, see the [HDF5 Data Formats reference](/docs/components/data-formats/).
+
 ### Spectral representation
 
 To obtain the spectral representation of a Green's function, the `Green` software stack provides an analytical continuation package.

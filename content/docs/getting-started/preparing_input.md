@@ -24,7 +24,7 @@ The following parameters are mandatory:
 Some basis sets require to use effective potential for core electron that are removed from the calculation. For that reason `Green` allows to specify
 psuedo potential using `--pseudo` keyword. 
 
-By default the script will  `init_data_df.py` will generate the file `input.h5`. This file contains all necessary parameters and an initial mean-field solution of the system. In addition, the script will generate the `df_int` and `df_hf_int` directories
+By default, `init_data_df.py` generates [`input.h5`](/docs/components/data-formats/input-file/), which contains the system parameters, symmetry metadata, and initial mean-field solution needed by `green-mbpt`. In addition, the script will generate the `df_int` and `df_hf_int` directories
 which contain the Coloumb and one-body integrals of the system.
 
 ### High-symmetry path

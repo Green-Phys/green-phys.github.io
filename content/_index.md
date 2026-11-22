@@ -35,7 +35,7 @@ Green is a software framework for the simulation of realistic materials with Gre
 {{< cta-button text="Discord" link="https://discord.gg/ty9FE6u3mg" icon="forum" sm="yes" >}}
 {{< cta-button text="Troubleshooting" link="/docs/troubleshoot/" icon="troubleshoot" sm="yes" >}}
 {{< cta-button text="Papers and Citations" link="/docs/publications/" icon="library_books" sm="yes" >}}
-{{< cta-button text="Cite" link="/data/iskakov2025.bib" icon="format_quote" sm="yes" >}}
+{{< cta-button text="Cite" link="/data/green-references.bib" icon="format_quote" sm="yes" >}}
 </div>
 
 ## Acknowledgement

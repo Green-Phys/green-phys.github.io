@@ -10,6 +10,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Rebuild the site when the independent citation authority changes.
+  schedule:
+    - cron: "17 6 * * *"
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -48,8 +52,14 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Import canonical citation guidance
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 scripts/sync-citations.py
       - name: Validate machine-oriented documentation index
-        run: python3 scripts/check-ai-docs.py
+        run: |
+          python3 scripts/sync-citations.py --check
+          python3 scripts/check-ai-docs.py
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo

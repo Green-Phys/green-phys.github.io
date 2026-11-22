@@ -1,0 +1,36 @@
+# GREEN
+
+> GREEN is an open-source suite for Green's-function-based electronic-structure and many-body calculations, including input preparation, HF/GF2/GW and embedding workflows, analytic continuation, and post-processing.
+
+## Start here
+
+- [GREEN documentation](https://green-phys.org/docs/): Main user-documentation router.
+- [Getting started](https://green-phys.org/docs/getting-started/): End-to-end path from input preparation through a GREEN calculation and post-processing.
+- [Source installation](https://green-phys.org/docs/installation/from_sources/): Current release selection, prerequisites, CPU/GPU builds, tests, and installation.
+- [Troubleshooting](https://green-phys.org/docs/troubleshoot/): Common installation and runtime failures with remedies.
+
+## Run a calculation
+
+- [Prepare input](https://green-phys.org/docs/getting-started/preparing_input/): Generate supported mean-field data, integrals, symmetry metadata, and input files with green-mbtools.
+- [Run GREEN](https://green-phys.org/docs/getting-started/running_greens/): Invoke green-mbpt for documented HF, GF2, and GW workflows.
+- [Examples](https://green-phys.org/docs/getting-started/examples/): Maintained calculation examples.
+- [Post-processing](https://green-phys.org/docs/getting-started/postprocessing/): Analyze GREEN output with supported tools.
+- [SEET impurity solver](https://green-phys.org/docs/installation/seet_solver/): Build and connect the documented embedding solver stack.
+
+## Data contracts
+
+- [HDF5 data formats](https://green-phys.org/docs/components/data-formats/): Shared dimensions, notation, and versioning for GREEN 1.x files.
+- [Input file](https://green-phys.org/docs/components/data-formats/input-file/): Versioned input.h5 datasets, shapes, types, and meanings.
+- [Output files](https://green-phys.org/docs/components/data-formats/output-files/): Versioned result and high-symmetry output datasets, restart markers, and caveats.
+
+## Scientific and developer references
+
+- [Theory](https://green-phys.org/docs/theory/): Scientific background for Green's functions, HF, GF2, GW, embedding, grids, and thermodynamics.
+- [Components](https://green-phys.org/docs/components/): Core libraries and many-body framework components.
+- [Contribution policy](https://green-phys.org/docs/contribution/): C++ conventions, testing, documentation, and community expectations.
+- [Developer notes](https://green-phys.org/docs/developers/): Developer-oriented Green project information.
+
+## Agent skill
+
+- [green-mbpt-run skill](https://github.com/Green-Phys/green-mbpt/blob/main/.agents/skills/green-mbpt-run/SKILL.md): Machine-readable guidance for selecting compatible components, preparing inputs, running calculations, locating outputs, and avoiding unsupported scientific assumptions.
+

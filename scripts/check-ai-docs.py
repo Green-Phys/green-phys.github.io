@@ -16,6 +16,11 @@ SKILL_URL = (
     "https://github.com/Green-Phys/green-mbpt/blob/main/"
     ".agents/skills/green-mbpt-run/SKILL.md"
 )
+REQUIRED_CITATION_URLS = {
+    "https://green-phys.org/docs/publications/",
+    "https://green-phys.org/docs/acknowledgment/",
+    "https://green-phys.org/data/iskakov2025.bib",
+}
 
 
 def content_target(path: str) -> pathlib.Path | None:
@@ -28,6 +33,9 @@ def content_target(path: str) -> pathlib.Path | None:
         return direct
     if index.is_file():
         return index
+    static = ROOT / "static" / clean
+    if static.is_file():
+        return static
     return None
 
 
@@ -64,6 +72,9 @@ def main() -> int:
         errors.append("static/llms.txt has no local documentation links")
     if SKILL_URL not in text:
         errors.append("static/llms.txt does not link the green-mbpt-run skill")
+    missing_citations = sorted(REQUIRED_CITATION_URLS.difference(urls))
+    for url in missing_citations:
+        errors.append(f"static/llms.txt does not link required citation guidance: {url}")
 
     if errors:
         print("AI documentation validation failed:", file=sys.stderr)

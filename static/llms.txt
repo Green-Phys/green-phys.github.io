@@ -25,6 +25,9 @@
 
 ## Scientific and developer references
 
+- [Papers and citations](https://green-phys.org/docs/publications/): Canonical software citation and route to original publications for the scientific methods used.
+- [Acknowledgment](https://green-phys.org/docs/acknowledgment/): Copyable software acknowledgment and citation guidance.
+- [Green/WeakCoupling BibTeX](https://green-phys.org/data/iskakov2025.bib): Machine-readable citation for the primary Green/WeakCoupling implementation paper.
 - [Theory](https://green-phys.org/docs/theory/): Scientific background for Green's functions, HF, GF2, GW, embedding, grids, and thermodynamics.
 - [Components](https://green-phys.org/docs/components/): Core libraries and many-body framework components.
 - [Contribution policy](https://green-phys.org/docs/contribution/): C++ conventions, testing, documentation, and community expectations.

@@ -7,7 +7,6 @@ import argparse
 import json
 import os
 import pathlib
-import sys
 import urllib.request
 
 
@@ -87,21 +86,12 @@ The records and mappings below come from the independent
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--ref", default=os.environ.get("GREEN_CITATIONS_REF", DEFAULT_REF))
-    parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
 
     commit = resolve(args.ref)
-    stale: list[str] = []
     for path, content in outputs(commit).items():
-        if args.check:
-            if not path.is_file() or path.read_bytes() != content:
-                stale.append(str(path.relative_to(ROOT)))
-        else:
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_bytes(content)
-    if stale:
-        print("citation mirrors are stale: " + ", ".join(stale), file=sys.stderr)
-        return 1
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(content)
     print(f"citation-sync-ok: {commit}")
     return 0
 

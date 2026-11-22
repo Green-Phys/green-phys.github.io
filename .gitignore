@@ -2,3 +2,8 @@
 resources
 public
 .idea
+
+# Generated at build time from Green-Phys/green-citations.
+content/docs/publications/_index.md
+static/data/green-references.bib
+static/data/iskakov2025.bib

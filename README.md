@@ -12,7 +12,9 @@ The index is validated during the site build by `scripts/check-ai-docs.py`.
 Bibliographic metadata and citation mappings are owned by
 [`Green-Phys/green-citations`](https://github.com/Green-Phys/green-citations).
 `scripts/sync-citations.py` imports one resolved commit into the publication
-page and BibTeX download; generated citation files must not be edited here.
+page and BibTeX downloads at build time. Those outputs are ignored build
+artifacts, not tracked mirrors; run the synchronization script before a local
+Hugo build and never edit or commit its outputs.
 
 # Acknowledgements
 

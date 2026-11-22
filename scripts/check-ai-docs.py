@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import pathlib
 import re
+import subprocess
 import sys
 from urllib.parse import urlparse
 
@@ -24,6 +25,11 @@ REQUIRED_CITATION_URLS = {
     "https://green-phys.org/data/green-references.bib",
 }
 GENERATED_MARKER = "Generated from Green-Phys/green-citations; do not edit."
+GENERATED_CITATION_FILES = (
+    "content/docs/publications/_index.md",
+    "static/data/green-references.bib",
+    "static/data/iskakov2025.bib",
+)
 
 
 def content_target(path: str) -> pathlib.Path | None:
@@ -86,11 +92,17 @@ def main() -> int:
     for url in missing_citations:
         errors.append(f"static/llms.txt does not link required citation guidance: {url}")
 
-    for relative in (
-        "content/docs/publications/_index.md",
-        "static/data/green-references.bib",
-        "static/data/iskakov2025.bib",
-    ):
+    tracked = subprocess.run(
+        ["git", "ls-files", "--", *GENERATED_CITATION_FILES],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.splitlines()
+    for relative in tracked:
+        errors.append(f"citation build artifact must not be tracked: {relative}")
+
+    for relative in GENERATED_CITATION_FILES:
         generated = ROOT / relative
         if not generated.is_file() or GENERATED_MARKER not in generated.read_text(
             encoding="utf-8"

@@ -28,15 +28,17 @@ Sparse grid utilities for IR and Chebyshev representations
 
 ## Directory structure
 
-- `python/sparse_grid/`: python code for generating and parsing sparse grid data.
-    - `python/sparse_grid/ir/`: IR-specific code.
-    - `python/sparse_grid/chebyshev/`: Chebyshev-specific code.
-    - `python/sparse_grid/repn.py`: Common module interface for representations.
-    - `python/generate.py`: Script for generating HDF5 archives.
+- `python/green_grids/`: Python package `green_grids` for generating and parsing sparse grid data.
+    - `python/green_grids/repn/`: representations, with a common interface (`basis.py`, `generator.py`, `transformer.py`).
+        - `repn/ir.py`: IR-specific code.
+        - `repn/chebyshev.py`: Chebyshev-specific code.
+- `python/generate.py`: Script for generating HDF5 archives.
+- `python/examples/`: Usage examples.
 - `c++/`: C++ interface for loading and representing sparse grid data.
     - `green/grids/`: Public headers.
 - `data/`: Pre-generated data files.
-- `examples`: Usage examples.
+
+The Python tools are also available on PyPI: `pip install green-grids`.
 
 ## Dependencies
 

@@ -14,10 +14,12 @@ or execute `pip install green-mbtools`.
 To generate input data a user has to call the `python/init_data_df.py` script located either in the source directory or in the installation directory (for a simple example see the [Si example](/docs/getting-started/examples/si)).
 The following parameters are mandatory:
 
-  - `--a`  path to a file containing the crystal geometry in the xyz format.
-  - `--atom`  path to a file containing the unit cell description.
+  - `--a`  the lattice vectors of the unit cell, one vector per line (see `a.dat` in the [Si example](/docs/getting-started/examples/si)).
+  - `--atom`  the atoms in the unit cell, one `<element> <x> <y> <z>` line per atom (see `atom.dat` in the Si example).
   - `--nk`  number of the reciprocal space points in each direction.
   - `--basis`  Gaussian basis set. The basis set can be specified either as a single basis for every atom in the unit cell or for each atom individually.
+
+Both `--a` and `--atom` accept either a path to a file or the geometry given directly as a string.
 
 ### Pseudopotentials
 

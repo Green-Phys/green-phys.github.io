@@ -23,7 +23,7 @@ available in the SEET installation directory:
 ```
 python <installation path>/python/init_seet.py --orth true --gf2_input_file sim.h5 \
        --transform_file transform.h5 --active_space 0 1 --active_space 2 3   \
-       --from_ibz true --orth_method symmetrical_orbitals --input_file input.h5
+       --orth_method symmetrical_orbitals --input_file input.h5
 ```
 
 The various parameters used in this step primarily control the orbitals used in the active space and the type of orthogonalization:
@@ -32,8 +32,7 @@ The various parameters used in this step primarily control the orbitals used in 
 * `--gf2_input_file` -- path to the weak-coupling output file,
 * `--transform_file` -- path to the output file containing transformation matrices,
 * `--active_space` -- multiple sets of orbital indices to define the active space for impurities,
-* `--from_ibz` -- set to `true` if the `sim.h5` is in the reduced Brillouin Zone,
-* `--orth_method` -- type of orthogonalization (available options: `natural_orbitals`, `symmetrical_orbitals`, and `canonical_orbitals`),
+* `--orth_method` -- type of orthogonalization (available options: `natural_orbitals` (default), `symmetrical_orbitals`, `canonical_orbitals`, and `molecular_orbitals`; for two-component (X2C) inputs only `symmetrical_orbitals` and `canonical_orbitals` are supported),
 
 #### Selecting active-space orbitals
 One of the most important step in SEET is to select the correct orbitals to form the active space, also known as the impurity. The process generally involves heuristics and analysis of the weak-coupling result. For instance, one can look at occupation number of symmetrized atomic orbitals (SAO) and identify half-filled $d$-orbitals as impurity.
@@ -41,7 +40,7 @@ For further details, please see the [SEET theory](/docs/theory/embedding_theory)
 
 In the example above, we construct orthogonal transformation matrices using symmetrical orthogonalization. We choose two active subspaces of correlated orbitals (`{0, 1}` and `{2, 3}`).
 Note that these are orbital numbers in the chosen orthogonal basis.
-Since `Green` results are obtained in the reduced Brillouin zone we also specify `--from_ibz=true`.
+`Green` stores results in the irreducible Brillouin zone; `init_seet.py` reads the symmetry information from `input.h5` and handles this automatically.
 
 As the result we will get `transform.h5` file with orthogonal trasformation matrices and projection matrices.
 
@@ -82,7 +81,7 @@ After all the preparations are done, SEET can be run as
 The following parameters in additional to regular `Green` parameters are used
 
  - `--weak_results` -- initial results obtained from weak-coupling solver
- - `--embedding_type` -- type of SEET, `FC_SEET` for full self-consistency, `SEET` for inner self-consistency
+ - `--embedding_type` -- type of SEET, `FSC_SEET` for full self-consistency, `SEET` for inner self-consistency
  - `--seet_input` -- transformation matricies for impurity problems
  - `--bath_file` -- initial guess for impurity bath parameters
  - `--impurity_solver_exec` -- path to `seet_solvers` exact diagonalization executable

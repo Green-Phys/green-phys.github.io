@@ -63,8 +63,8 @@ dependencies, so pip installs them automatically:
   [llvmlite installation guide](https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html)
   for source-build requirements.
 
-  The minimal supported Python version is 3.8 (any minor version up to 3.12.x
-  should work). For help with Python package installation, see the
+  green-mbtools 1.0 supports Python 3.8 through 3.14; prebuilt wheels are
+  published for macOS (arm64) and Linux (x86_64) for each of these versions. For help with Python package installation, see the
   [pip documentation](https://pip.pypa.io/en/stable/installation/).
 
 ### Download and Build: CPU version

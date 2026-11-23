@@ -6,7 +6,9 @@ weight: 2
 
 ### Analytical continuation package
 
-This page covers installation of the Nevanlinna and Caratheodory analytical continuation methods. For the MiniPole continuation code, see the [MiniPole repository](https://github.com/Green-Phys/MiniPole) for installation instructions.
+This page covers installation of `green-ac`, which provides the Nevanlinna analytical continuation method (the `ac.exe` executable, and the `green_ac` Python module used by `green-mbtools`).
+
+The Carathéodory continuation method is not part of `green-ac`. It ships with [`green-mbtools`](/docs/installation/from_sources/#prerequisites-python-libraries) and is installed by `python -m pip install green-mbtools`; if pip has to build it from source, GMP and MPFR must be available. For the MiniPole continuation code, see the [MiniPole repository](https://github.com/Green-Phys/MiniPole) for installation instructions.
 
 {{% steps %}}
 

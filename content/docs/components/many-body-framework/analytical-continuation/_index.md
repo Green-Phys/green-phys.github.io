@@ -6,7 +6,7 @@ weight: 3
 
 ### Nevanlinna
 
-A C++ implementation of the Nevanlinna analytic continuation method.
+The Nevanlinna (scalar) and Carathéodory (matrix-valued) analytic continuation methods, implemented in `green-ac` and `green-mbtools`.
 
 {{< cta-button text="Read more" link="nevanlinna" icon="show_chart" >}}
 

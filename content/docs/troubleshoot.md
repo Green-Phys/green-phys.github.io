@@ -40,7 +40,7 @@ The choice of non-uniform grid has to address two main aspects:
 If the grid is too small large spectral leakage can occure during the Foruier transfrom in time/frequency domain,
 that may result in large calculation errors and potentially break down of self-consistent iterations.
 During the calculations, `Green` computes the spectral leakage every time the Fourier transfrom in time/frequency domain
-is performed. If the spectral leakage is larger than $10^{-8}$ the following warning message will be printed into standard output:
+is performed. If the spectral leakage is larger than $10^{-8}$ the following warning message will be printed to standard error:
 ```ShellSession
 WARNING: The leakage is larger than 1e-8
 ```
@@ -71,18 +71,20 @@ The fix is to tell git to trust the affected directories:
 git config --global --add safe.directory '*'
 ```
 
-### GPU build fails: `nvcc fatal: Unsupported gpu architecture 'compute_70'`
+### GPU code is not built for your GPU
 
-CUDA 13 dropped support for sm_70 (Volta) and sm_75 (Turing). If you are on
-CUDA 13 or later, pass `-DGPU_ARCHS` to target only your GPU's architecture
-instead of relying on the default list:
+Unless told otherwise, `green-gpu` (v1.0.0 and later) generates CUDA code only for compute capabilities
+8.0, 8.6, and 9.0 (A100, RTX 30xx/A-series, H100). On other GPUs the kernels either run without native
+tuning (e.g. Ada, compute capability 8.9, runs the 8.0 code) or do not run at all
+(e.g. Turing, compute capability 7.5, fails with `no kernel image is available for execution on the device`).
+To build for your own GPU, query its compute capability:
 
 ```ShellSession
 nvidia-smi --query-gpu=compute_cap --format=csv,noheader
 ```
 
-Use the reported value with the dot removed (e.g. `8.9` → `89`) in the CMake
-configure step:
+and pass the reported value with the dot removed (e.g. `8.9` → `89`) as `-DGPU_ARCHS` in the CMake
+configure step; several values can be given separated by spaces (e.g. `-DGPU_ARCHS="80 89"`):
 
 ```ShellSession
 cmake -S green-mbpt -B green-mbpt-build \
@@ -90,6 +92,10 @@ cmake -S green-mbpt -B green-mbpt-build \
     -DCUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu" \
     -DGPU_ARCHS="89"
 ```
+
+CUDA 13 removed support for pre-Turing GPUs (Maxwell, Pascal, Volta; compute capability 7.0 and older).
+Builds of `green-gpu` older than v1.0.0 included 7.0 in their default list and therefore fail under CUDA 13 with
+`nvcc fatal: Unsupported gpu architecture 'compute_70'`; setting `-DGPU_ARCHS` as above, or upgrading, fixes this.
 
 <div class="btn-grid">
 {{< cta-button text="Installation Guide" link="/docs/installation/" icon="rocket_launch" >}}

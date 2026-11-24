@@ -4,7 +4,7 @@ linkTitle: HDF5 Data Formats
 weight: 3
 ---
 
-These pages describe the GREEN 1.0 HDF5 file interface exchanged by `green-mbtools`, `green-mbpt`, and their associated post-processing workflows.
+These pages describe the GREEN 1.1 HDF5 file interface exchanged by `green-mbtools`, `green-mbpt`, and their associated post-processing workflows.
 
 ```text
 green-mbtools ──writes──> input.h5 ──read by──> green-mbpt
@@ -33,5 +33,5 @@ green-mbtools ──writes──> input.h5 ──read by──> green-mbpt
 | `nhs_k` | Number of k-points on the requested high-symmetry path. |
 
 {{< callout type="info" >}}
-This reference applies to GREEN 1.0 and is maintained as the current stable reference. Pre-1.0 inputs may use a different layout; [regenerate `input.h5` with `green-mbtools` 1.0](/docs/getting-started/preparing_input/#initial-mean-field-solution) instead of translating legacy symmetry metadata manually.
+This reference applies to GREEN 1.1 (input format 1.1.0); differences from 1.0 are listed under [Format versions](/docs/components/data-formats/input-file/#format-versions). Older inputs may use a different layout; [regenerate `input.h5` with `green-mbtools`](/docs/getting-started/preparing_input/#initial-mean-field-solution) or migrate it instead of translating legacy symmetry metadata manually.
 {{< /callout >}}

@@ -42,6 +42,7 @@ The snippets below build on one another and share a single set of imports:
 ```python
 from ase.spacegroup import crystal
 from green_mbtools.pesto import mb, orth
+import h5py
 import matplotlib.pyplot as plt
 import numpy as np
 ```
@@ -61,6 +62,11 @@ output_path = "path/to/sim.h5"
 ir_path = "path/to/ir/grid.h5"
 
 my_mb = mb.initialize_MB_post(output_path, input_path, ir_path)
+
+# green-mbtools <= 1.1.0 does not store the k-mesh in my_mb (Green-Phys/green-mbtools#82);
+# set it from the input file before calling wannier_interpolation
+with h5py.File(input_path, "r") as f:
+    my_mb.kmesh = f["symmetry/k/mesh_scaled"][()]
 ```
 
 ### Step 2: Wannier interpolation
@@ -138,9 +144,12 @@ Nevanlinna offers a good balance of accuracy and stability in our experience, so
 function of `MB_post`:
 
 ```python
+# Nevanlinna continuation is applied to the orbital-diagonal elements only
+gdiag_orth = np.diagonal(gtau_orth, axis1=-2, axis2=-1)
+
 # Nevanlinna analytic continuation to get the spectral function on the real axis,
 # with frequencies between -5 and 5 a.u. over 1001 grid points and a broadening of 0.01
-freqs, Aw = my_mb.AC_nevanlinna(gtau_orth=gtau_orth, n_real=1001, w_min=-5.0, w_max=5.0, eta=0.01)
+freqs, Aw = my_mb.AC_nevanlinna(gtau_orth=gdiag_orth, n_real=1001, w_min=-5.0, w_max=5.0, eta=0.01)
 
 # trace over spin, k-points, and orbitals
 Aw_traced = np.einsum('wska -> w', Aw)
@@ -151,11 +160,16 @@ plt.plot(freqs_ev, Aw_traced)
 plt.show()
 ```
 
+{{< callout type="info" >}}
+`AC_nevanlinna` runs the continuation in parallel worker processes. On macOS and Windows, a script that calls it must keep its top-level code under `if __name__ == "__main__":`, as in the complete example below; otherwise Python stops with a `RuntimeError` about starting a new process before bootstrapping has finished.
+{{< /callout >}}
+
 ### Putting it all together
 
 ```python
 from ase.spacegroup import crystal
 from green_mbtools.pesto import mb, orth
+import h5py
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -166,6 +180,8 @@ if __name__ == "__main__":
     output_path = "path/to/sim.h5"
     ir_path = "path/to/ir/grid.h5"
     my_mb = mb.initialize_MB_post(output_path, input_path, ir_path)
+    with h5py.File(input_path, "r") as f:  # needed for green-mbtools <= 1.1.0
+        my_mb.kmesh = f["symmetry/k/mesh_scaled"][()]
 
     # Step 2: Wannier interpolation (silicon high-symmetry path)
     a, b, c = 5.43, 5.43, 5.43
@@ -182,8 +198,9 @@ if __name__ == "__main__":
     # Step 3: orthogonalize to the symmetric-AO basis
     gtau_orth = orth.sao_orth(G_tk_int, Sk_int, type='g')
 
-    # Step 4: analytically continue and plot the density of states
-    freqs, Aw = my_mb.AC_nevanlinna(gtau_orth=gtau_orth, n_real=1001, w_min=-5.0, w_max=5.0, eta=0.01)
+    # Step 4: analytically continue the orbital-diagonal elements and plot the density of states
+    gdiag_orth = np.diagonal(gtau_orth, axis1=-2, axis2=-1)
+    freqs, Aw = my_mb.AC_nevanlinna(gtau_orth=gdiag_orth, n_real=1001, w_min=-5.0, w_max=5.0, eta=0.01)
     Aw_traced = np.einsum('wska -> w', Aw)
     freqs_ev = freqs * 27.211
 
@@ -199,7 +216,7 @@ directory:
 
 * `nvnl_winter_analysis.py` supports various orthogonalization schemes and returns the full orbital-resolved spectral
   function and occupancies along a specified high-symmetry path.
-* `nvnl_winter_mol.py` provides the same functionality for molecules; `plot_dos_mol.py` plots the resulting molecular
+* `nvnl_analysis_mol.py` provides the same functionality for molecules; `plot_dos_mol.py` plots the resulting molecular
   density of states.
 * `wannier_fock.py` is a fast, inexpensive script that interpolates DFT results along the high-symmetry path to
   generate mean-field band structures.

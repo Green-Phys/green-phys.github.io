@@ -20,16 +20,16 @@ everything is installed.
 
 ### Prerequisites
 
-System libraries:
- 1. MPI
- 2. HDF5
- 3. BLAS
- 4. CMake (version >= 3.27)
+Required:
+ 1. HDF5
+ 2. BLAS and LAPACK (provided together by OpenBLAS, Intel MKL, or Apple Accelerate)
+ 3. Eigen3
+ 4. CMake (version >= 3.18)
  5. C++17 compatible compiler
 
-Third-party libraries:
- 1. Eigen3
- 2. Boost
+Optional:
+ 1. MPI, for a parallel ED solver. Enable it by adding `-DUSE_MPI=ON` to the
+    configure command below.
 
 ### Build the exact-diagonalization impurity solver
 

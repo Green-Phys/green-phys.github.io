@@ -30,7 +30,8 @@ The following modules will be loaded:
  cmake --build eigen-build/ -j 32 -t install
 ```
 
-Here we download the latest version of the Eigen library and install it into the `<install/directory/for/eigen>` directory.
+Here we download Eigen 3.4.0 and install it into the `<install/directory/for/eigen>` directory.
+Green finds Eigen through CMake, so you will pass this directory to the Green configure step below.
 
 ### Download Green Many-Body framework and create build directory
 
@@ -42,12 +43,13 @@ We recommend building a specific released version. Find the latest release tag o
 ### Build code
 ```ShellSession
  cmake -S green-mbpt -B green-mbpt-build -DCMAKE_INSTALL_PREFIX=<install/directory/for/GREEN> \
+       -DCMAKE_PREFIX_PATH=<install/directory/for/eigen>                                     \
        -DCMAKE_BUILD_TYPE=Release -DCUSTOM_KERNELS="https://github.com/Green-Phys/green-gpu"
  cmake --build green-mbpt-build -j 8
  cmake --build green-mbpt-build -t test
 ```
 
-Here we configure the `Green` package to use a custom GPU kernel and to be installed into the `<install/directory/for/GREEN>` directory.
+Here we configure the `Green` package to use the Eigen installed above, to use a custom GPU kernel, and to be installed into the `<install/directory/for/GREEN>` directory.
 After the build is finished, we run tests to check that `Green` package was built successfully (please note that the GPU test will fail as there is no
 CUDA-enabled device available on a login node).
 

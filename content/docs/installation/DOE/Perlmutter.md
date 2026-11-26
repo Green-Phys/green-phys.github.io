@@ -33,13 +33,13 @@ module load cray-hdf5 cmake
 
 ### Download and build the Many-Body Perturbation theory solver
 
-We recommend building a specific released version — for example the latest stable [`v0.3.2`](https://github.com/Green-Phys/green-mbpt/releases/tag/v0.3.2) or the latest pre-release [`v1.0.0a1`](https://github.com/Green-Phys/green-mbpt/releases/tag/v1.0.0a1). See the [releases page](https://github.com/Green-Phys/green-mbpt/releases) for newer tags.
+We recommend building a specific released version. Find the latest release tag on the [releases page](https://github.com/Green-Phys/green-mbpt/releases) and substitute it for `<tag>` below.
 
 {{% tabs items="CPU, GPU" %}}
 
 {{% tab %}}
   ```Bash Session
-  git clone --branch v0.3.2 --depth 1 https://github.com/Green-Phys/green-mbpt
+  git clone --branch <tag> --depth 1 https://github.com/Green-Phys/green-mbpt
   cmake -S green-mbpt -B green-mbpt-build                         \
    -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
    -DCMAKE_BUILD_TYPE=Release
@@ -50,7 +50,7 @@ We recommend building a specific released version — for example the latest sta
 {{% /tab %}}
 {{% tab %}}
   ```Bash Session
-  git clone --branch v0.3.2 --depth 1 https://github.com/Green-Phys/green-mbpt
+  git clone --branch <tag> --depth 1 https://github.com/Green-Phys/green-mbpt
   cmake -S green-mbpt -B green-mbpt-build                         \
    -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
    -DCMAKE_BUILD_TYPE=Release                                     \

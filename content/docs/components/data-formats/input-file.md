@@ -4,9 +4,9 @@ linkTitle: Input File
 weight: 1
 ---
 
-`input.h5` is written by `green-mbtools` and read by `green-mbpt`. This page describes the GREEN 1.0 input-file contract. Shapes use the [shared notation](/docs/components/data-formats/#dimensions-and-notation).
+`input.h5` is written by `green-mbtools` and read by `green-mbpt`. This page describes the input-file format 1.1.0, written by `green-mbtools` 1.1 and read by `green-mbpt` 1.1. The only difference from format 1.0.0 is how complex matrices are stored; see [Format versions](#format-versions). Shapes use the [shared notation](/docs/components/data-formats/#dimensions-and-notation).
 
-The root attribute `__green_version__` records the version of `green-mbtools` that wrote the file.
+The root attribute `__green_version__` records the version of `green-mbtools` that wrote the file; `green-mbpt` uses it to decide whether it can read the file.
 
 ```text
 /
@@ -29,20 +29,20 @@ The root attribute `__green_version__` records the version of `green-mbtools` th
 | `/Cell` | scalar | UTF-8 string | required, opaque | Serialized PySCF `Cell` or `Mole`; version-coupled rather than a stable public sub-schema. |
 | `/params/nao` | scalar | integer | required | Number of atomic orbitals. |
 | `/params/nso` | scalar | integer | required | Number of spin orbitals. |
-| `/params/ns` | scalar | integer | required | Number of stored spin channels; normally 1 for restricted or two-component X2C and 2 for unrestricted calculations. |
+| `/params/ns` | scalar | integer | required | Number of stored spin channels; 1 for restricted (`--restricted true`) or two-component X2C and 2 for unrestricted calculations (the `init_data_df.py` default). |
 | `/params/nel_cell` | scalar | integer | required | Electrons per cell or molecule. |
 | `/params/nk` | scalar | integer | required | Full k-mesh size. |
 | `/params/NQ` | scalar | integer | required | Auxiliary-basis size. |
 
 ## Mean-field data
 
-The matrix axes are ordered as spin channel, full k-point, row orbital, column orbital, and, where present, real/imaginary component.
+The matrix axes are ordered as spin channel, full k-point, row orbital, column orbital. Complex matrices are stored as native HDF5 complex values (a compound of two float64 fields, which `h5py` reads as `complex128`).
 
 | Path | Shape | Type | Status | Meaning |
 |---|---|---|---|---|
-| `/HF/Fock-k` | `[ns,nk,nso,nso,2]` | float64 + `__complex__=1` | required | Mean-field Fock matrices; final axis stores real and imaginary parts. |
-| `/HF/S-k` | `[ns,nk,nso,nso,2]` | float64 + `__complex__=1` | required | Overlap matrices in the stored basis. |
-| `/HF/H-k` | `[ns,nk,nso,nso,2]` | float64 + `__complex__=1` | required | One-electron/core Hamiltonian matrices. |
+| `/HF/Fock-k` | `[ns,nk,nso,nso]` | complex128 | required | Mean-field Fock matrices. |
+| `/HF/S-k` | `[ns,nk,nso,nso]` | complex128 | required | Overlap matrices in the stored basis. |
+| `/HF/H-k` | `[ns,nk,nso,nso]` | complex128 | required | One-electron/core Hamiltonian matrices. |
 | `/HF/Energy` | scalar | float64 | required | Mean-field total energy in Hartree. |
 | `/HF/Energy_nuc` | scalar | float64 | required | Nuclear-repulsion energy in Hartree. |
 | `/HF/madelung` | scalar | float64 | required | Periodic Madelung correction in Hartree; zero for molecules. |
@@ -152,7 +152,8 @@ The `/high_symm_path` group is created only when high-symmetry-path evaluation i
 
 ## Reading complex data with Python
 
-`Fock-k`, `S-k`, and `H-k` use a final length-two real/imaginary axis. Other input datasets, including symmetry transforms and some `mo_coeff` values, may instead use HDF5 compound complex values.
+In format 1.1.0 all complex datasets, including `Fock-k`, `S-k`, and `H-k`, are native HDF5 complex values and are read directly as `complex128`.
+The following snippet also accepts 1.0.0 files, in which these three datasets have an extra trailing real/imaginary axis and the attribute `__complex__=1`:
 
 ```python
 import h5py
@@ -160,12 +161,30 @@ import h5py
 with h5py.File("input.h5", "r") as data:
     nk = int(data["params/nk"][()])
     nso = int(data["params/nso"][()])
-    stored = data["HF/Fock-k"][...]
-    fock = stored[..., 0] + 1j * stored[..., 1]
+    dset = data["HF/Fock-k"]
+    fock = dset[...]
+    if dset.attrs.get("__complex__", 0):  # format 1.0.0: trailing real/imaginary axis
+        fock = fock[..., 0] + 1j * fock[..., 1]
 
-print(nk, nso, fock.shape)
+print(nk, nso, fock.shape)  # fock.shape == (ns, nk, nso, nso)
 ```
 
+## Format versions
+
+| Format | Written by | Read by | Complex `HF/Fock-k`, `HF/S-k`, `HF/H-k` |
+|---|---|---|---|
+| 1.1.0 | `green-mbtools` 1.1 | `green-mbpt` 1.1 | native complex128, `[ns,nk,nso,nso]` |
+| 1.0.0 | `green-mbtools` 1.0 | `green-mbpt` 1.0 | float64 `[ns,nk,nso,nso,2]` with `__complex__=1` |
+
+`green-mbpt` 1.0 cannot read 1.1.0 files (it fails with `new shape is not consistent with old one`), and `green-mbpt` 1.1 rejects 1.0.0 files. Use matching versions of `green-mbtools` and `green-mbpt`, or convert an existing file with
+
+```shell
+mkdir -p upgraded
+python -m green_mbtools.mint.migrate --input input.h5 --output upgraded/input.h5
+```
+
+(`python/migrate.py` in the `green-mbpt` source tree is a wrapper for the same tool).
+
 {{< callout type="warning" >}}
-Pre-1.0 files may use `/grid/*`; v1.0 uses `/symmetry/*`. Regenerate inputs with `green-mbtools` 1.0 rather than manually translating symmetry metadata. This page does not enumerate every legacy layout.
+Pre-1.0 files may use `/grid/*`; 1.0 and later use `/symmetry/*`. Regenerate inputs with a current `green-mbtools`, or migrate them as above, rather than manually translating symmetry metadata. This page does not enumerate every legacy layout.
 {{< /callout >}}

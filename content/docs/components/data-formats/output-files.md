@@ -4,7 +4,7 @@ linkTitle: Output Files
 weight: 2
 ---
 
-This page describes the GREEN 1.0 output-file contract. Shapes use the [shared notation](/docs/components/data-formats/#dimensions-and-notation).
+This page describes the GREEN 1.1 output-file contract (unchanged from 1.0). Shapes use the [shared notation](/docs/components/data-formats/#dimensions-and-notation).
 
 ## Main results file
 
@@ -45,7 +45,7 @@ E_total = Energy_HF + Energy_2b
 
 `Energy_1b` is a decomposition term and must not be added again. The file does not record convergence residuals, convergence status, timings, method name, or a full parameter snapshot.
 
-Complex output arrays use an HDF5 compound type with float64 real and imaginary components; `h5py` exposes the tested files as `complex128`. This differs from the trailing real/imaginary axis used by the three HF input matrices.
+Complex output arrays use an HDF5 compound type with float64 real and imaginary components, which `h5py` reads as `complex128`. Input format 1.1.0 stores its complex matrices the same way (format 1.0.0 used a trailing real/imaginary axis for the three HF input matrices; see [Format versions](/docs/components/data-formats/input-file/#format-versions)).
 
 ```python
 import h5py

@@ -14,18 +14,20 @@ or execute `pip install green-mbtools`.
 To generate input data a user has to call the `python/init_data_df.py` script located either in the source directory or in the installation directory (for a simple example see the [Si example](/docs/getting-started/examples/si)).
 The following parameters are mandatory:
 
-  - `--a`  path to a file containing the crystal geometry in the xyz format.
-  - `--atom`  path to a file containing the unit cell description.
+  - `--a`  the lattice vectors of the unit cell, one vector per line (see `a.dat` in the [Si example](/docs/getting-started/examples/si)).
+  - `--atom`  the atoms in the unit cell, one `<element> <x> <y> <z>` line per atom (see `atom.dat` in the Si example).
   - `--nk`  number of the reciprocal space points in each direction.
   - `--basis`  Gaussian basis set. The basis set can be specified either as a single basis for every atom in the unit cell or for each atom individually.
+
+Both `--a` and `--atom` accept either a path to a file or the geometry given directly as a string.
 
 ### Pseudopotentials
 
 Some basis sets require to use effective potential for core electron that are removed from the calculation. For that reason `Green` allows to specify
 psuedo potential using `--pseudo` keyword. 
 
-By default, `init_data_df.py` generates [`input.h5`](/docs/components/data-formats/input-file/), which contains the system parameters, symmetry metadata, and initial mean-field solution needed by `green-mbpt`. In addition, the script will generate the `df_int` and `df_hf_int` directories
-which contain the Coloumb and one-body integrals of the system.
+By default, `init_data_df.py` generates [`input.h5`](/docs/components/data-formats/input-file/), which contains the system parameters, symmetry metadata, and initial mean-field solution needed by `green-mbpt`. In addition, the script generates two directories of density-fitted Coulomb integrals: `df_hf_int`, used for the mean-field (Hartree–Fock) part, and `df_int`, used for the correlated (GW/GF2) part, which includes the [finite-size correction](#finite-size-correction) described below.
+The one-body integrals (overlap, core Hamiltonian, Fock matrix) are stored in `input.h5`. The directory names can be changed with `--hf_int_path` and `--int_path`.
 
 ### High-symmetry path
 
@@ -36,6 +38,6 @@ In addition to this option, one needs to specify the high-symmetry points on the
 To see all available high-symmetry points for a chosen system, use theoption `--print_high_symmetry_points`.
 
 
-## Coulomb integrals generation
-
 ### Finite size correction
+
+The two-body finite-size correction is selected with `--finite_size_kind` (`ewald`, `gf2`, `gw`, `gw_s`, `coarse_grained`; default `ewald`). With the default, `df_int` contains Ewald-corrected integrals.

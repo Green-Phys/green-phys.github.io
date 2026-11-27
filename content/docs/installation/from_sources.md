@@ -63,21 +63,21 @@ dependencies, so pip installs them automatically:
   [llvmlite installation guide](https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html)
   for source-build requirements.
 
-  The minimal supported Python version is 3.8 (any minor version up to 3.12.x
-  should work). For help with Python package installation, see the
+  green-mbtools 1.0 supports Python 3.8 through 3.14; prebuilt wheels are
+  published for macOS (arm64) and Linux (x86_64) for each of these versions. For help with Python package installation, see the
   [pip documentation](https://pip.pypa.io/en/stable/installation/).
 
 ### Download and Build: CPU version
 The following instructions will download and build the CPU-only version of the Many-Body Perturbation theory solver (replace /path/to/install/directory with the directory where you'd like to install the code).
 
-We recommend building a specific released version. Check the [releases page](https://github.com/Green-Phys/green-mbpt/releases) for the newest tags — as of this writing the latest stable release is [`v0.3.2`](https://github.com/Green-Phys/green-mbpt/releases/tag/v0.3.2) and the latest pre-release is [`v1.0.0a1`](https://github.com/Green-Phys/green-mbpt/releases/tag/v1.0.0a1). Clone the tag you want, for example:
+We recommend building a specific released version. Check the [releases page](https://github.com/Green-Phys/green-mbpt/releases) for the newest tags — as of this writing the latest stable release is [`v1.0.0`](https://github.com/Green-Phys/green-mbpt/releases/tag/v1.0.0). The previous [`v0.3.2`](https://github.com/Green-Phys/green-mbpt/releases/tag/v0.3.2) release is kept only for reproducing pre-1.0 calculations; its input format differs from the [GREEN 1.0 data formats](/docs/components/data-formats/). Clone the tag you want, for example:
 
   ```ShellSession
-  # Latest stable release (v0.3.2)
-  git clone --branch v0.3.2 --depth 1 https://github.com/Green-Phys/green-mbpt
+  # Latest stable release (v1.0.0)
+  git clone --branch v1.0.0 --depth 1 https://github.com/Green-Phys/green-mbpt
 
-  # Latest pre-release (v1.0.0a1)
-  git clone --branch v1.0.0a1 --depth 1 https://github.com/Green-Phys/green-mbpt
+  # Legacy pre-1.0 release (v0.3.2)
+  git clone --branch v0.3.2 --depth 1 https://github.com/Green-Phys/green-mbpt
   ```
 
 To track the development tip instead, omit `--branch`:
@@ -153,10 +153,10 @@ By default, code is generated for sm_80, sm_86, and sm_90 (Ampere and Hopper). T
   nvidia-smi --query-gpu=compute_cap --format=csv,noheader
   ```
 
-The following instructions will download and build the Many-Body Perturbation theory solver with additional GPU kernels (replace /path/to/install/directory with the directory where you'd like to install the code). Use the same `--branch` approach described above to target a specific release — for example the latest stable [`v0.3.2`](https://github.com/Green-Phys/green-mbpt/releases/tag/v0.3.2) or the latest pre-release [`v1.0.0a1`](https://github.com/Green-Phys/green-mbpt/releases/tag/v1.0.0a1). Then configure and build:
+The following instructions will download and build the Many-Body Perturbation theory solver with additional GPU kernels (replace /path/to/install/directory with the directory where you'd like to install the code). Use the same `--branch` approach described above to target a specific release — for example the latest stable [`v1.0.0`](https://github.com/Green-Phys/green-mbpt/releases/tag/v1.0.0). Then configure and build:
 
   ```ShellSession
-  git clone --branch v0.3.2 --depth 1 https://github.com/Green-Phys/green-mbpt
+  git clone --branch v1.0.0 --depth 1 https://github.com/Green-Phys/green-mbpt
   cmake -S green-mbpt -B green-mbpt-build                         \
      -DCMAKE_INSTALL_PREFIX=/path/to/install/directory              \
      -DCMAKE_BUILD_TYPE=Release                                     \

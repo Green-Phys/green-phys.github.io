@@ -51,14 +51,14 @@ jobs:
       - name: Install Dart Sass
         run: sudo snap install dart-sass
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           submodules: recursive
           fetch-depth: 0
       - name: Setup Pages
         if: github.event_name != 'pull_request'
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Import canonical citation guidance
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -81,7 +81,7 @@ jobs:
             --baseURL "${BASE_URL}/"
       - name: Upload artifact
         if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
 
@@ -99,4 +99,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

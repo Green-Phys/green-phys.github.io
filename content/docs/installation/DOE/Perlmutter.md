@@ -99,6 +99,10 @@ We recommend building a specific released version. Find the latest release tag o
 {{% /tab %}}
 {{% tab %}}
 
+  On each node, the first four MPI ranks each drive one GPU and the remaining ranks
+  help on the CPU. Every rank therefore needs to see all four GPUs of its node, so
+  request GPUs per node (not per task) and run more than four ranks per node.
+
   ```Bash Session
   #!/bin/bash
 
@@ -108,7 +112,8 @@ We recommend building a specific released version. Find the latest release tag o
   #SBATCH -J <Job name>
   #SBATCH -A <Account>
   #SBATCH -t 0:30:0
-  #SBATCH --gpus-per-task=4
+  #SBATCH --gpus-per-node=4
+  #SBATCH --ntasks-per-node=<MPI ranks per node>
 
   # OpenMP settings:
   export OMP_NUM_THREADS=1
@@ -117,7 +122,7 @@ We recommend building a specific released version. Find the latest release tag o
   export HDF5_USE_FILE_LOCKING=FALSE
 
   #run the application:
-  srun -n 64 <build directory>/mbpt.exe --grid_file ir/1e4.h5 \
+  srun -n <total MPI ranks> <build directory>/mbpt.exe --grid_file ir/1e4.h5 \
                                       --beta 100 \
                                       --scf_type GW \
                                       --itermax=1 \
